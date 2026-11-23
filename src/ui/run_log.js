@@ -7,11 +7,11 @@
   const LOG_STORAGE_KEY = 'overdrive6_run_log_v1';
 
   const CATEGORIES = {
-    run:   { label: 'Runs',        icon: '⚡', color: 'amber',   badge: 'bg-amber-950/80 border-amber-500/50 text-amber-300' },
-    npc:   { label: 'NPCs',        icon: '👤', color: 'rose',    badge: 'bg-rose-950/80 border-rose-500/50 text-rose-300' },
-    char:  { label: 'Charaktere',  icon: '🎭', color: 'cyan',    badge: 'bg-cyan-950/80 border-cyan-500/50 text-cyan-300' },
-    place: { label: 'Orte',        icon: '📍', color: 'emerald', badge: 'bg-emerald-950/80 border-emerald-500/50 text-emerald-300' },
-    lore:  { label: 'Wissen',      icon: '🧠', color: 'purple',  badge: 'bg-purple-950/80 border-purple-500/50 text-purple-300' }
+    run:   { label: 'Runs',                 icon: '⚡', color: 'amber',   badge: 'bg-amber-950/80 border-amber-500/50 text-amber-300' },
+    npc:   { label: 'NPCs & Fraktionen',    icon: '👤', color: 'rose',    badge: 'bg-rose-950/80 border-rose-500/50 text-rose-300' },
+    place: { label: 'Orte',                 icon: '📍', color: 'emerald', badge: 'bg-emerald-950/80 border-emerald-500/50 text-emerald-300' },
+    lore:  { label: 'Wissen & Hinweise',    icon: '🧠', color: 'purple',  badge: 'bg-purple-950/80 border-purple-500/50 text-purple-300' },
+    quest: { label: 'Offene Fäden / Ziele', icon: '🎯', color: 'cyan',    badge: 'bg-cyan-950/80 border-cyan-500/50 text-cyan-300' }
   };
 
   function getStarterEntries() {
@@ -89,7 +89,7 @@
       if (raw) {
         const parsed = JSON.parse(raw);
         if (Array.isArray(parsed)) {
-          logEntries = parsed;
+          logEntries = parsed.map(e => e.category === 'char' ? { ...e, category: 'quest' } : e);
           return;
         }
       }
@@ -320,7 +320,7 @@
               </h2>
             </div>
             <p class="text-xs font-mono-sr text-purple-300/90 mt-0.5">
-              Runs, NPCs, Charaktere, Orte &amp; Wissen zentral notieren · Autosave im Browser + JSON/Markdown-Export
+              Runs, NPCs &amp; Fraktionen, Orte, Wissen &amp; Offene Fäden zentral notieren · Autosave + JSON/Markdown-Export
             </p>
           </div>
           <div class="flex flex-wrap items-center gap-2 font-mono-sr text-xs">
