@@ -838,84 +838,259 @@
           </div>
         </div>
 
-        <!-- SR6 Combat Actions & Street Samurai Cheat Sheet -->
-        <div id="gunnar-cheatsheet-section" class="bg-[#111726]/95 border border-slate-800 rounded-xl p-5 font-mono-sr space-y-4">
-          <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-slate-800 pb-3">
-            <div>
-              <h3 class="text-base font-bold text-white uppercase tracking-wider flex items-center gap-2">
-                <span>📋</span> SR6 KAMPF-HANDLUNGEN & STREET-SAMURAI CHEAT-SHEET
-              </h3>
-              <p class="text-[11px] text-slate-400 mt-0.5">
-                Gunnars Aktionsökonomie (Reflexbooster St. 4): <strong class="text-amber-300">1 Haupthandlung + 6 Nebenhandlungen</strong> pro Kampfrunde
-              </p>
+        <!-- Comprehensive SR6 Combat Action Cheat Sheet (1:1 parity with Buckshot) -->
+        <div id="gunnar-cheatsheet-section" class="bg-[#111726]/90 border border-slate-800 rounded-xl p-5 font-mono-sr text-xs space-y-4">
+          <!-- Header with Summary & Conversion Rule -->
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+            <div class="flex items-center gap-2.5">
+              <span class="w-3 h-3 bg-amber-400 rounded-full animate-pulse shadow-[0_0_8px_rgba(255,183,0,0.6)]"></span>
+              <div>
+                <h3 class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2 flex-wrap">
+                  <span class="lang-de">SR6 KAMPF-HANDLUNGEN &amp; TAKTISCHES CHEAT-SHEET</span>
+                  <span class="lang-en">SR6 COMBAT ACTIONS &amp; TACTICAL CHEAT SHEET</span>
+                  <span class="px-2 py-0.5 rounded text-[10px] bg-amber-950 border border-amber-500/50 text-amber-300">
+                    <span class="lang-de">GRW S. 40–44, 108–112</span>
+                    <span class="lang-en">CRB p. 40–44, 108–112</span>
+                  </span>
+                </h3>
+                <p class="text-[11px] text-slate-400">
+                  <span class="lang-de">Aktionsökonomie, Haupthandlungen (1H), Nebenhandlungen (6N durch Reflexbooster 4), Street-Sam-Vorteile &amp; Edge-Nutzung</span>
+                  <span class="lang-en">Action Economy, Major Actions (1M), Minor Actions (6m via Wired Reflexes 4), Street Sam Perks &amp; Edge Usage</span>
+                </p>
+              </div>
             </div>
-            <div class="px-3 py-1.5 rounded-lg bg-rose-950/70 border border-rose-500/40 text-rose-200 text-[11px] font-bold">
-              ⚡ Regel: 4 Nebenhandlungen → +1 zusätzliche Haupthandlung!
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-1 rounded bg-amber-950/80 border border-amber-500/50 text-amber-300 font-bold text-[11px]">
+                <span class="lang-de">⚡ Regel: 4 Nebenhandlungen = 1 Haupthandlung umwandelbar</span>
+                <span class="lang-en">⚡ Rule: 4 Minor Actions = 1 Major Action conversion</span>
+              </span>
             </div>
           </div>
 
-          <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 text-xs">
+          <!-- 3-Column Responsive Action Matrix -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
 
-            <!-- Col 1: Haupthandlungen (1H) -->
-            <div class="bg-slate-950/80 border border-rose-500/30 rounded-xl p-4 space-y-2.5">
+            <!-- Column 1: Haupthandlungen (Major Actions - 1H) -->
+            <div class="space-y-3 bg-slate-900/60 p-3.5 rounded-lg border border-slate-800">
               <div class="flex items-center justify-between border-b border-slate-800 pb-2">
-                <span class="text-rose-400 font-bold uppercase">⚔️ HAUPTHANDLUNGEN (1H)</span>
-                <span class="text-[10px] text-slate-500">1× (oder 2× via 4N)</span>
+                <span class="font-bold text-amber-300 uppercase flex items-center gap-1.5 text-xs">
+                  <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                  <span class="lang-de">HAUPTHANDLUNGEN (1H)</span>
+                  <span class="lang-en">MAJOR ACTIONS (1M)</span>
+                </span>
+                <span class="text-[10px] text-slate-400">1× (oder 2× via 4N)</span>
               </div>
-              <div class="space-y-2 text-[11px] text-slate-300">
-                <div><strong class="text-white">• Angreifen (Fern-/Nahkampf):</strong> Feuerwaffen (12W) oder Nahkampf (11W) gegen Ziel-Vtd. Vergleiche AW vs. VW (≥+4 = +1 Edge).</div>
-                <div><strong class="text-white">• Volle Abwehr (1H):</strong> Addiert WIL (+3W → <strong class="text-amber-300">15W</strong>) auf alle Verteidigungsproben bis zur nächsten Runde.</div>
-                <div><strong class="text-white">• Mehrfachangriff (1H):</strong> Pool auf mehrere Ziele aufteilen (mit Edge-Handlung <em>Vorausschau 4E</em> doppelter Pool).</div>
-                <div><strong class="text-white">• Sprinten (1H):</strong> Athletik-Probe (10W): +1m Bewegung pro Erfolg (Basis 15m Laufen).</div>
-                <div><strong class="text-white">• Granate abfeuern / werfen (1H):</strong> Ares Alpha Unterlauf-Granatwerfer (Feuerwaffen 12W, Abweichung bei Fehlschlag).</div>
-                <div><strong class="text-white">• Wahrnehmung (1H):</strong> Aktiv suchen/beobachten (7W).</div>
+              <div class="space-y-2 text-[11px]">
+                <div class="p-2 rounded bg-slate-950/70 border border-slate-800/80">
+                  <div class="font-bold text-white flex items-center justify-between">
+                    <span><span class="lang-de">Angriff (Fernkampf)</span><span class="lang-en">Attack (Ranged)</span></span>
+                    <span class="text-cyan-400 text-[10px]">Ares Alpha / Predator VI</span>
+                  </div>
+                  <div class="text-[10px] text-slate-400 mt-0.5">GES 6 + Feuerwaffen 6 (12 W) // Unterlauf-Granatwerfer inklusive.</div>
+                </div>
+                <div class="p-2 rounded bg-slate-950/70 border border-slate-800/80">
+                  <div class="font-bold text-white flex items-center justify-between">
+                    <span><span class="lang-de">Angriff (Nahkampf)</span><span class="lang-en">Attack (Melee)</span></span>
+                    <span class="text-cyan-400 text-[10px]">Waffenlos (AW 12)</span>
+                  </div>
+                  <div class="text-[10px] text-slate-400 mt-0.5">GES 6 + Nahkampf 5 (11 W) // Schaden 2B, AW = REA 8 + STÄ 4 = 12.</div>
+                </div>
+                <div class="p-2 rounded bg-slate-950/70 border border-slate-800/80">
+                  <div class="font-bold text-white flex items-center justify-between">
+                    <span><span class="lang-de">Volle Abwehr</span><span class="lang-en">Full Defense</span></span>
+                    <span class="text-cyan-400 text-[10px]">+WIL (+3W → 15W)</span>
+                  </div>
+                  <div class="text-[10px] text-slate-400 mt-0.5">Gilt für den Rest der gesamten Kampfrunde gegen alle Angriffe.</div>
+                </div>
+                <div class="p-2 rounded bg-slate-950/70 border border-slate-800/80">
+                  <div class="font-bold text-amber-300 flex items-center justify-between">
+                    <span><span class="lang-de">Sprinten (Vollgas)</span><span class="lang-en">Sprint (Full Effort)</span></span>
+                    <span class="text-amber-400 text-[10px]">+1m pro Erfolg</span>
+                  </div>
+                  <div class="text-[10px] text-slate-400 mt-0.5">Athletik + GES (10 W). Basis 10m Gehen / 15m Laufen +1m je Erfolg.</div>
+                </div>
+                <div class="p-2 rounded bg-slate-950/70 border border-slate-800/80">
+                  <div class="font-bold text-white flex items-center justify-between">
+                    <span><span class="lang-de">Mehrfachangriff</span><span class="lang-en">Multiple Attacks</span></span>
+                    <span class="text-cyan-400 text-[10px]">Pool aufteilen</span>
+                  </div>
+                  <div class="text-[10px] text-slate-400 mt-0.5">Würfelpool auf mehrere Ziele teilen (mit Edge <em>Vorausschau 4E</em> doppelter Pool).</div>
+                </div>
+                <div class="p-2 rounded bg-slate-950/70 border border-slate-800/80">
+                  <div class="font-bold text-white flex items-center justify-between">
+                    <span><span class="lang-de">Wahrnehmung / Beobachten</span><span class="lang-en">Observe in Detail</span></span>
+                    <span class="text-cyan-400 text-[10px]">INT + Wahrn. (7 W)</span>
+                  </div>
+                  <div class="text-[10px] text-slate-400 mt-0.5">Aktiv nach versteckten Gegnern, Fallen oder Details suchen.</div>
+                </div>
+                <div class="p-2 rounded bg-slate-950/70 border border-slate-800/80">
+                  <div class="font-bold text-white flex items-center justify-between">
+                    <span><span class="lang-de">Fahrzeug-Stunt / Rammen</span><span class="lang-en">Vehicle Stunt / Ram</span></span>
+                    <span class="text-cyan-400 text-[10px]">Steuern (7 W)</span>
+                  </div>
+                  <div class="text-[10px] text-slate-400 mt-0.5">Schwieriges Manöver oder Rammen mit Bessere Dreckskarre (5K).</div>
+                </div>
               </div>
             </div>
 
-            <!-- Col 2: Nebenhandlungen (1N) -->
-            <div class="bg-slate-950/80 border border-cyan-500/30 rounded-xl p-4 space-y-2.5">
+            <!-- Column 2: Nebenhandlungen (Minor Actions - 1N) -->
+            <div class="space-y-3 bg-slate-900/60 p-3.5 rounded-lg border border-slate-800">
               <div class="flex items-center justify-between border-b border-slate-800 pb-2">
-                <span class="text-cyan-400 font-bold uppercase">⚡ NEBENHANDLUNGEN (1N)</span>
-                <span class="text-[10px] text-amber-300 font-bold">Gunnar hat 6N!</span>
+                <span class="font-bold text-cyan-300 uppercase flex items-center gap-1.5 text-xs">
+                  <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+                  <span class="lang-de">NEBENHANDLUNGEN (1N)</span>
+                  <span class="lang-en">MINOR ACTIONS (1m)</span>
+                </span>
+                <span class="text-[10px] text-amber-300 font-bold">6 pro Runde!</span>
               </div>
-              <div class="space-y-2 text-[11px] text-slate-300">
-                <div><strong class="text-white">• Blocken (1N, Nahkampf):</strong> +Nahkampf (+5W → <strong class="text-cyan-300">17W</strong>) gegen 1 Nahkampfangriff.</div>
-                <div><strong class="text-white">• Ausweichen (1N):</strong> +Athletik (+4W → <strong class="text-cyan-300">16W</strong>) gegen 1 Fern-/Nahkampfangriff.</div>
-                <div><strong class="text-white">• Volle Deckung (1N):</strong> +2 bis +4 auf Verteidigung & VW je nach Deckungsstufe.</div>
-                <div><strong class="text-white">• Zielen (1N):</strong> +1 Würfel auf nächsten Angriff (kumulativ bis WIL = max. +3W).</div>
-                <div><strong class="text-white">• Bewegen (1N):</strong> 10m Gehen / 15m Laufen pro Runde.</div>
-                <div><strong class="text-white">• Schnellziehen / Nachladen (1N):</strong> Predator VI im Schnellziehholster · mit Smartgun-WiFi +1 freie Nebenhandlung für Magazin/Feuermodus!</div>
-                <div><strong class="text-white">• Ziel ansagen (1N):</strong> -4 Pool für +2 Schaden (oder Sondereffekt).</div>
+              <div class="space-y-2 text-[11px]">
+                <div class="p-2 rounded bg-slate-950/70 border border-slate-800/80">
+                  <div class="font-bold text-cyan-300 flex items-center justify-between">
+                    <span>Blocken / Ausweichen</span>
+                    <span class="text-cyan-400 text-[10px]">+5W (17W) / +4W (16W)</span>
+                  </div>
+                  <div class="text-[10px] text-slate-400 mt-0.5">Blocken (+Nahkampf gegen Nahkampf) oder Ausweichen (+Athletik gegen Angriff).</div>
+                </div>
+                <div class="p-2 rounded bg-slate-950/70 border border-slate-800/80">
+                  <div class="font-bold text-white flex items-center justify-between">
+                    <span><span class="lang-de">Zielen</span><span class="lang-en">Take Aim</span></span>
+                    <span class="text-cyan-400 text-[10px]">+1 AW oder +1 Pool</span>
+                  </div>
+                  <div class="text-[10px] text-slate-400 mt-0.5">Kumulativ steigerbar bis zu Willenskraft (max. 3× Zielen).</div>
+                </div>
+                <div class="p-2 rounded bg-slate-950/70 border border-slate-800/80">
+                  <div class="font-bold text-white flex items-center justify-between">
+                    <span><span class="lang-de">Feuermodus wechseln</span><span class="lang-en">Change Fire Mode</span></span>
+                    <span class="text-slate-400 text-[10px]">HM / SM / AM</span>
+                  </div>
+                  <div class="text-[10px] text-slate-400 mt-0.5">Mechanisch 1N (mit Smartgun-WiFi + DNI: +1 zusätzliche Nebenhandlung!).</div>
+                </div>
+                <div class="p-2 rounded bg-slate-950/70 border border-slate-800/80">
+                  <div class="font-bold text-white flex items-center justify-between">
+                    <span><span class="lang-de">Nachladen</span><span class="lang-en">Reload</span></span>
+                    <span class="text-slate-400 text-[10px]">Streifenmagazin</span>
+                  </div>
+                  <div class="text-[10px] text-slate-400 mt-0.5">Neues Magazin einlegen (mit Smartgun-WiFi + DNI: +1 Nebenhandlung!).</div>
+                </div>
+                <div class="p-2.5 rounded bg-slate-950/80 border border-cyan-500/50 space-y-1">
+                  <div class="font-bold text-cyan-300 flex items-center justify-between">
+                    <span>Bewegung (1N) // Basis &amp; Sprinten</span>
+                    <span class="text-cyan-400 text-[10px] font-bold">10m / 15m</span>
+                  </div>
+                  <div class="text-[10px] text-slate-300 space-y-1">
+                    <div>• <strong class="text-white">Gehen / Laufen (1N):</strong> <strong>10m / 15m pro Kampfrunde</strong>, frei aufteilbar vor/nach Aktionen.</div>
+                    <div>• <strong class="text-white">Deckung:</strong> Bewegung hinter Deckung verleiht +2 bis +4 auf den Verteidigungswert (VW 15 → 17–19!).</div>
+                  </div>
+                </div>
+                <div class="p-2 rounded bg-slate-950/70 border border-slate-800/80">
+                  <div class="font-bold text-white flex items-center justify-between">
+                    <span>Waffe ziehen / Schnellziehen</span>
+                    <span class="text-slate-400 text-[10px]">1N / Frei</span>
+                  </div>
+                  <div class="text-[10px] text-slate-400 mt-0.5">Predator VI im Schnellziehholster: Freie Handlung (GES + Feuerwaffen).</div>
+                </div>
+                <div class="p-2 rounded bg-slate-950/70 border border-slate-800/80">
+                  <div class="font-bold text-white flex items-center justify-between">
+                    <span>Gegenstand bereitmachen / Hinlegen</span>
+                    <span class="text-slate-400 text-[10px]">1N</span>
+                  </div>
+                  <div class="text-[10px] text-slate-400 mt-0.5">Granate entsichern, Patch kleben oder auf den Boden werfen (+2 VW gegen Fernkampf).</div>
+                </div>
               </div>
             </div>
 
-            <!-- Col 3: Kampf-Modifikatoren, Reichweiten & Edge-Boosts -->
-            <div class="bg-slate-950/80 border border-amber-500/30 rounded-xl p-4 space-y-2.5">
+            <!-- Column 3: Street-Samurai-Vorteile & Edge-Boosts -->
+            <div class="space-y-3 bg-slate-900/60 p-3.5 rounded-lg border border-slate-800">
               <div class="flex items-center justify-between border-b border-slate-800 pb-2">
-                <span class="text-amber-400 font-bold uppercase">🎯 MODIFIKATOREN & EDGE</span>
-                <span class="text-[10px] text-slate-500">SR6 GRW</span>
+                <span class="font-bold text-rose-300 uppercase flex items-center gap-1.5 text-xs">
+                  <span class="w-2 h-2 rounded-full bg-rose-400"></span>
+                  <span class="lang-de">STREET-SAM-REGELN &amp; EDGE-BOOSTS</span>
+                  <span class="lang-en">STREET SAM RULES &amp; EDGE BOOSTS</span>
+                </span>
+                <span class="text-[10px] text-slate-400">SR6 Kernregeln</span>
               </div>
-              <div class="space-y-1.5 text-[11px] text-slate-300">
-                <div class="text-[10px] text-amber-300 font-bold uppercase">Feuermodi & Munition:</div>
-                <div>• <strong class="text-white">HM (2 Schuss):</strong> -2 AW · <strong class="text-rose-300">+1 Schaden</strong></div>
-                <div>• <strong class="text-white">SM Eng (4 Schuss):</strong> -4 AW · <strong class="text-rose-300">+2 Schaden</strong></div>
-                <div>• <strong class="text-white">SM Breit (4 Schuss):</strong> -2 AW · Pool halbiert (2 Ziele)</div>
-                <div>• <strong class="text-white">AM (10 Schuss):</strong> -6 AW · Flächenfeuer</div>
-                <div>• <strong class="text-white">APDS:</strong> +1 AW, -1 Schad · <strong class="text-white">Explosiv:</strong> +1 Schad</div>
-
-                <div class="text-[10px] text-cyan-300 font-bold uppercase pt-1.5">Reichweiten (Meter):</div>
-                <div class="text-[10px] text-slate-400">Sehr nah 0–3 · Nah 4–50 · Mittel 51–250 · Weit 251–500 · Sehr weit 501+</div>
-
-                <div class="text-[10px] text-emerald-300 font-bold uppercase pt-1.5">Wichtigste Edge-Boosts & Kampf-Aktionen:</div>
-                <div>• <strong class="text-cyan-300">1E:</strong> 1 Würfel neu · +3 Ini · Taktische Rolle · Umwerfen</div>
-                <div>• <strong class="text-cyan-300">2E:</strong> +1 auf 1 Würfel · Aus Deckung feuern · Waffenblitz · K.-o.-Schlag</div>
-                <div>• <strong class="text-cyan-300">3E:</strong> 1 Auto-Erfolg · 1B heilen · Deckungsfeuer</div>
-                <div>• <strong class="text-amber-300">4E:</strong> +Edge & 6er explodieren · Alle Fehlschläge neu · 1K heilen · Vorausschau</div>
-                <div>• <strong class="text-rose-300">5E:</strong> 2er = Patzer (Gegner) · Ziel Organe (+3 Schad) · Entwaffnen</div>
+              <div class="space-y-2 text-[11px]">
+                <div class="p-2.5 rounded bg-rose-950/40 border border-rose-500/40 space-y-1">
+                  <div class="font-bold text-rose-300 text-xs">★ Reflexbooster St. 4 &amp; Panzerung:</div>
+                  <div class="text-[10px] text-slate-300">• <strong>Initiative 12 + 5W6</strong> &amp; <strong>6 Nebenhandlungen</strong> pro Kampfrunde (kann jede Runde 4N → +1 Haupthandlung tauschen!).</div>
+                  <div class="text-[10px] text-slate-300">• <strong>VW 15</strong> (KON 7 + Panzerjacke 4 + Helm 1 + Dermalpanzerung 3).</div>
+                  <div class="text-[10px] text-slate-300">• <strong>Hohe Schmerztoleranz:</strong> Ignoriert 1 Kästchen Verletzungsabzug (erster -1 erst ab 4. Kästchen).</div>
+                </div>
+                <div class="p-2.5 rounded bg-slate-950/70 border border-slate-800/80 space-y-1">
+                  <div class="font-bold text-white text-xs">★ Munitions- &amp; Ziel-Modifikatoren:</div>
+                  <div class="text-[10px] text-slate-300">• <strong>Ziel ansagen:</strong> -4 Pool für +2 Schaden (oder Sondereffekt).</div>
+                  <div class="text-[10px] text-slate-300">• <strong>APDS:</strong> +1 AW, -1 Schaden · <strong>Explosiv:</strong> +1 Schaden.</div>
+                  <div class="text-[10px] text-slate-300">• <strong>Reichweiten:</strong> Sehr nah 0–3m · Nah 4–50m · Mittel 51–250m · Weit 251–500m · Sehr weit 501m+.</div>
+                </div>
+                <div class="p-2.5 rounded bg-cyan-950/40 border border-cyan-500/40 space-y-1">
+                  <div class="font-bold text-cyan-300 text-xs">★ Edge-Nutzung im Kampf (GRW S. 46):</div>
+                  <div class="text-[10px] text-slate-300">• <strong class="text-white">1 Edge:</strong> 1 Würfel neu werfen ODER +3 auf Initiative.</div>
+                  <div class="text-[10px] text-slate-300">• <strong class="text-white">2 Edge:</strong> +1 auf einen Würfel (4 ➔ 5) ODER Aus Deckung feuern / Waffenblitz / K.-o.-Schlag.</div>
+                  <div class="text-[10px] text-slate-300">• <strong class="text-white">3 Edge:</strong> 1 automatischer Erfolg ODER 1B heilen ODER Deckungsfeuer.</div>
+                  <div class="text-[10px] text-slate-300">• <strong class="text-white">4 Edge:</strong> +Edge &amp; Explodierende 6en ODER alle Misserfolge neu ODER 1K heilen.</div>
+                  <div class="text-[10px] text-slate-300">• <strong class="text-white">5 Edge:</strong> 2er = Patzer (Gegner) ODER Ziel Organe (+3 Schaden) / Entwaffnen.</div>
+                </div>
               </div>
             </div>
 
           </div>
+
+          <!-- SR6 SCHUSSMODI & ANGRIFFSWERT-MATRIX (1:1 identical to Buckshot) -->
+          <div class="mt-4 p-4 rounded-lg bg-slate-950/80 border border-cyan-500/40 space-y-2">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+              <span class="font-bold text-cyan-300 text-xs flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                <span class="lang-de">★ SCHUSSMODI &amp; TAKTISCHE AUSWIRKUNG AUF ANGRIFFSWERT (AW) &amp; VERTEIDIGUNG (VW)</span>
+                <span class="lang-en">★ FIRING MODES &amp; TACTICAL IMPACT ON ATTACK RATING (AR) &amp; DEFENSE (DR)</span>
+              </span>
+              <span class="text-[10px] text-slate-400">SR6 GRW S. 108–111</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-4 gap-3 text-[11px] font-mono-sr">
+              <div class="p-2 rounded bg-slate-900 border border-slate-800">
+                <div class="font-bold text-white flex justify-between">
+                  <span>SS / EM // Einzelschuss</span>
+                  <span class="text-slate-400">1 Schuss</span>
+                </div>
+                <div class="text-[10px] text-slate-300 mt-1">
+                  • <strong class="text-cyan-300">AW:</strong> Basis-Angriffswert<br>
+                  • <strong class="text-emerald-400">Schaden:</strong> Standard<br>
+                  • Präziser Einzelschuss ohne Munitionsverschwendung.
+                </div>
+              </div>
+              <div class="p-2 rounded bg-slate-900 border border-cyan-500/40">
+                <div class="font-bold text-cyan-300 flex justify-between">
+                  <span>HM // Halbautomatik</span>
+                  <span class="text-cyan-400">2 Schuss</span>
+                </div>
+                <div class="text-[10px] text-slate-300 mt-1">
+                  • <strong class="text-amber-400">AW -2 / +1 Schaden</strong> (bzw. Ziel-VW -2 im Edge-Vergleich)<br>
+                  • <em>Oder:</em> Mehrfachangriff auf bis zu 2 Ziele (Pool teilen).
+                </div>
+              </div>
+              <div class="p-2 rounded bg-slate-900 border border-amber-500/40">
+                <div class="font-bold text-amber-300 flex justify-between">
+                  <span>SM // Salvenmodus</span>
+                  <span class="text-amber-400">4 Schuss</span>
+                </div>
+                <div class="text-[10px] text-slate-300 mt-1">
+                  • <strong class="text-amber-400">SM Eng:</strong> AW -4 · <strong class="text-emerald-400">+2 Schaden</strong> gegen 1 Ziel!<br>
+                  • <strong class="text-cyan-300">SM Breit:</strong> AW -2 · +1 Schaden auf 2 Ziele (Pool teilen).
+                </div>
+              </div>
+              <div class="p-2 rounded bg-slate-900 border border-red-500/40">
+                <div class="font-bold text-red-400 flex justify-between">
+                  <span>AM // Vollautomatisch</span>
+                  <span class="text-red-400">10 Schuss</span>
+                </div>
+                <div class="text-[10px] text-slate-300 mt-1">
+                  • <strong class="text-red-400">AW -6</strong> (Flächenfeuer / massiver Druck)<br>
+                  • <strong class="text-amber-300">Unterdrückungsfeuer:</strong> 10m-Feuerzone erfordert Deckung/Probe.<br>
+                  • <em>Oder:</em> Mehrfachangriff auf 3+ Ziele.
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       `;
     } else if (activeTab === 'persona') {
