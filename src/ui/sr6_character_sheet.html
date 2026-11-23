@@ -176,6 +176,12 @@
       color: #fda4af !important;
       box-shadow: 0 0 12px rgba(244, 63, 94, 0.35);
     }
+    .party-switch-btn.active-log {
+      border-color: #c084fc !important;
+      background-color: rgba(59, 7, 100, 0.85) !important;
+      color: #e9d5ff !important;
+      box-shadow: 0 0 12px rgba(168, 85, 247, 0.35);
+    }
   </style>
 </head>
 <body class="min-h-screen p-4 md:p-8 antialiased selection:bg-cyan-500 selection:text-black lang-de">
@@ -194,6 +200,9 @@
         <button type="button" data-view="gm" onclick="switchGlobalView('gm')" class="party-switch-btn px-3.5 py-1.5 rounded-lg border border-slate-700 bg-slate-900/70 text-slate-400 hover:text-white font-bold transition flex items-center gap-1.5">
           <span>🎲</span> <span>GM-ÜBERSICHT</span>
         </button>
+        <button type="button" data-view="log" onclick="switchGlobalView('log')" class="party-switch-btn px-3.5 py-1.5 rounded-lg border border-slate-700 bg-slate-900/70 text-slate-400 hover:text-white font-bold transition flex items-center gap-1.5">
+          <span>📓</span> <span>RUN LOG</span>
+        </button>
         <button type="button" data-view="buck" onclick="switchGlobalView('buck')" class="party-switch-btn px-3.5 py-1.5 rounded-lg border border-slate-700 bg-slate-900/70 text-slate-400 hover:text-white font-bold transition flex items-center gap-1.5">
           <span>⚡</span> <span>BUCKSHOT</span> <span class="text-[10px] opacity-75">Rigger</span>
         </button>
@@ -205,6 +214,9 @@
 
     <!-- GM PARTY OVERVIEW CONTAINER -->
     <div id="view-gm-overview" class="hidden space-y-6"></div>
+
+    <!-- RUN LOG / CAMPAIGN DOSSIER CONTAINER -->
+    <div id="view-run-log" class="hidden space-y-6"></div>
 
     <!-- MODULAR ARCHETYPE CHARACTER SHEET CONTAINER (GUNNAR & FUTURE CHARS) -->
     <div id="view-modular-char" class="hidden space-y-6"></div>
@@ -7178,7 +7190,8 @@
     </div>
   </div>
 
-  <script src="./party_manager.js?v=5"></script>
+  <script src="./run_log.js?v=1"></script>
+  <script src="./party_manager.js?v=6"></script>
 </body>
 </html>
 

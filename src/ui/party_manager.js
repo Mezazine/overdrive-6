@@ -352,18 +352,21 @@
     const buckEl = document.getElementById('view-buck-sheet');
     const modEl = document.getElementById('view-modular-char');
     const gmEl = document.getElementById('view-gm-overview');
+    const logEl = document.getElementById('view-run-log');
 
     if (buckEl) buckEl.classList.toggle('hidden', viewId !== 'buck');
     if (modEl) modEl.classList.toggle('hidden', viewId !== 'gunnar');
     if (gmEl) gmEl.classList.toggle('hidden', viewId !== 'gm');
+    if (logEl) logEl.classList.toggle('hidden', viewId !== 'log');
 
     // Highlight active button in global bar
     document.querySelectorAll('.party-switch-btn').forEach(btn => {
       const isActive = btn.dataset.view === viewId;
-      btn.classList.remove('active-gm', 'active-buck', 'active-gunnar');
+      btn.classList.remove('active-gm', 'active-buck', 'active-gunnar', 'active-log');
       if (isActive) {
         if (viewId === 'gm') btn.classList.add('active-gm');
         else if (viewId === 'gunnar') btn.classList.add('active-gunnar');
+        else if (viewId === 'log') btn.classList.add('active-log');
         else btn.classList.add('active-buck');
       }
     });
@@ -372,6 +375,8 @@
       renderGmOverview();
     } else if (viewId === 'gunnar') {
       renderGunnarSheet();
+    } else if (viewId === 'log' && typeof window.renderRunLog === 'function') {
+      window.renderRunLog();
     }
   }
 
@@ -1610,12 +1615,12 @@
     loadGunnarState();
     const hash = (window.location.hash || '').replace('#', '').toLowerCase();
     let savedView = 'buck';
-    if (hash === 'gm' || hash === 'buck' || hash === 'gunnar') {
+    if (hash === 'gm' || hash === 'buck' || hash === 'gunnar' || hash === 'log') {
       savedView = hash;
     } else {
       try {
         const v = localStorage.getItem(ACTIVE_VIEW_KEY);
-        if (v === 'gm' || v === 'buck' || v === 'gunnar') savedView = v;
+        if (v === 'gm' || v === 'buck' || v === 'gunnar' || v === 'log') savedView = v;
       } catch (e) {}
     }
     switchGlobalView(savedView);
