@@ -1,0 +1,312 @@
+{
+  "id": "gunnar",
+  "modules": ["street_sam", "vehicle_basic"],
+  "theme": {
+    "accent": "red",
+    "badge": "STREET SAMURAI",
+    "icon": "⚔️"
+  },
+  "identity": {
+    "name": "Gunnar",
+    "handle": "Gunnar",
+    "metatype": "Ork",
+    "gender": "männlich",
+    "height_cm": 215,
+    "weight_kg": 139,
+    "archetype": "Street Samurai (Mundan)",
+    "cover_identity": "Straßenkämpfer / Vollstrecker",
+    "appearance": "Massiger 2,15 m großer, 139 kg schwerer Ork mit offensichtlichem Alphaware-Cyberarm, Dermalpanzerung und schwerer Panzerjacke samt Helm.",
+    "background": "Hochvercyberter Ork-Krieger mit Kriegerkodex, Verpflichtungen gegenüber Maya und massiven Schulden bei Viktor (-42.460 ¥).",
+    "notoriety": 0,
+    "reputation": 0,
+    "sins": [
+      {
+        "name": "jfgjf",
+        "sin_id": "SIN-ST3-GUNNAR",
+        "rating": 3,
+        "licenses": [
+          {
+            "name": "fdzh",
+            "rating": 3
+          }
+        ]
+      }
+    ],
+    "lifestyle": {
+      "tier": "Unterschicht",
+      "months_prepaid": 1,
+      "cost_per_month": 2000,
+      "location": "Unterschicht-Wohnung",
+      "qualities": []
+    }
+  },
+  "creation": {
+    "method": "priority",
+    "priorities": {
+      "metatype": "C",
+      "attributes": "B",
+      "magic_resonance": "E",
+      "skills": "D",
+      "resources": "A"
+    },
+    "karma_budget": {
+      "starting": 50,
+      "gained_from_negative_qualities": 14,
+      "converted_to_nuyen": 6,
+      "remaining": 5,
+      "total_career_earned": 5
+    },
+    "nuyen_budget": {
+      "starting": 450000,
+      "debt": 42460,
+      "remaining": -42460
+    }
+  },
+  "attributes": {
+    "body": 7,
+    "agility": 6,
+    "agility_cyberarm": 2,
+    "reaction": 4,
+    "reaction_augmented": 8,
+    "strength": 4,
+    "strength_cyberarm": 2,
+    "willpower": 3,
+    "logic": 2,
+    "intuition": 4,
+    "charisma": 2,
+    "edge": 2,
+    "essence": 0.72,
+    "magic": 0,
+    "resonance": 0
+  },
+  "derived_stats": {
+    "physical_monitor": 13,
+    "stun_monitor": 10,
+    "overflow_boxes": 14,
+    "meat_initiative": "12 + 5W6",
+    "initiative_base": 12,
+    "initiative_dice": 5,
+    "minor_actions": 6,
+    "defense_rating": 15,
+    "defense_pool": 12,
+    "damage_resistance_pool": 7,
+    "toxin_resistance_pool": 10,
+    "drain_resistance_pool": 3,
+    "composure": 5,
+    "judge_intentions": 7,
+    "lift_carry": 10,
+    "memory": 6,
+    "movement_ground": "10/15/+1",
+    "movement_water": "3/3/+1"
+  },
+  "skills": {
+    "active": [
+      { "name": "Feuerwaffen", "attribute": "GES", "rating": 6, "pool": 12 },
+      { "name": "Nahkampf", "attribute": "GES", "rating": 5, "pool": 11 },
+      { "name": "Athletik", "attribute": "GES", "rating": 4, "pool": 10 },
+      { "name": "Wahrnehmung", "attribute": "INT", "rating": 3, "pool": 7 },
+      { "name": "Steuern", "attribute": "REA", "rating": 0, "pool": 7, "untrained": true },
+      { "name": "Heimlichkeit", "attribute": "GES", "rating": 0, "pool": 5, "untrained": true },
+      { "name": "Natur", "attribute": "INT", "rating": 0, "pool": 3, "untrained": true },
+      { "name": "Einfluss", "attribute": "CHA", "rating": 0, "pool": 1, "untrained": true },
+      { "name": "Elektronik", "attribute": "LOG", "rating": 0, "pool": 1, "untrained": true },
+      { "name": "Mechanik", "attribute": "LOG", "rating": 0, "pool": 1, "untrained": true },
+      { "name": "Überreden", "attribute": "CHA", "rating": 0, "pool": 1, "untrained": true }
+    ],
+    "knowledge": [
+      { "name": "Kredithaie", "rating": 1 },
+      { "name": "Straßenmedizin", "rating": 1 }
+    ],
+    "languages": [
+      { "name": "Deutsch", "native": true }
+    ]
+  },
+  "qualities": [
+    {
+      "name": "Schnellheilung",
+      "type": "positive",
+      "effect": "Beschleunigte natürliche Heilung (+2 Würfel auf Heilungsproben)."
+    },
+    {
+      "name": "Hohe Schmerztoleranz",
+      "type": "positive",
+      "effect": "Ignoriert die ersten Schadensmodifikatoren auf den Zustandsmonitoren."
+    },
+    {
+      "name": "Restlichtverstärkung",
+      "type": "metatype",
+      "effect": "Ork-Metatypvorteil: Bessere Sicht bei schlechten Lichtverhältnissen."
+    },
+    {
+      "name": "Dermalablagerungen",
+      "type": "positive",
+      "effect": "Natürliche Hautpanzerung / Widerstandsfähigkeit."
+    },
+    {
+      "name": "Robust gebaut 1",
+      "type": "metatype",
+      "effect": "Ork-Metatypvorteil: +1 zusätzliches Kästchen auf dem körperlichen Zustandsmonitor."
+    },
+    {
+      "name": "Verpflichtungen 1 (Maya)",
+      "type": "negative",
+      "effect": "Verantwortung / Fürsorgepflicht gegenüber Maya."
+    },
+    {
+      "name": "Verschuldet (Viktor)",
+      "type": "negative",
+      "effect": "Schuldet Viktor aktuell 42.460 ¥ (Kredithai / Zinsen)."
+    },
+    {
+      "name": "Ehrenkodex (Kriegerkodex)",
+      "type": "negative",
+      "effect": "Folgt einem strengen Kriegerkodex im Kampf und Umgang mit Gegnern."
+    }
+  ],
+  "bodytech": [
+    {
+      "name": "Reflexbooster",
+      "type": "cyberware",
+      "grade": "Standard",
+      "rating": 4,
+      "essence_cost": 4.0,
+      "source": "GRW 289",
+      "notes": "+4 Reaktion (4 -> 8), +4 Initiativewürfel (12 + 5W6), insgesamt 6 Nebenhandlungen."
+    },
+    {
+      "name": "Cyberarm (Ganzer Arm, offensichtlich)",
+      "type": "cyberware",
+      "grade": "Alphaware",
+      "rating": null,
+      "essence_cost": 0.8,
+      "source": "GRW 290",
+      "notes": "Offensichtlicher Voll-Cyberarm (Alphaware), Basis-GES 2 / STÄ 2."
+    },
+    {
+      "name": "Dermalpanzerung",
+      "type": "cyberware",
+      "grade": "Alphaware",
+      "rating": 3,
+      "essence_cost": 0.72,
+      "source": "GRW 288",
+      "notes": "+3 Verteidigungswert (Panzerung direkt unter der Haut)."
+    },
+    {
+      "name": "Cyberaugen",
+      "type": "cyberware",
+      "grade": "Alphaware",
+      "rating": 3,
+      "essence_cost": 0.24,
+      "source": "GRW 286",
+      "notes": "Inkl. Bildverbindung (WiFi-Smartgun-Integration)."
+    }
+  ],
+  "weapons": [
+    {
+      "id": "gunnar_alpha",
+      "name": "Ares Alpha",
+      "category": "Sturmgewehr",
+      "damage": 4,
+      "damage_type": "K",
+      "pool": 12,
+      "firing_modes": ["HM", "SM", "AM"],
+      "attack_ratings": [4, 10, 9, 7, 2],
+      "ammo_capacity": 42,
+      "ammo_loaded_type": "Standard",
+      "accessories": [
+        "Lasermarkierer",
+        "Gasventilsystem",
+        "Ersatzmagazin (2x)",
+        "Smartgun-System",
+        "Ares Alpha Grenade Launcher (Unterlauf)"
+      ],
+      "wifi_bonus": "Digitaler Munitionszähler & ARO; mit DNI +1 Nebenhandlung bei Magazinwechsel / Feuermodus-Änderung."
+    },
+    {
+      "id": "gunnar_predator",
+      "name": "Ares Predator VI",
+      "category": "Schwere Pistole",
+      "damage": 3,
+      "damage_type": "K",
+      "pool": 12,
+      "firing_modes": ["HM", "SM"],
+      "attack_ratings": [10, 10, 8, null, null],
+      "ammo_capacity": 15,
+      "ammo_loaded_type": "Standard",
+      "accessories": [
+        "Schnellziehholster",
+        "Variables Munitionssystem",
+        "Ersatzmagazin (var. Munition)",
+        "Smartgun-System"
+      ],
+      "wifi_bonus": "Digitaler Munitionszähler & ARO; mit DNI +1 Nebenhandlung bei Magazinwechsel / Feuermodus-Änderung."
+    },
+    {
+      "id": "gunnar_unarmed",
+      "name": "Waffenlos (Nahkampf)",
+      "category": "Nahkampf",
+      "damage": 2,
+      "damage_type": "B",
+      "pool": 11,
+      "firing_modes": ["Einzelschlag"],
+      "attack_ratings": [12, null, null, null, null],
+      "ammo_capacity": 0,
+      "accessories": ["AW = REA (8) + STÄ (4) = 12"]
+    }
+  ],
+  "ammunition_stock": [
+    { "name": "Gewehr-Munition (Standard)", "count": 120, "unit": "Schuss", "source": "GRW 262" },
+    { "name": "Schwere Pistole (Standard)", "count": 120, "unit": "Schuss", "source": "GRW 262" },
+    { "name": "Betäubungsgranate (Mini)", "count": 2, "unit": "Stk", "source": "GRW 263" },
+    { "name": "Splittergranate (Mini)", "count": 2, "unit": "Stk", "source": "GRW 263" },
+    { "name": "Sprenggranate (Mini)", "count": 2, "unit": "Stk", "source": "GRW 263" },
+    { "name": "Rauchgranate (Mini)", "count": 2, "unit": "Stk", "source": "GRW 263" },
+    { "name": "IR-Rauchgranate (Mini)", "count": 2, "unit": "Stk", "source": "GRW 263" }
+  ],
+  "armor": [
+    {
+      "name": "Panzerjacke",
+      "defense_bonus": 4,
+      "social_mod": -3,
+      "upgrades": [
+        "Chemische Isolierung 2",
+        "Kälteresistenz 2",
+        "Elektrische Isolierung 2",
+        "Feuerresistenz 2"
+      ]
+    },
+    {
+      "name": "Helm",
+      "defense_bonus": 1,
+      "social_mod": -4,
+      "upgrades": []
+    },
+    {
+      "name": "Dermalpanzerung (Cyberware St. 3)",
+      "defense_bonus": 3,
+      "social_mod": 0,
+      "upgrades": ["Permanent implantiert"]
+    }
+  ],
+  "vehicles": [
+    {
+      "name": "Bessere Dreckskarre",
+      "category": "Autos und SUVs",
+      "handling": 4,
+      "acceleration": 12,
+      "speed_interval": 20,
+      "top_speed": 150,
+      "body": 10,
+      "armor": 4,
+      "pilot": 0,
+      "sensor": 0,
+      "seats": 4,
+      "ram_damage": "5K"
+    }
+  ],
+  "connections": [
+    { "name": "Unnamed #1", "role": "Straße", "loyalty": 2, "connection": 2, "favors": 0 },
+    { "name": "Unnamed #2", "role": "Straße", "loyalty": 2, "connection": 2, "favors": 0 },
+    { "name": "Unnamed #3", "role": "Straße", "loyalty": 2, "connection": 2, "favors": 0 }
+  ]
+}

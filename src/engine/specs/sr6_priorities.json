@@ -1,0 +1,91 @@
+{
+  "A": {
+    "metatypes": {
+      "Ork": 13,
+      "Troll": 13,
+      "Zwerg": 13
+    },
+    "attributes": 24,
+    "skills": 32,
+    "magic_resonance": {
+      "Aspektzauberer": 5,
+      "Vollzauberer": 4,
+      "Magieradept": 4,
+      "Adept": 4,
+      "Technomancer": 4
+    },
+    "resources": 450000
+  },
+  "B": {
+    "metatypes": {
+      "Elf": 11,
+      "Ork": 11,
+      "Troll": 11,
+      "Zwerg": 11
+    },
+    "attributes": 16,
+    "skills": 24,
+    "magic_resonance": {
+      "Aspektzauberer": 4,
+      "Vollzauberer": 3,
+      "Magieradept": 3,
+      "Adept": 3,
+      "Technomancer": 3
+    },
+    "resources": 275000
+  },
+  "C": {
+    "metatypes": {
+      "Elf": 9,
+      "Mensch": 9,
+      "Ork": 9,
+      "Troll": 9,
+      "Zwerg": 9
+    },
+    "attributes": 12,
+    "skills": 20,
+    "magic_resonance": {
+      "Aspektzauberer": 3,
+      "Vollzauberer": 2,
+      "Magieradept": 2,
+      "Adept": 2,
+      "Technomancer": 2
+    },
+    "resources": 150000
+  },
+  "D": {
+    "metatypes": {
+      "Elf": 4,
+      "Mensch": 4,
+      "Ork": 4,
+      "Troll": 4,
+      "Zwerg": 4
+    },
+    "attributes": 8,
+    "skills": 16,
+    "magic_resonance": {
+      "Aspektzauberer": 2,
+      "Vollzauberer": 1,
+      "Magieradept": 1,
+      "Adept": 1,
+      "Technomancer": 1
+    },
+    "resources": 50000
+  },
+  "E": {
+    "metatypes": {
+      "Elf": 1,
+      "Mensch": 1,
+      "Ork": 1,
+      "Troll": 1,
+      "Zwerg": 1
+    },
+    "attributes": 2,
+    "skills": 10,
+    "magic_resonance": {
+      "Mundan": 0
+    },
+    "resources": 8000
+  },
+  "source": "SR6 Grundregelwerk S. 65"
+}

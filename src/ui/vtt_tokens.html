@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="de" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Overdrive-6 // VTT Token Studio (Roll20 & Foundry)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            cyber: {
+              black: '#07090e',
+              panel: '#0d121d',
+              border: '#1b2438',
+              cyan: '#00f0ff',
+              emerald: '#00ff66',
+              red: '#ff0055',
+              amber: '#ffb700'
+            }
+          },
+          fontFamily: {
+            mono: ['"Share Tech Mono"', 'monospace'],
+            display: ['Rajdhani', 'sans-serif'],
+            sans: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body {
+      background-color: #07090e;
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(0, 240, 255, 0.08) 0%, transparent 60%),
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 100% 100%, 32px 32px, 32px 32px;
+      color: #e2e8f0;
+      font-family: 'Inter', sans-serif;
+    }
+    .font-mono-sr { font-family: 'Share Tech Mono', monospace; }
+    .font-display-sr { font-family: 'Rajdhani', sans-serif; }
+  </style>
+</head>
+<body class="min-h-screen p-4 sm:p-8">
+  <div class="max-w-7xl mx-auto space-y-8">
+    
+    <!-- Header -->
+    <header class="border-b border-cyber-border pb-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div>
+        <div class="flex items-center gap-3">
+          <span class="px-2.5 py-0.5 rounded text-xs font-mono-sr font-bold bg-cyan-950/80 border border-cyan-400 text-cyan-300">
+            ROLL20 & FOUNDRY VTT
+          </span>
+          <span class="text-xs font-mono-sr text-slate-400">512×512 PNG // KREISRUND // TRANSPARENT // 1 PRO TYP</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-extrabold font-display-sr tracking-wide text-white uppercase mt-1">
+          Tactical Token Studio // Typen-Edition
+        </h1>
+        <p class="text-xs sm:text-sm text-slate-400 font-mono-sr mt-1">
+          Rigger: Tim "Buckshot" Struck // 1 Token pro Drohnen- & Fahrzeugtyp // Beschriftet nach Typ // Download als ZIP oder Einzeln
+        </p>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-3">
+        <a href="sr6_character_sheet.html" class="px-4 py-2.5 rounded-lg bg-slate-900 border border-slate-700 hover:border-cyan-400 text-slate-300 font-mono-sr text-xs font-bold transition flex items-center gap-2">
+          ← Zum Charakterbogen
+        </a>
+        <button id="btn-download-all-zip" type="button" onclick="downloadAllTokensZip()" class="px-5 py-2.5 rounded-lg bg-emerald-500/20 hover:bg-emerald-500/30 border-2 border-emerald-400 text-emerald-300 font-mono-sr text-xs font-bold transition shadow-[0_0_20px_rgba(0,255,102,0.3)] flex items-center gap-2 active:scale-95">
+          📦 Alle 9 Tokens als ZIP herunterladen
+        </button>
+      </div>
+    </header>
+
+    <!-- Filter & Options Bar -->
+    <div class="bg-cyber-panel/90 border border-cyber-border rounded-xl p-4 flex flex-wrap items-center justify-between gap-4 font-mono-sr text-xs">
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="text-slate-400 uppercase font-bold">Kategorie:</span>
+        <button onclick="setFilter('all')" id="flt-all" class="token-filter px-3 py-1 rounded border border-cyan-500/50 bg-cyan-950/80 text-cyan-300 font-bold">Alle 9 Typen</button>
+        <button onclick="setFilter('combat')" id="flt-combat" class="token-filter px-3 py-1 rounded border border-slate-700 bg-slate-900 text-slate-400 hover:text-white">Kampf-Drohnen (2)</button>
+        <button onclick="setFilter('support')" id="flt-support" class="token-filter px-3 py-1 rounded border border-slate-700 bg-slate-900 text-slate-400 hover:text-white">Injektor & Späher (3)</button>
+        <button onclick="setFilter('vehicles')" id="flt-vehicles" class="token-filter px-3 py-1 rounded border border-slate-700 bg-slate-900 text-slate-400 hover:text-white">Fahrzeuge & Werft (4)</button>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <span class="text-slate-400 uppercase font-bold">Rahmen-Stil:</span>
+        <select id="global-theme-select" onchange="changeGlobalTheme(this.value)" class="bg-slate-900 border border-slate-700 text-slate-300 rounded px-2.5 py-1 focus:border-cyan-400 outline-none">
+          <option value="cyan">Neon Cyan (Standard / Autonom)</option>
+          <option value="emerald">Emerald Grün (Hineingesprungen / Rig)</option>
+          <option value="amber">Amber Gold (Warnung / Taktisch)</option>
+          <option value="red">Crimson Rot (Angriff / Combat)</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Token Grid -->
+    <div id="tokens-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Dynamic Tokens injected by JS -->
+    </div>
+
+    <!-- GM Information Accordion / Card -->
+    <footer class="bg-cyber-panel border border-cyber-border rounded-xl p-6 font-mono-sr text-xs text-slate-400 space-y-3">
+      <div class="flex items-center justify-between text-slate-200 font-bold text-sm">
+        <span class="text-cyan-400">ℹ️ TIPPS FÜR DEN SPIELLEITER (Roll20 / Foundry VTT)</span>
+        <span class="text-[10px] text-slate-500">FORMAT: 512×512 PNG TRANSPARENT // TYPEN-BASIERT</span>
+      </div>
+      <ul class="list-disc list-inside space-y-1.5 text-slate-300">
+        <li><strong>Warum Typen-Tokens?</strong> Der Spielleiter benötigt in Roll20 / Foundry VTT pro Modellreihe (z. B. <em>Roto-Drohne</em> oder <em>Dobermann</em>) nur ein Master-Token in der Token-Bibliothek und kann daraus beliebig viele Exemplare (Odin 1, Odin 2 usw.) auf die Battlemap ziehen und durchnummerieren.</li>
+        <li><strong>Roll20 Grid-Größe:</strong> Mittlere Drohnen (Roto-Drohne, Dobermann) & Motorrad (Suzuki Mirage) belegen <strong>1×1 Feld (70–140 px)</strong>. Kleine/Mini-Drohnen (Hornet, Flying Eye, Kanmushi) können auf <strong>0.5×0.5</strong> skaliert werden. Große Fahrzeuge (GMC Bulldog, Otter, Lamprey) belegen <strong>2×2 Felder</strong>.</li>
+        <li><strong>Balken (Bars):</strong> Balken 1 (Rot) = Zustandskästchen (z. B. 11/11 bei Roto-Drohne, 16/16 bei Bulldog). Balken 2 (Grün) = Verteidigungswert (VW = Panzerung, Tim sagt VW an). Balken 3 (Blau) = Rumpf für Schadenswiderstand (Soak).</li>
+        <li><strong>Kein Wundabzug:</strong> Drohnen und Fahrzeuge erleiden bis zum letzten Kästchen (Zerstörung) keinen Abzug auf Proben (SR6 GRW S. 196, 200).</li>
+      </ul>
+    </footer>
+
+  </div>
+
+  <script>
+    // 9 DISTINCT TYPES (5 Drones, 4 Vehicles)
+    const TOKENS_DATA = [
+      // 1. MCT-Nissan Roto-Drohne
+      {
+        id: "type_roto_drone",
+        tokenLabel: "ROTO-DROHNE",
+        typeName: "MCT-Nissan Roto-Drohne",
+        category: "combat",
+        size: "Mittel // Rotor (1×1 Feld)",
+        body: 5,
+        armor: 6,
+        pilot: 3,
+        sensor: 2,
+        boxes: 11,
+        weapon: "AK-97 Smart Sturmgewehr (5K)",
+        theme: "cyan",
+        imageSrc: "../../assets/tokens/odin_roto_drone.jpg",
+        iconType: "quadcopter",
+        notes: "Tim's Flotte: Odin 1 & 2 // Luftraumüberwachung & Feuerunterstützung"
+      },
+      // 2. GM-Nissan Dobermann
+      {
+        id: "type_dobermann",
+        tokenLabel: "GM DOBERMANN",
+        typeName: "GM-Nissan Dobermann",
+        category: "combat",
+        size: "Mittel // Boden/Kette (1×1 Feld)",
+        body: 4,
+        armor: 6,
+        pilot: 2,
+        sensor: 3,
+        boxes: 10,
+        weapon: "AK-97 Smart Sturmgewehr (5K)",
+        theme: "cyan",
+        imageSrc: "../../assets/tokens/fenris_dobermann.jpg",
+        iconType: "wheeled_drone",
+        notes: "Tim's Flotte: Fenris 1 & 2 // Robuste mobile Infanterieunterstützung"
+      },
+      // 3. MCT Hornet
+      {
+        id: "type_hornet",
+        tokenLabel: "MCT HORNET",
+        typeName: "MCT Hornet",
+        category: "support",
+        size: "Mini // Schwebend (0.5×0.5 Feld)",
+        body: 1,
+        armor: 2,
+        pilot: 1,
+        sensor: 1,
+        boxes: 9,
+        weapon: "Injektor-Stachel (Narcoject 15B Toxin)",
+        theme: "amber",
+        imageSrc: "../../assets/tokens/wasp_hornet.jpg",
+        iconType: "hornet",
+        notes: "Tim's Flotte: Wasp 1 & 2 // Nicht-tödlicher Betäubungseinsatz"
+      },
+      // 4. Horizon Flying Eye
+      {
+        id: "type_flying_eye",
+        tokenLabel: "FLYING EYE",
+        typeName: "Horizon Flying Eye",
+        category: "support",
+        size: "Mikro // Schwebescheibe (0.5×0.5 Feld)",
+        body: 1,
+        armor: 2,
+        pilot: 1,
+        sensor: 1,
+        boxes: 9,
+        weapon: "Sensor-Array (360° Aufklärung)",
+        theme: "cyan",
+        imageSrc: "../../assets/tokens/eye_flying_eye.jpg",
+        iconType: "eye",
+        notes: "Tim's Flotte: Eye 1 & 2 // Diskrete Luftaufklärung"
+      },
+      // 5. Shiawase Kanmushi
+      {
+        id: "type_kanmushi",
+        tokenLabel: "KANMUSHI",
+        typeName: "Shiawase Kanmushi",
+        category: "support",
+        size: "Mikro // Insekt/Kriecher (0.5×0.5 Feld)",
+        body: 1,
+        armor: 0,
+        pilot: 1,
+        sensor: 1,
+        boxes: 8,
+        weapon: "Geckofüße / Infiltration & Mikro-Audio",
+        theme: "emerald",
+        imageSrc: "../../assets/tokens/crawler_kanmushi.jpg",
+        iconType: "crawler",
+        notes: "Tim's Flotte: Crawler 1 & 2 // Unter-Tür-Spionage & Schachtkriecher"
+      },
+
+      // 6. GMC Bulldog
+      {
+        id: "type_bulldog",
+        tokenLabel: "GMC BULLDOG",
+        typeName: "GMC Bulldog",
+        category: "vehicles",
+        size: "Gepanzerter Step-Van (2×2 Felder)",
+        body: 16,
+        armor: 12,
+        pilot: 2,
+        sensor: 2,
+        boxes: 16,
+        weapon: "HQ-Werkstatt & Riggerinterface",
+        theme: "cyan",
+        imageSrc: "../../assets/tokens/gmc_bulldog.jpg",
+        iconType: "van",
+        notes: "Mobiles Hauptquartier, Drohnenträger & Reparaturwerkstatt"
+      },
+      // 7. Suzuki Mirage
+      {
+        id: "type_mirage",
+        tokenLabel: "SUZUKI MIRAGE",
+        typeName: "Suzuki Mirage",
+        category: "vehicles",
+        size: "Sport-Motorrad (1×1 Feld)",
+        body: 4,
+        armor: 2,
+        pilot: 1,
+        sensor: 1,
+        boxes: 10,
+        weapon: "Tempo 260 km/h // Flucht & Kurier",
+        theme: "emerald",
+        imageSrc: "../../assets/tokens/suzuki_mirage.jpg",
+        iconType: "bike",
+        notes: "Hochgeschwindigkeits-Fluchtfahrzeug für Hamburgs Straßen"
+      },
+      // 8. Samuvani Otter
+      {
+        id: "type_otter",
+        tokenLabel: "SAMUVANI OTTER",
+        typeName: "Samuvani Otter",
+        category: "vehicles",
+        size: "Hafen-Motorboot (2×2 Felder)",
+        body: 8,
+        armor: 6,
+        pilot: 2,
+        sensor: 2,
+        boxes: 12,
+        weapon: "Wasser-HQ // Hafen & Elbe",
+        theme: "cyan",
+        imageSrc: "../../assets/tokens/samuvani_otter.jpg",
+        iconType: "boat",
+        notes: "Perfekt für Einsätze in den Hamburger Kanälen & Speicherstadt"
+      },
+      // 9. Proteus Lamprey
+      {
+        id: "type_lamprey",
+        tokenLabel: "PROTEUS LAMPREY",
+        typeName: "Proteus Lamprey",
+        category: "vehicles",
+        size: "Mini-U-Boot (2×2 Felder)",
+        body: 6,
+        armor: 8,
+        pilot: 2,
+        sensor: 2,
+        boxes: 11,
+        weapon: "Unterwasser-Tauchboot // Stealth & Taucher",
+        theme: "emerald",
+        imageSrc: "../../assets/tokens/proteus_lamprey.jpg",
+        iconType: "sub",
+        notes: "Verdeckte Unterwasser-Infiltration im Hafenbecken"
+      }
+    ];
+
+    const COLOR_PALETTES = {
+      cyan: {
+        primary: '#00f0ff',
+        secondary: '#005b66',
+        bgGradientStart: '#041822',
+        bgGradientEnd: '#060a12',
+        glow: 'rgba(0, 240, 255, 0.45)'
+      },
+      emerald: {
+        primary: '#00ff66',
+        secondary: '#006629',
+        bgGradientStart: '#041e0f',
+        bgGradientEnd: '#060a12',
+        glow: 'rgba(0, 255, 102, 0.45)'
+      },
+      amber: {
+        primary: '#ffb700',
+        secondary: '#664a00',
+        bgGradientStart: '#201602',
+        bgGradientEnd: '#060a12',
+        glow: 'rgba(255, 183, 0, 0.45)'
+      },
+      red: {
+        primary: '#ff0055',
+        secondary: '#660022',
+        bgGradientStart: '#24040d',
+        bgGradientEnd: '#060a12',
+        glow: 'rgba(255, 0, 85, 0.45)'
+      }
+    };
+
+    let activeFilter = 'all';
+    let globalTheme = 'cyan';
+    const loadedImages = {};
+
+    function initTokenStudio() {
+      // Preload available images with multi-tier fallback for local/artifact paths
+      TOKENS_DATA.forEach(item => {
+        if (item.imageSrc) {
+          const img = new Image();
+          img.src = item.imageSrc;
+          img.onload = () => {
+            loadedImages[item.id] = img;
+            renderCanvas(item.id);
+          };
+          img.onerror = () => {
+            const fallbackSrc = item.imageSrc.startsWith('../../') ? item.imageSrc.replace('../../', '') : ('../../' + item.imageSrc);
+            const fallbackImg = new Image();
+            fallbackImg.src = fallbackSrc;
+            fallbackImg.onload = () => {
+              loadedImages[item.id] = fallbackImg;
+              renderCanvas(item.id);
+            };
+            fallbackImg.onerror = () => {
+              const filename = item.imageSrc.split('/').pop();
+              const flatImg = new Image();
+              flatImg.src = filename;
+              flatImg.onload = () => {
+                loadedImages[item.id] = flatImg;
+                renderCanvas(item.id);
+              };
+              flatImg.onerror = () => {
+                loadedImages[item.id] = null;
+                renderCanvas(item.id);
+              };
+            };
+          };
+        }
+      });
+
+      renderTokensGrid();
+    }
+
+    function renderTokensGrid() {
+      const container = document.getElementById('tokens-grid');
+      container.innerHTML = '';
+
+      const filtered = TOKENS_DATA.filter(t => activeFilter === 'all' || t.category === activeFilter);
+
+      filtered.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'bg-cyber-panel border border-cyber-border hover:border-slate-600 rounded-xl p-5 flex flex-col items-center gap-4 transition shadow-lg';
+        card.innerHTML = `
+          <!-- Canvas 512x512 scaled down with CSS for crisp preview -->
+          <div class="relative w-48 h-48 sm:w-56 sm:h-56">
+            <canvas id="canvas-${item.id}" width="512" height="512" class="w-full h-full drop-shadow-[0_0_15px_rgba(0,240,255,0.2)]"></canvas>
+          </div>
+
+          <!-- Metadata -->
+          <div class="w-full text-center space-y-1 border-t border-slate-800/80 pt-3">
+            <div class="flex items-center justify-center gap-2">
+              <span class="px-2 py-0.5 rounded text-xs font-mono-sr font-bold bg-slate-800 text-cyan-300 border border-cyan-500/30">
+                ${item.tokenLabel}
+              </span>
+              <span class="text-xs font-bold text-white font-display-sr uppercase">${item.typeName}</span>
+            </div>
+            <div class="text-[11px] text-slate-400 font-mono-sr">
+              ${item.size} // Rumpf ${item.body}, Pan ${item.armor}, ${item.boxes} K
+            </div>
+            <div class="text-[10px] text-slate-500 font-mono-sr truncate">
+              ${item.notes}
+            </div>
+          </div>
+
+          <!-- Controls -->
+          <div class="w-full flex items-center justify-between gap-2 pt-2 border-t border-slate-800 font-mono-sr text-xs">
+            <select onchange="updateTokenTheme('${item.id}', this.value)" class="bg-slate-900 border border-slate-700 text-slate-300 text-[11px] rounded px-2 py-1 outline-none">
+              <option value="cyan" ${item.theme === 'cyan' ? 'selected' : ''}>Cyan</option>
+              <option value="emerald" ${item.theme === 'emerald' ? 'selected' : ''}>Grün (Rig)</option>
+              <option value="amber" ${item.theme === 'amber' ? 'selected' : ''}>Amber</option>
+              <option value="red" ${item.theme === 'red' ? 'selected' : ''}>Rot</option>
+            </select>
+            <button onclick="downloadToken('${item.id}')" class="px-3 py-1 rounded bg-slate-900 hover:bg-slate-800 border border-cyan-500/50 hover:border-cyan-400 text-cyan-300 font-bold text-[11px] transition flex items-center gap-1.5 shadow-sm">
+              💾 512px PNG
+            </button>
+          </div>
+        `;
+        container.appendChild(card);
+
+        // Initial Canvas render
+        setTimeout(() => renderCanvas(item.id), 10);
+      });
+    }
+
+    function renderCanvas(tokenId) {
+      const item = TOKENS_DATA.find(t => t.id === tokenId);
+      if (!item) return;
+
+      const canvas = document.getElementById(`canvas-${tokenId}`);
+      if (!canvas) return;
+
+      const ctx = canvas.getContext('2d');
+      const w = 512;
+      const h = 512;
+      const cx = w / 2;
+      const cy = h / 2;
+      const r = 240;
+
+      ctx.clearRect(0, 0, w, h);
+
+      const pal = COLOR_PALETTES[item.theme] || COLOR_PALETTES.cyan;
+
+      // 1. Draw circular mask & background
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(cx, cy, r - 6, 0, Math.PI * 2);
+      ctx.clip();
+
+      // Background gradient
+      const bgGrad = ctx.createRadialGradient(cx, cy, 30, cx, cy, r);
+      bgGrad.addColorStop(0, pal.bgGradientStart);
+      bgGrad.addColorStop(1, pal.bgGradientEnd);
+      ctx.fillStyle = bgGrad;
+      ctx.fillRect(0, 0, w, h);
+
+      // Radar / Hex grid subtle background
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.04)';
+      ctx.lineWidth = 1;
+      for (let i = 40; i < r - 10; i += 40) {
+        ctx.beginPath();
+        ctx.arc(cx, cy, i, 0, Math.PI * 2);
+        ctx.stroke();
+      }
+
+      // Crosshairs
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.07)';
+      ctx.beginPath();
+      ctx.moveTo(cx - r, cy);
+      ctx.lineTo(cx + r, cy);
+      ctx.moveTo(cx, cy - r);
+      ctx.lineTo(cx, cy + r);
+      ctx.stroke();
+
+      // 2. Draw Image or Procedural Icon
+      const userImg = loadedImages[item.id];
+      if (userImg && userImg.complete && userImg.naturalWidth > 0) {
+        ctx.drawImage(userImg, 0, 0, w, h);
+      } else {
+        drawProceduralIcon(ctx, cx, cy, item, pal);
+      }
+      ctx.restore();
+
+      // 3. High-Tech Cyberpunk HUD Outer Ring
+      ctx.save();
+
+      // Outer glow
+      ctx.shadowColor = pal.glow;
+      ctx.shadowBlur = 18;
+
+      // Main Outer Ring
+      ctx.strokeStyle = pal.primary;
+      ctx.lineWidth = 6;
+      ctx.beginPath();
+      ctx.arc(cx, cy, r - 6, 0, Math.PI * 2);
+      ctx.stroke();
+
+      // Inner thin ring
+      ctx.shadowBlur = 0;
+      ctx.strokeStyle = pal.secondary;
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.arc(cx, cy, r - 18, 0, Math.PI * 2);
+      ctx.stroke();
+
+      // Segmented ticks
+      for (let deg = 0; deg < 360; deg += 15) {
+        const rad = (deg * Math.PI) / 180;
+        const isMajor = deg % 45 === 0;
+        const len = isMajor ? 12 : 6;
+        ctx.strokeStyle = isMajor ? pal.primary : 'rgba(255,255,255,0.3)';
+        ctx.lineWidth = isMajor ? 3 : 1.5;
+        ctx.beginPath();
+        ctx.moveTo(cx + Math.cos(rad) * (r - 18), cy + Math.sin(rad) * (r - 18));
+        ctx.lineTo(cx + Math.cos(rad) * (r - 18 - len), cy + Math.sin(rad) * (r - 18 - len));
+        ctx.stroke();
+      }
+
+      // 4. TYPE NAME Top Banner (e.g. "ROTO-DROHNE", "GM DOBERMANN")
+      drawPillBanner(ctx, cx, 58, item.tokenLabel, pal);
+
+      // 5. Bottom Stats Banner
+      const statText = `R ${item.body} // P ${item.armor} // ${item.boxes}K`;
+      drawBottomStatsBanner(ctx, cx, 460, statText, pal);
+
+      ctx.restore();
+    }
+
+    function drawPillBanner(ctx, x, y, text, pal) {
+      ctx.save();
+      // Auto-scale font size if label is long
+      let fontSize = 21;
+      ctx.font = `bold ${fontSize}px "Share Tech Mono", monospace`;
+      let textWidth = ctx.measureText(text).width;
+      while (textWidth > 260 && fontSize > 13) {
+        fontSize -= 1;
+        ctx.font = `bold ${fontSize}px "Share Tech Mono", monospace`;
+        textWidth = ctx.measureText(text).width;
+      }
+
+      const pw = Math.max(textWidth + 34, 130);
+      const ph = 34;
+
+      // Banner Box
+      ctx.fillStyle = 'rgba(7, 9, 14, 0.92)';
+      ctx.strokeStyle = pal.primary;
+      ctx.lineWidth = 2.5;
+      ctx.shadowColor = pal.glow;
+      ctx.shadowBlur = 10;
+
+      ctx.beginPath();
+      ctx.roundRect(x - pw / 2, y - ph / 2, pw, ph, 6);
+      ctx.fill();
+      ctx.stroke();
+
+      // Text
+      ctx.shadowBlur = 0;
+      ctx.fillStyle = '#ffffff';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(text, x, y + 1);
+
+      ctx.restore();
+    }
+
+    function drawBottomStatsBanner(ctx, x, y, text, pal) {
+      ctx.save();
+      ctx.font = 'bold 15px "Share Tech Mono", monospace';
+      const textWidth = ctx.measureText(text).width;
+      const pw = Math.max(textWidth + 28, 140);
+      const ph = 26;
+
+      ctx.fillStyle = 'rgba(7, 9, 14, 0.9)';
+      ctx.strokeStyle = pal.secondary;
+      ctx.lineWidth = 1.5;
+
+      ctx.beginPath();
+      ctx.roundRect(x - pw / 2, y - ph / 2, pw, ph, 4);
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.fillStyle = pal.primary;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(text, x, y);
+
+      ctx.restore();
+    }
+
+    function drawProceduralIcon(ctx, cx, cy, item, pal) {
+      ctx.save();
+      ctx.strokeStyle = pal.primary;
+      ctx.fillStyle = 'rgba(0, 240, 255, 0.15)';
+      ctx.lineWidth = 3;
+
+      if (item.iconType === 'quadcopter') {
+        // Quadcopter Chassis
+        ctx.beginPath();
+        ctx.arc(cx, cy, 38, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.fill();
+
+        // 4 Rotor arms
+        const arms = [
+          [-60, -60], [60, -60],
+          [-60, 60], [60, 60]
+        ];
+        arms.forEach(([ax, ay]) => {
+          ctx.beginPath();
+          ctx.moveTo(cx, cy);
+          ctx.lineTo(cx + ax, cy + ay);
+          ctx.stroke();
+
+          // Rotor disc
+          ctx.beginPath();
+          ctx.arc(cx + ax, cy + ay, 24, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(255,255,255,0.08)';
+          ctx.fill();
+          ctx.stroke();
+        });
+
+        // Weapon barrel forward
+        ctx.fillStyle = pal.primary;
+        ctx.fillRect(cx - 5, cy - 65, 10, 30);
+      } else if (item.iconType === 'wheeled_drone') {
+        // Tank / Wheeled combat drone chassis
+        ctx.fillStyle = 'rgba(0, 240, 255, 0.15)';
+        ctx.fillRect(cx - 45, cy - 55, 90, 110);
+        ctx.strokeRect(cx - 45, cy - 55, 90, 110);
+
+        // Left & right tracks/wheels
+        ctx.fillStyle = pal.secondary;
+        ctx.fillRect(cx - 62, cy - 65, 16, 130);
+        ctx.strokeRect(cx - 62, cy - 65, 16, 130);
+        ctx.fillRect(cx + 46, cy - 65, 16, 130);
+        ctx.strokeRect(cx + 46, cy - 65, 16, 130);
+
+        // Turret gun
+        ctx.beginPath();
+        ctx.arc(cx, cy, 28, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(7, 9, 14, 0.9)';
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = pal.primary;
+        ctx.fillRect(cx - 4, cy - 65, 8, 40);
+      } else if (item.iconType === 'hornet') {
+        // Insect / Hornet Drone
+        ctx.beginPath();
+        ctx.ellipse(cx, cy, 22, 45, 0, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+
+        // Stinger needle forward
+        ctx.beginPath();
+        ctx.moveTo(cx, cy - 45);
+        ctx.lineTo(cx, cy - 80);
+        ctx.strokeStyle = '#ff0055';
+        ctx.lineWidth = 4;
+        ctx.stroke();
+
+        // Wings
+        ctx.strokeStyle = pal.primary;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.ellipse(cx - 45, cy - 10, 38, 14, -Math.PI / 6, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.ellipse(cx + 45, cy - 10, 38, 14, Math.PI / 6, 0, Math.PI * 2);
+        ctx.stroke();
+      } else if (item.iconType === 'eye') {
+        // Flying Eye
+        ctx.beginPath();
+        ctx.arc(cx, cy, 55, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+
+        // Glowing Lens
+        ctx.beginPath();
+        ctx.arc(cx, cy, 25, 0, Math.PI * 2);
+        ctx.fillStyle = pal.primary;
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(cx, cy, 10, 0, Math.PI * 2);
+        ctx.fillStyle = '#ffffff';
+        ctx.fill();
+      } else if (item.iconType === 'crawler') {
+        // Kanmushi Beetle
+        ctx.beginPath();
+        ctx.ellipse(cx, cy, 32, 40, 0, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+
+        // 6 Legs
+        for (let i = -1; i <= 1; i++) {
+          ctx.beginPath();
+          ctx.moveTo(cx - 30, cy + i * 22);
+          ctx.lineTo(cx - 65, cy + i * 32);
+          ctx.moveTo(cx + 30, cy + i * 22);
+          ctx.lineTo(cx + 65, cy + i * 32);
+          ctx.stroke();
+        }
+      } else if (item.iconType === 'van') {
+        // GMC Bulldog Armored Van
+        ctx.fillStyle = 'rgba(0, 240, 255, 0.15)';
+        ctx.beginPath();
+        ctx.roundRect(cx - 50, cy - 85, 100, 170, 16);
+        ctx.fill();
+        ctx.stroke();
+
+        // Windshield & Armor Plating
+        ctx.fillStyle = 'rgba(255,255,255,0.15)';
+        ctx.fillRect(cx - 40, cy - 65, 80, 24);
+        ctx.strokeRect(cx - 40, cy - 65, 80, 24);
+
+        // Roof hatch
+        ctx.beginPath();
+        ctx.arc(cx, cy + 10, 22, 0, Math.PI * 2);
+        ctx.stroke();
+      } else if (item.iconType === 'bike') {
+        // Suzuki Mirage Bike
+        ctx.beginPath();
+        ctx.ellipse(cx, cy, 18, 75, 0, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+
+        // Handlebars
+        ctx.beginPath();
+        ctx.moveTo(cx - 42, cy - 35);
+        ctx.lineTo(cx + 42, cy - 35);
+        ctx.lineWidth = 5;
+        ctx.stroke();
+      } else {
+        // Default Sub / Boat
+        ctx.beginPath();
+        ctx.ellipse(cx, cy, 36, 85, 0, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+      }
+
+      ctx.restore();
+    }
+
+    function updateTokenTheme(tokenId, newTheme) {
+      const item = TOKENS_DATA.find(t => t.id === tokenId);
+      if (item) {
+        item.theme = newTheme;
+        renderCanvas(tokenId);
+      }
+    }
+
+    function changeGlobalTheme(theme) {
+      globalTheme = theme;
+      TOKENS_DATA.forEach(t => t.theme = theme);
+      renderTokensGrid();
+    }
+
+    function setFilter(category) {
+      activeFilter = category;
+      document.querySelectorAll('.token-filter').forEach(btn => {
+        btn.classList.remove('border-cyan-500/50', 'bg-cyan-950/80', 'text-cyan-300', 'font-bold');
+        btn.classList.add('border-slate-700', 'bg-slate-900', 'text-slate-400');
+      });
+      const activeBtn = document.getElementById(`flt-${category}`);
+      if (activeBtn) {
+        activeBtn.classList.remove('border-slate-700', 'bg-slate-900', 'text-slate-400');
+        activeBtn.classList.add('border-cyan-500/50', 'bg-cyan-950/80', 'text-cyan-300', 'font-bold');
+      }
+      renderTokensGrid();
+    }
+
+    function downloadToken(tokenId) {
+      const canvas = document.getElementById(`canvas-${tokenId}`);
+      if (!canvas) return;
+
+      const item = TOKENS_DATA.find(t => t.id === tokenId);
+      const safeLabel = item.tokenLabel.replace(/[\s\/-]+/g, '_');
+      const filename = `Token_${safeLabel}_${item.body}R_${item.armor}P.png`;
+
+      const link = document.createElement('a');
+      link.download = filename;
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    }
+
+    async function downloadAllTokensZip() {
+      const btn = document.getElementById('btn-download-all-zip');
+      const originalText = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = `<span class="animate-spin inline-block">⏳</span> Packe ZIP (9 Typen)...`;
+
+      try {
+        if (typeof JSZip === 'undefined') {
+          throw new Error('JSZip nicht geladen');
+        }
+        const zip = new JSZip();
+        const folder = zip.folder("VTT_Tokens_Overdrive6");
+
+        for (const item of TOKENS_DATA) {
+          const canvas = document.getElementById(`canvas-${item.id}`);
+          if (!canvas) continue;
+          
+          const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
+          const safeLabel = item.tokenLabel.replace(/[\s\/-]+/g, '_');
+          const safeFilename = `Token_${safeLabel}_${item.body}R_${item.armor}P.png`;
+          folder.file(safeFilename, blob);
+        }
+
+        const content = await zip.generateAsync({ type: 'blob' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(content);
+        link.download = `Overdrive6_VTT_Tokens_Typen.zip`;
+        link.click();
+        URL.revokeObjectURL(link.href);
+
+        btn.innerHTML = `✅ ZIP Heruntergeladen!`;
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.disabled = false;
+        }, 3000);
+      } catch (err) {
+        console.error('ZIP Error:', err);
+        // Fallback: download individual PNGs
+        btn.innerHTML = `⚠️ Fallback: 9 Downloads...`;
+        TOKENS_DATA.forEach((item, idx) => {
+          setTimeout(() => downloadToken(item.id), idx * 250);
+        });
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.disabled = false;
+        }, 3000);
+      }
+    }
+
+    // Initialize on load
+    window.addEventListener('DOMContentLoaded', initTokenStudio);
+  </script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+{
+  "Commlinks": {
+    "Meta Link": {
+      "device_rating": 1,
+      "data_processing": 1,
+      "firewall": 1,
+      "avail": "1",
+      "cost": 100
+    },
+    "Sony Emperor": {
+      "device_rating": 2,
+      "data_processing": 2,
+      "firewall": 1,
+      "avail": "2",
+      "cost": 700
+    },
+    "Renraku Sensei": {
+      "device_rating": 3,
+      "data_processing": 3,
+      "firewall": 1,
+      "avail": "2",
+      "cost": 1000
+    },
+    "Erika Elite": {
+      "device_rating": 4,
+      "data_processing": 4,
+      "firewall": 2,
+      "avail": "3",
+      "cost": 2500
+    },
+    "Hermes Ikon": {
+      "device_rating": 5,
+      "data_processing": 5,
+      "firewall": 3,
+      "avail": "4",
+      "cost": 5000
+    },
+    "Transys Avalon": {
+      "device_rating": 6,
+      "data_processing": 6,
+      "firewall": 3,
+      "avail": "5",
+      "cost": 8000
+    }
+  },
+  "Cyberdecks": {
+    "Erika MCD-1": {
+      "device_rating": 1,
+      "programs": 1,
+      "attributes": "Attributsverteilung: 4, 3, 2, 1",
+      "avail": "3I",
+      "cost": 49500
+    },
+    "Microtrónica Azteca 200": {
+      "device_rating": 2,
+      "programs": 2,
+      "attributes": "5, 4, 3, 2",
+      "avail": "4I",
+      "cost": 110250
+    },
+    "Hermes Chariot": {
+      "device_rating": 3,
+      "programs": 3,
+      "attributes": "6, 5, 4, 3",
+      "avail": "5I",
+      "cost": 205000
+    },
+    "Renraku Kitsune": {
+      "device_rating": 4,
+      "programs": 4,
+      "attributes": "7, 6, 5, 4",
+      "avail": "6I",
+      "cost": 346500
+    },
+    "Shiawase Cyber-5": {
+      "device_rating": 5,
+      "programs": 5,
+      "attributes": "8, 7, 6, 5",
+      "avail": "7I",
+      "cost": 547500
+    },
+    "Fairlight Excalibur": {
+      "device_rating": 6,
+      "programs": 6,
+      "attributes": "9, 8, 7, 6",
+      "avail": "8I",
+      "cost": 823200
+    }
+  },
+  "Riggerkonsolen": {
+    "Aus Schrott gebastelt": {
+      "device_rating": 1,
+      "data_processing": 3,
+      "firewall": 2,
+      "avail": "1L",
+      "cost": 1400
+    },
+    "Allegiance Control Center": {
+      "device_rating": 2,
+      "data_processing": 3,
+      "firewall": 3,
+      "avail": "3L",
+      "cost": 8000
+    },
+    "Essy Motors DroneMaster": {
+      "device_rating": 3,
+      "data_processing": 4,
+      "firewall": 4,
+      "avail": "3L",
+      "cost": 16000
+    },
+    "Horizon Overseer": {
+      "device_rating": 4,
+      "data_processing": 5,
+      "firewall": 4,
+      "avail": "4L",
+      "cost": 32000
+    },
+    "Mærsk Spider": {
+      "device_rating": 4,
+      "data_processing": 4,
+      "firewall": 5,
+      "avail": "5L",
+      "cost": 34000
+    },
+    "Vulcan Liegelord": {
+      "device_rating": 5,
+      "data_processing": 6,
+      "firewall": 5,
+      "avail": "5L",
+      "cost": 66000
+    },
+    "Proteus Poseidon": {
+      "device_rating": 5,
+      "data_processing": 5,
+      "firewall": 6,
+      "avail": "6L",
+      "cost": 68000
+    },
+    "Transys Eidolon": {
+      "device_rating": 6,
+      "data_processing": 6,
+      "firewall": 5,
+      "avail": "7L",
+      "cost": 75000
+    },
+    "Ares Red Dog": {
+      "device_rating": 6,
+      "data_processing": 7,
+      "firewall": 6,
+      "avail": "8L",
+      "cost": 95000
+    },
+    "Aztechnology Tlaloc": {
+      "device_rating": 6,
+      "data_processing": 8,
+      "firewall": 7,
+      "avail": "9L",
+      "cost": 140000
+    }
+  },
+  "Autosofts": {
+    "Clearsight": {
+      "type": "Wahrnehmung",
+      "target": "universal",
+      "cost_formula": "Stufe * 500 ¥"
+    },
+    "Ausweichen": {
+      "type": "Verteidigung",
+      "target": "universal",
+      "cost_formula": "Stufe * 500 ¥"
+    },
+    "Manövrieren": {
+      "type": "Steuern",
+      "target": "drone_model",
+      "cost_formula": "Stufe * 500 ¥"
+    },
+    "Zielerfassung": {
+      "type": "Angriff",
+      "target": "weapon_model",
+      "cost_formula": "Stufe * 500 ¥"
+    },
+    "Stealth": {
+      "type": "Tarnung",
+      "target": "drone_model",
+      "cost_formula": "Stufe * 500 ¥"
+    },
+    "Elektronische Kriegsführung": {
+      "type": "ECM/Cracken",
+      "target": "universal",
+      "cost_formula": "Stufe * 500 ¥"
+    }
+  }
+}

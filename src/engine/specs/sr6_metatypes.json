@@ -1,0 +1,238 @@
+{
+  "Human": {
+    "attributes": {
+      "body": {
+        "min": 1,
+        "max": 6
+      },
+      "agility": {
+        "min": 1,
+        "max": 6
+      },
+      "reaction": {
+        "min": 1,
+        "max": 6
+      },
+      "strength": {
+        "min": 1,
+        "max": 6
+      },
+      "willpower": {
+        "min": 1,
+        "max": 6
+      },
+      "logic": {
+        "min": 1,
+        "max": 6
+      },
+      "intuition": {
+        "min": 1,
+        "max": 6
+      },
+      "charisma": {
+        "min": 1,
+        "max": 6
+      },
+      "edge": {
+        "min": 1,
+        "max": 7
+      }
+    },
+    "qualities": [],
+    "source": "SR6 Grundregelwerk S. 66"
+  },
+  "Elf": {
+    "attributes": {
+      "body": {
+        "min": 1,
+        "max": 6
+      },
+      "agility": {
+        "min": 1,
+        "max": 7
+      },
+      "reaction": {
+        "min": 1,
+        "max": 6
+      },
+      "strength": {
+        "min": 1,
+        "max": 6
+      },
+      "willpower": {
+        "min": 1,
+        "max": 6
+      },
+      "logic": {
+        "min": 1,
+        "max": 6
+      },
+      "intuition": {
+        "min": 1,
+        "max": 6
+      },
+      "charisma": {
+        "min": 1,
+        "max": 8
+      },
+      "edge": {
+        "min": 1,
+        "max": 6
+      }
+    },
+    "qualities": [
+      "Restlichtverstärkung"
+    ],
+    "source": "SR6 Grundregelwerk S. 66"
+  },
+  "Ork": {
+    "attributes": {
+      "body": {
+        "min": 1,
+        "max": 8
+      },
+      "agility": {
+        "min": 1,
+        "max": 6
+      },
+      "reaction": {
+        "min": 1,
+        "max": 6
+      },
+      "strength": {
+        "min": 1,
+        "max": 8
+      },
+      "willpower": {
+        "min": 1,
+        "max": 6
+      },
+      "logic": {
+        "min": 1,
+        "max": 6
+      },
+      "intuition": {
+        "min": 1,
+        "max": 6
+      },
+      "charisma": {
+        "min": 1,
+        "max": 5
+      },
+      "edge": {
+        "min": 1,
+        "max": 6
+      }
+    },
+    "special_attributes": [
+      "body",
+      "strength"
+    ],
+    "qualities": [
+      "Restlichtverstärkung",
+      "Robust Gebaut 1"
+    ],
+    "source": "SR6 Grundregelwerk S. 58, 66"
+  },
+  "Troll": {
+    "attributes": {
+      "body": {
+        "min": 1,
+        "max": 9
+      },
+      "agility": {
+        "min": 1,
+        "max": 5
+      },
+      "reaction": {
+        "min": 1,
+        "max": 6
+      },
+      "strength": {
+        "min": 1,
+        "max": 9
+      },
+      "willpower": {
+        "min": 1,
+        "max": 6
+      },
+      "logic": {
+        "min": 1,
+        "max": 6
+      },
+      "intuition": {
+        "min": 1,
+        "max": 6
+      },
+      "charisma": {
+        "min": 1,
+        "max": 5
+      },
+      "edge": {
+        "min": 1,
+        "max": 6
+      }
+    },
+    "special_attributes": [
+      "body",
+      "strength"
+    ],
+    "qualities": [
+      "Dermalablagerungen",
+      "Infrarotsicht",
+      "Robust Gebaut 2"
+    ],
+    "source": "SR6 Grundregelwerk S. 66"
+  },
+  "Dwarf": {
+    "attributes": {
+      "body": {
+        "min": 1,
+        "max": 7
+      },
+      "agility": {
+        "min": 1,
+        "max": 6
+      },
+      "reaction": {
+        "min": 1,
+        "max": 5
+      },
+      "strength": {
+        "min": 1,
+        "max": 8
+      },
+      "willpower": {
+        "min": 1,
+        "max": 7
+      },
+      "logic": {
+        "min": 1,
+        "max": 6
+      },
+      "intuition": {
+        "min": 1,
+        "max": 6
+      },
+      "charisma": {
+        "min": 1,
+        "max": 6
+      },
+      "edge": {
+        "min": 1,
+        "max": 6
+      }
+    },
+    "special_attributes": [
+      "body",
+      "reaction",
+      "strength",
+      "willpower"
+    ],
+    "qualities": [
+      "Infrarotsicht",
+      "Toxinresistenz"
+    ],
+    "source": "SR6 Grundregelwerk S. 66"
+  }
+}

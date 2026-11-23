@@ -1,0 +1,45 @@
+{
+  "condition_monitor": {
+    "physical": "8 + ceil(body / 2) + qualities_bonus",
+    "stun": "8 + ceil(willpower / 2)",
+    "overflow_to_death": "body * 2",
+    "wound_penalty_step": -1,
+    "wound_penalty_interval": 3,
+    "source": "SR6 Grundregelwerk S. 40, 77"
+  },
+  "meat_combat": {
+    "initiative": "reaction + intuition + 1d6",
+    "major_actions": 1,
+    "minor_actions": "1 + initiative_dice_count",
+    "defense_rating": "body + armor",
+    "defense_test": "reaction + intuition",
+    "damage_resistance": "body",
+    "source": "SR6 Grundregelwerk S. 40, 107-111"
+  },
+  "rigging_jumped_in": {
+    "initiative_cold_sim": "intuition + intuition + 2d6 (direct wired) or data_processing + intuition + 2d6 (wifi)",
+    "initiative_hot_sim": "intuition + intuition + 3d6 (direct wired) or data_processing + intuition + 3d6 (wifi)",
+    "piloting_test": "piloting + intuition + rigger_control_rating",
+    "vehicle_weapon_test": "engineering + logic + rigger_control_rating",
+    "defense_test": "piloting + intuition + rigger_control_rating",
+    "perception_test": "perception + sensor + rigger_control_rating",
+    "stealth_test": "stealth + logic + rigger_control_rating",
+    "defense_rating_vehicle": "piloting + drone_armor",
+    "attack_rating_vehicle_ramming": "piloting + drone_sensor",
+    "drone_damage_resistance": "drone_body",
+    "threshold_reduction": "rigger_control_rating",
+    "source": "SR6 Grundregelwerk S. 196-202"
+  },
+  "drone_autonomous": {
+    "initiative": "pilot * 2 + 3d6",
+    "weapon_attack_test": "targeting_autosoft + sensor (or sensor - 1)",
+    "defense_test": "evasion_autosoft + pilot (or pilot - 1)",
+    "perception_test": "clearsight_autosoft + sensor (or sensor - 1)",
+    "maneuvering_test": "maneuvering_autosoft + pilot (or pilot - 1)",
+    "stealth_test": "stealth_autosoft + pilot (or pilot - 1)",
+    "defense_rating": "pilot + drone_armor",
+    "damage_resistance": "drone_body",
+    "condition_monitor": "8 + ceil(drone_body / 2)",
+    "source": "SR6 Grundregelwerk S. 201-202"
+  }
+}

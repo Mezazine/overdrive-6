@@ -1,0 +1,102 @@
+{
+  "Astral": {
+    "attribute": "intuition",
+    "defaulting": false,
+    "magic_only": true,
+    "description": "Wahrnehmung und Interaktion auf der Astralebene"
+  },
+  "Athletik": {
+    "attribute": "agility",
+    "defaulting": true,
+    "description": "Laufen, Springen, Klettern, Werfen, Schwimmen"
+  },
+  "Beschwören": {
+    "attribute": "magic",
+    "defaulting": false,
+    "magic_only": true,
+    "description": "Herbeirufen und Binden von Geistern"
+  },
+  "Biotech": {
+    "attribute": "logic",
+    "defaulting": false,
+    "description": "Erste Hilfe, Medizin, Biotechnologie, Kybernetik"
+  },
+  "Cracken": {
+    "attribute": "logic",
+    "defaulting": false,
+    "description": "Hacking, Matrixangriffe, Cyberkampf, Elektronische Kriegsführung"
+  },
+  "Einfluss": {
+    "attribute": "charisma",
+    "defaulting": true,
+    "description": "Führung, Verhandlung, Etikette, Einschüchterung"
+  },
+  "Elektronik": {
+    "attribute": "logic",
+    "defaulting": true,
+    "description": "Computer, Hardware, Software, Matrixsuche"
+  },
+  "Exotische Waffen": {
+    "attribute": "agility",
+    "defaulting": false,
+    "description": "Spezielle Waffen wie Peitschen, Flammenwerfer, Werfer"
+  },
+  "Feuerwaffen": {
+    "attribute": "agility",
+    "defaulting": true,
+    "description": "Pistolen, Gewehre, Schrotflinten, MPs, Maschinengewehre"
+  },
+  "Heimlichkeit": {
+    "attribute": "agility",
+    "defaulting": true,
+    "description": "Schleichen, Verstecken, Beschatten, Taschendiebstahl"
+  },
+  "Hexerei": {
+    "attribute": "magic",
+    "defaulting": false,
+    "magic_only": true,
+    "description": "Sprüche wirken, Gegenzaubern, Rituale"
+  },
+  "Mechanik": {
+    "attribute": "logic",
+    "defaulting": true,
+    "description": "Fahrzeugmechanik, Industrie, Geschütze, Drohnenbau"
+  },
+  "Nahkampf": {
+    "attribute": "agility",
+    "defaulting": true,
+    "description": "Waffenloser Kampf, Klingen, Knüppel, Äxte"
+  },
+  "Natur": {
+    "attribute": "intuition",
+    "defaulting": true,
+    "description": "Überleben in der Wildnis, Spurenlesen, Orientierung"
+  },
+  "Steuern": {
+    "attribute": "reaction",
+    "defaulting": true,
+    "description": "Bodenfahrzeuge, Flugzeuge, Wasserfahrzeuge, Drohnen"
+  },
+  "Tasken": {
+    "attribute": "resonance",
+    "defaulting": false,
+    "techno_only": true,
+    "description": "Resonanzmanipulation, Kompilation von Sprites"
+  },
+  "Überreden": {
+    "attribute": "charisma",
+    "defaulting": true,
+    "description": "Täuschung, Verkleidung, Schauspielerei, Verführen"
+  },
+  "Verzaubern": {
+    "attribute": "magic",
+    "defaulting": false,
+    "magic_only": true,
+    "description": "Alchemie, Entzaubern, Foki herstellen"
+  },
+  "Wahrnehmung": {
+    "attribute": "intuition",
+    "defaulting": true,
+    "description": "Visuelle, auditive, olfaktorische Sinneswahrnehmung"
+  }
+}

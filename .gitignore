@@ -1,0 +1,16 @@
+# Temporary & local files
+*.pdf
+screenshot*.png
+screenshots/
+scratch/
+*.log
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Dependencies / build caches
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+.env

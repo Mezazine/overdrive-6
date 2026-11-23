@@ -1,0 +1,207 @@
+{
+  "_comment": "Shadowrun 6 (SR6) Rigger- und Drohnenregeln - Quellen: SR6 GRW S. 196-203, 271-277, 284, 297, 302-305",
+  "control_modes": {
+    "manual_ar": {
+      "name": "Manuell / Augmented Reality (AR)",
+      "initiative": "Reaktion + Intuition + 1W6",
+      "piloting_pool": "Steuern + Reaktion",
+      "gunnery_pool": "Mechanik + Logik",
+      "defense_pool": "Steuern + Reaktion",
+      "attributes_used": "Physisch"
+    },
+    "remote_control": {
+      "name": "Fernsteuerung (via RCC/Kommlink)",
+      "initiative": "Datenverarbeitung + Intuition + 1W6 (AR) bzw. +2W6 (VR Kalt)",
+      "piloting_pool": "Steuern + Reaktion (AR) bzw. Steuern + Intuition (VR)",
+      "gunnery_pool": "Mechanik + Logik",
+      "noise_penalty_reduction": "rcc_device_rating"
+    },
+    "jumped_in_vr": {
+      "name": "Hineingesprungen (VR / DNI)",
+      "initiative_cold_sim": "10 + 2W6 (Kalt-VR)",
+      "initiative_hot_sim": "10 + 3W6 (Heiß-VR)",
+      "piloting_pool": "Steuern + Intuition + Riggerkontrolle",
+      "gunnery_pool": "Mechanik + Logik + Riggerkontrolle",
+      "defense_pool": "Steuern + Intuition + Riggerkontrolle",
+      "perception_pool": "Wahrnehmung + Sensor + Riggerkontrolle",
+      "stealth_pool": "Heimlichkeit + Logik + Riggerkontrolle",
+      "threshold_reduction": "rigger_control_rating (Schwellenwert sinkt um 2 bei Riggerkontrolle II)",
+      "edge_bonus": "+1 Free Edge je Probe",
+      "attributes_swapped": {
+        "Konstitution": "Willenskraft",
+        "Geschicklichkeit": "Logik",
+        "Reaktion": "Intuition",
+        "Stärke": "Charisma"
+      },
+      "dumpshock": "Auswurfschock bei Verbindungsabbruch: 3B (Kalt) / 3K (Heiß), Widerstand mit Willenskraft"
+    }
+  },
+  "rcc_mechanics": {
+    "sharing_streaming_limit": "Datenverarbeitung der Riggerkonsole (Anzahl gleichzeitiger Autosofts/Programme für alle Slaves)",
+    "slave_capacity": "Gerätestufe * 3 (Maximalzahl verbundener Drohnen)",
+    "noise_reduction": "Gerätestufe der Riggerkonsole",
+    "group_command": "1 Nebenhandlung erteilt Befehl an beliebig viele verbundene Slaves"
+  },
+  "drone_autonomous_rules": {
+    "initiative": "Pilot * 2 + 3W6",
+    "local_autosoft_limit": "ceil(Pilot / 2)",
+    "targeting_test": "Zielerfassungs-Autosoft + Sensor (oder Sensor - 1 ungeschult)",
+    "evasion_test": "Ausweichen-Autosoft + Pilot (oder Pilot - 1 ungeschult)",
+    "maneuvering_test": "Manövrieren-Autosoft + Pilot (oder Pilot - 1 ungeschult)",
+    "clearsight_test": "Clearsight-Autosoft + Sensor (oder Sensor - 1 ungeschult)",
+    "stealth_test": "Stealth-Autosoft + Pilot (oder Pilot - 1 ungeschult)",
+    "ewar_test": "Elektronische Kriegsführung + Sensor",
+    "defense_rating": "Rumpf + Panzerung (VW)",
+    "damage_resistance": "Rumpf (Fahrzeuge/Drohnen widerstehen Schaden nur mit Rumpf; kein Attribut Konstitution)",
+    "condition_monitor": "8 + ceil(Rumpf / 2)"
+  },
+  "weapon_mounts_sr6": {
+    "standard_mount": {
+      "name": "Standard-Waffenhalterung",
+      "cost": 2500,
+      "availability": "4I",
+      "capacity_rounds": 250,
+      "max_weapon_size": "Sturmgewehr oder kleiner (Pistolen, MPs, Schrotflinten, Sturmgewehre)",
+      "firing_arc": "90 Grad (ferngesteuert)",
+      "slots_used": 1,
+      "turret_option_cost": 500,
+      "retractable_option_cost": 1000,
+      "source": "SR6 GRW S. 297, 304"
+    },
+    "heavy_mount": {
+      "name": "Schwere Waffenhalterung",
+      "cost": 5000,
+      "availability": "6I",
+      "capacity_rounds": 500,
+      "capacity_missiles": "Rumpf",
+      "max_weapon_size": "Jede Art von Waffe (inkl. MG, Sturmkanone, Raketenwerfer)",
+      "firing_arc": "90 Grad (ferngesteuert)",
+      "slots_used": 2,
+      "turret_option_cost": 1000,
+      "retractable_option_cost": 2000,
+      "source": "SR6 GRW S. 297, 304"
+    }
+  },
+  "autosofts_catalog": {
+    "Clearsight": {
+      "attribute": "Sensor",
+      "specific_to": "universal",
+      "cost_per_rating": 500,
+      "availability": "3",
+      "description": "Wahrnehmung der Drohne"
+    },
+    "Ausweichen": {
+      "attribute": "Pilot",
+      "specific_to": "universal",
+      "cost_per_rating": 500,
+      "availability": "3",
+      "description": "Verteidigung gegen Angriffe"
+    },
+    "Elektronische Kriegsführung": {
+      "attribute": "Sensor",
+      "specific_to": "universal",
+      "cost_per_rating": 500,
+      "availability": "4L",
+      "description": "Störsignale, Entstörung, ECM"
+    },
+    "Manövrieren": {
+      "attribute": "Pilot",
+      "specific_to": "drone_model",
+      "cost_per_rating": 500,
+      "availability": "3",
+      "description": "Handling und Steuerproben des spezifischen Modells"
+    },
+    "Stealth": {
+      "attribute": "Pilot",
+      "specific_to": "drone_model",
+      "cost_per_rating": 500,
+      "availability": "4L",
+      "description": "Heimlichkeit und Tarnung des spezifischen Modells"
+    },
+    "Zielerfassung": {
+      "attribute": "Sensor",
+      "specific_to": "weapon_model",
+      "cost_per_rating": 500,
+      "availability": "4L",
+      "description": "Angriffe mit dem spezifischen montierten Waffenmodell"
+    }
+  },
+  "drone_catalog_sr6": {
+    "_comment": "Exakte SR6-Regelpreise für Drohnen-Chassis, Halterungen, Waffen und Munition (GRW S. 260, 262, 297, 303-304)",
+    "mct_nissan_roto_drone": {
+      "name": "MCT-Nissan Roto-Drohne",
+      "category": "Mittlere Drohne (Rotor)",
+      "chassis_cost": 5000,
+      "weapon_mount": {
+        "type": "Standard-Waffenhalterung",
+        "cost": 2500,
+        "capacity": 250
+      },
+      "weapon": {
+        "name": "AK-97 Sturmgewehr (Smart)",
+        "ak97_base_cost": 1000,
+        "internal_smartgun_cost": 500,
+        "base_equipped_cost": 1500,
+        "buck_custom_with_accessories_cost": 1750
+      },
+      "ammunition_250_rounds": {
+        "standard_cost": 1250,
+        "apds_cost": 3000
+      },
+      "hardware_and_weapon_cost": 9000,
+      "hardware_and_weapon_buck_custom": 9250,
+      "total_ready_standard_ammo": 10250,
+      "total_ready_apds_ammo": 12000,
+      "total_buck_ready_standard_ammo": 10500,
+      "total_buck_ready_apds_ammo": 12250
+    },
+    "gm_nissan_dobermann": {
+      "name": "GM-Nissan Dobermann",
+      "category": "Mittlere Drohne (Boden / Kette)",
+      "chassis_cost": 5000,
+      "weapon_mount": {
+        "type": "Standard-Waffenhalterung (serienmäßig ab Werk montiert)",
+        "cost": 0,
+        "capacity": 250
+      },
+      "weapon": {
+        "name": "AK-97 Sturmgewehr (Smart)",
+        "ak97_base_cost": 1000,
+        "internal_smartgun_cost": 500,
+        "base_equipped_cost": 1500,
+        "buck_custom_with_accessories_cost": 1750
+      },
+      "ammunition_250_rounds": {
+        "standard_cost": 1250,
+        "apds_cost": 3000
+      },
+      "hardware_and_weapon_cost": 6500,
+      "hardware_and_weapon_buck_custom": 6750,
+      "total_ready_standard_ammo": 7750,
+      "total_ready_apds_ammo": 9500,
+      "total_buck_ready_standard_ammo": 8000,
+      "total_buck_ready_apds_ammo": 9750
+    },
+    "shiawase_kanmushi": {
+      "name": "Shiawase Kanmushi",
+      "category": "Mikrodrohne (Insekt / Kriecher)",
+      "chassis_cost": 1000,
+      "weapon_mount": null,
+      "total_ready_cost": 1000
+    },
+    "horizon_flying_eye": {
+      "name": "Horizon Flying Eye",
+      "category": "Mikrodrohne (Diskus / Schweber)",
+      "chassis_cost": 1000,
+      "weapon_mount": null,
+      "total_ready_cost": 1000
+    },
+    "mct_hornet": {
+      "name": "MCT Hornet",
+      "category": "Minidrohne (Flug / Injektor)",
+      "chassis_cost": 1000,
+      "injector_narcoject_10_doses": 500,
+      "total_ready_cost": 1500
+    }
+  }
+}

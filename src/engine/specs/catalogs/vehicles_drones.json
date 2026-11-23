@@ -1,0 +1,597 @@
+{
+  "Motorräder": {
+    "Dodge Scoot": {
+      "handling": {
+        "road": 5,
+        "offroad": 7
+      },
+      "accel": 4,
+      "interval": 10,
+      "top_speed": 80,
+      "body": 2,
+      "armor": 0,
+      "pilot": 1,
+      "sensor": 0,
+      "seats": 2,
+      "avail": "2",
+      "cost": 3000
+    },
+    "Harley-Davidson Scorpion": {
+      "handling": {
+        "road": 3,
+        "offroad": 5
+      },
+      "accel": 16,
+      "interval": 30,
+      "top_speed": 200,
+      "body": 7,
+      "armor": 6,
+      "pilot": 1,
+      "sensor": 1,
+      "seats": 2,
+      "avail": "2",
+      "cost": 14000
+    },
+    "Yamaha Growler": {
+      "handling": {
+        "road": 3,
+        "offroad": 3
+      },
+      "accel": 15,
+      "interval": 20,
+      "top_speed": 180,
+      "body": 6,
+      "armor": 4,
+      "pilot": 1,
+      "sensor": 1,
+      "seats": 2,
+      "avail": "2",
+      "cost": 8000
+    },
+    "Suzuki Mirage": {
+      "handling": {
+        "road": 2,
+        "offroad": 6
+      },
+      "accel": 29,
+      "interval": 30,
+      "top_speed": 260,
+      "body": 4,
+      "armor": 2,
+      "pilot": 1,
+      "sensor": 1,
+      "seats": 1,
+      "avail": "2",
+      "cost": 12000
+    }
+  },
+  "Autos": {
+    "Chrysler-Nissan Jackrabbit": {
+      "handling": {
+        "road": 3,
+        "offroad": 5
+      },
+      "accel": 20,
+      "interval": 15,
+      "top_speed": 160,
+      "body": 8,
+      "armor": 4,
+      "pilot": 2,
+      "sensor": 1,
+      "seats": 3,
+      "avail": "2",
+      "cost": 11000
+    },
+    "Honda Spirit": {
+      "handling": {
+        "road": 4,
+        "offroad": 5
+      },
+      "accel": 15,
+      "interval": 20,
+      "top_speed": 150,
+      "body": 10,
+      "armor": 3,
+      "pilot": 1,
+      "sensor": 1,
+      "seats": 2,
+      "avail": "2",
+      "cost": 13000
+    },
+    "Eurocar Westwind X80": {
+      "handling": {
+        "road": 2,
+        "offroad": 6
+      },
+      "accel": 24,
+      "interval": 30,
+      "top_speed": 250,
+      "body": 6,
+      "armor": 1,
+      "pilot": 4,
+      "sensor": 3,
+      "seats": 2,
+      "avail": "3",
+      "cost": 115000
+    },
+    "Hyundai Shin-Hyung": {
+      "handling": {
+        "road": 3,
+        "offroad": 5
+      },
+      "accel": 12,
+      "interval": 25,
+      "top_speed": 200,
+      "body": 7,
+      "armor": 1,
+      "pilot": 1,
+      "sensor": 1,
+      "seats": 3,
+      "avail": "2",
+      "cost": 20000
+    },
+    "Ford Americar": {
+      "handling": {
+        "road": 4,
+        "offroad": 5
+      },
+      "accel": 9,
+      "interval": 20,
+      "top_speed": 160,
+      "body": 11,
+      "armor": 4,
+      "pilot": 1,
+      "sensor": 2,
+      "seats": 4,
+      "avail": "2",
+      "cost": 16000
+    },
+    "Saeder-Krupp-Bentley Concordat": {
+      "handling": {
+        "road": 3,
+        "offroad": 5
+      },
+      "accel": 18,
+      "interval": 30,
+      "top_speed": 180,
+      "body": 14,
+      "armor": 8,
+      "pilot": 3,
+      "sensor": 3,
+      "seats": 4,
+      "avail": "3",
+      "cost": 65000
+    },
+    "Mitsubishi Nightsky": {
+      "handling": {
+        "road": 4,
+        "offroad": 6
+      },
+      "accel": 10,
+      "interval": 10,
+      "top_speed": 160,
+      "body": 18,
+      "armor": 10,
+      "pilot": 3,
+      "sensor": 4,
+      "seats": 8,
+      "avail": "3",
+      "cost": 259000
+    }
+  },
+  "Lkw_und_Vans": {
+    "Toyota Gopher": {
+      "handling": {
+        "road": 4,
+        "offroad": 4
+      },
+      "accel": 15,
+      "interval": 15,
+      "top_speed": 150,
+      "body": 12,
+      "armor": 6,
+      "pilot": 1,
+      "sensor": 1,
+      "seats": 4,
+      "avail": "2",
+      "cost": 25000
+    },
+    "GMC Bulldog": {
+      "handling": {
+        "road": 5,
+        "offroad": 7
+      },
+      "accel": 10,
+      "interval": 10,
+      "top_speed": 140,
+      "body": 16,
+      "armor": 12,
+      "pilot": 2,
+      "sensor": 3,
+      "seats": 10,
+      "avail": "2",
+      "cost": 35000
+    },
+    "Range Rover Model 2080": {
+      "handling": {
+        "road": 4,
+        "offroad": 5
+      },
+      "accel": 12,
+      "interval": 20,
+      "top_speed": 160,
+      "body": 16,
+      "armor": 10,
+      "pilot": 4,
+      "sensor": 4,
+      "seats": 7,
+      "avail": "3",
+      "cost": 73000
+    },
+    "Ares Roadmaster": {
+      "handling": {
+        "road": 5,
+        "offroad": 7
+      },
+      "accel": 8,
+      "interval": 10,
+      "top_speed": 120,
+      "body": 18,
+      "armor": 16,
+      "pilot": 2,
+      "sensor": 2,
+      "seats": 12,
+      "avail": "2",
+      "cost": 68000
+    }
+  },
+  "Boote_und_Uboote": {
+    "Samuvani-Criscraft Otter": {
+      "handling": 4,
+      "accel": 10,
+      "interval": 15,
+      "top_speed": 90,
+      "body": 6,
+      "armor": 4,
+      "pilot": 2,
+      "sensor": 2,
+      "seats": 6,
+      "avail": "2",
+      "cost": 25000
+    },
+    "Aztechnology Sunrunner/Nightrunner": {
+      "handling": 3,
+      "accel": 20,
+      "interval": 20,
+      "top_speed": 120,
+      "body": 10,
+      "armor": 8,
+      "pilot": 3,
+      "sensor": 3,
+      "seats": 5,
+      "avail": "3",
+      "cost": 39000
+    },
+    "GMC Riverine": {
+      "handling": 4,
+      "accel": 15,
+      "interval": 15,
+      "top_speed": 100,
+      "body": 14,
+      "armor": 12,
+      "pilot": 4,
+      "sensor": 4,
+      "seats": 8,
+      "avail": "4",
+      "cost": 113000
+    },
+    "Proteus Lamprey (U-Boot)": {
+      "handling": 3,
+      "accel": 13,
+      "interval": 10,
+      "top_speed": 60,
+      "body": 2,
+      "armor": 1,
+      "pilot": 2,
+      "sensor": 1,
+      "seats": 4,
+      "avail": "4",
+      "cost": 15000
+    }
+  },
+  "Mikrodrohnen": {
+    "GMC Micromachine": {
+      "handling": {
+        "road": 3,
+        "offroad": 6
+      },
+      "accel": 5,
+      "interval": 5,
+      "top_speed": 25,
+      "body": 0,
+      "armor": 0,
+      "pilot": 1,
+      "sensor": 1,
+      "avail": "2",
+      "cost": 450
+    },
+    "Shiawase Kanmushi": {
+      "handling": {
+        "road": 2,
+        "offroad": 3
+      },
+      "accel": 4,
+      "interval": 5,
+      "top_speed": 15,
+      "body": 0,
+      "armor": 0,
+      "pilot": 3,
+      "sensor": 2,
+      "avail": "2",
+      "cost": 900
+    },
+    "Sikorsky-Bell Microskimmer XXS": {
+      "handling": 2,
+      "accel": 6,
+      "interval": 10,
+      "top_speed": 35,
+      "body": 0,
+      "armor": 0,
+      "pilot": 2,
+      "sensor": 1,
+      "avail": "2",
+      "cost": 850
+    },
+    "MCT Gnat": {
+      "handling": 3,
+      "accel": 4,
+      "interval": 10,
+      "top_speed": 30,
+      "body": 0,
+      "armor": 0,
+      "pilot": 2,
+      "sensor": 1,
+      "avail": "2",
+      "cost": 800
+    }
+  },
+  "Minidrohnen": {
+    "GM-Nissan Flip-Flop": {
+      "handling": {
+        "road": 2,
+        "offroad": 4
+      },
+      "accel": 8,
+      "interval": 15,
+      "top_speed": 50,
+      "body": 1,
+      "armor": 0,
+      "pilot": 2,
+      "sensor": 1,
+      "avail": "2",
+      "cost": 1000
+    },
+    "Shiawase Inu": {
+      "handling": {
+        "road": 2,
+        "offroad": 3
+      },
+      "accel": 6,
+      "interval": 8,
+      "top_speed": 24,
+      "body": 1,
+      "armor": 0,
+      "pilot": 2,
+      "sensor": 2,
+      "avail": "2",
+      "cost": 1100
+    },
+    "Horizon Flying Eye": {
+      "handling": 3,
+      "accel": 15,
+      "interval": 15,
+      "top_speed": 40,
+      "body": 1,
+      "armor": 0,
+      "pilot": 2,
+      "sensor": 2,
+      "avail": "2",
+      "cost": 2000
+    },
+    "MCT Hornet": {
+      "handling": 3,
+      "accel": 20,
+      "interval": 15,
+      "top_speed": 35,
+      "body": 1,
+      "armor": 0,
+      "pilot": 2,
+      "sensor": 2,
+      "avail": "2",
+      "cost": 2100
+    }
+  },
+  "Kleine_Drohnen": {
+    "Chrysler-Nissan Pursuit V": {
+      "handling": {
+        "road": 3,
+        "offroad": 6
+      },
+      "accel": 30,
+      "interval": 50,
+      "top_speed": 280,
+      "body": 4,
+      "armor": 2,
+      "pilot": 4,
+      "sensor": 3,
+      "avail": "3",
+      "cost": 11000
+    },
+    "Aztechnology Crawler": {
+      "handling": {
+        "road": 3,
+        "offroad": 4
+      },
+      "accel": 8,
+      "interval": 10,
+      "top_speed": 30,
+      "body": 6,
+      "armor": 2,
+      "pilot": 2,
+      "sensor": 2,
+      "avail": "2",
+      "cost": 4500
+    },
+    "Cyberspace Designs Quadrotor": {
+      "handling": 2,
+      "accel": 15,
+      "interval": 20,
+      "top_speed": 120,
+      "body": 3,
+      "armor": 1,
+      "pilot": 3,
+      "sensor": 2,
+      "avail": "2",
+      "cost": 5000
+    },
+    "Lockheed Optic-X2": {
+      "handling": 4,
+      "accel": 15,
+      "interval": 30,
+      "top_speed": 140,
+      "body": 2,
+      "armor": 4,
+      "pilot": 4,
+      "sensor": 4,
+      "avail": "3",
+      "cost": 18000
+    }
+  },
+  "Mittlere_Drohnen": {
+    "GM-Nissan Dobermann": {
+      "handling": {
+        "road": 3,
+        "offroad": 5
+      },
+      "accel": 10,
+      "interval": 15,
+      "top_speed": 100,
+      "body": 4,
+      "armor": 6,
+      "pilot": 2,
+      "sensor": 3,
+      "avail": "2",
+      "cost": 6500
+    },
+    "Nissan Samurai": {
+      "handling": {
+        "road": 3,
+        "offroad": 4
+      },
+      "accel": 10,
+      "interval": 10,
+      "top_speed": 30,
+      "body": 6,
+      "armor": 6,
+      "pilot": 3,
+      "sensor": 2,
+      "avail": "2",
+      "cost": 4500
+    },
+    "MCT-Nissan Roto-Drohne": {
+      "handling": 3,
+      "accel": 20,
+      "interval": 30,
+      "top_speed": 160,
+      "body": 5,
+      "armor": 6,
+      "pilot": 3,
+      "sensor": 2,
+      "avail": "2",
+      "cost": 5000
+    },
+    "Federated-Boeing Blackhawk": {
+      "handling": 3,
+      "accel": 35,
+      "interval": 40,
+      "top_speed": 200,
+      "body": 8,
+      "armor": 6,
+      "pilot": 3,
+      "sensor": 3,
+      "avail": "3",
+      "cost": 8000
+    }
+  },
+  "Grosse_Drohnen": {
+    "Steel Lynx": {
+      "handling": {
+        "road": 3,
+        "offroad": 5
+      },
+      "accel": 15,
+      "interval": 15,
+      "top_speed": 80,
+      "body": 12,
+      "armor": 16,
+      "pilot": 4,
+      "sensor": 4,
+      "avail": "4",
+      "cost": 25000
+    },
+    "Ares Packmule": {
+      "handling": {
+        "road": 3,
+        "offroad": 4
+      },
+      "accel": 6,
+      "interval": 5,
+      "top_speed": 30,
+      "body": 8,
+      "armor": 6,
+      "pilot": 2,
+      "sensor": 1,
+      "avail": "3",
+      "cost": 10000
+    },
+    "Nissan Oni": {
+      "handling": {
+        "road": 3,
+        "offroad": 4
+      },
+      "accel": 10,
+      "interval": 8,
+      "top_speed": 30,
+      "body": 9,
+      "armor": 10,
+      "pilot": 3,
+      "sensor": 2,
+      "avail": "2",
+      "cost": 6700
+    },
+    "Cyberspace Designs Dalmatian": {
+      "handling": 3,
+      "accel": 13,
+      "interval": 20,
+      "top_speed": 130,
+      "body": 6,
+      "armor": 4,
+      "pilot": 3,
+      "sensor": 3,
+      "avail": "3",
+      "cost": 10000
+    },
+    "Ares Black Sky": {
+      "handling": 2,
+      "accel": 25,
+      "interval": 50,
+      "top_speed": 300,
+      "body": 8,
+      "armor": 10,
+      "pilot": 4,
+      "sensor": 4,
+      "avail": "5",
+      "cost": 43000
+    }
+  }
+}

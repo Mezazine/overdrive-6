@@ -1,0 +1,259 @@
+{
+  "Headware": {
+    "Kommlink (Kopfeinbau)": {
+      "essence": 0.2,
+      "capacity": 2,
+      "avail": "2",
+      "cost": 2000,
+      "note": "+ Kommlink-Kaufpreis"
+    },
+    "Cyberdeck (Kopfeinbau)": {
+      "essence": 0.4,
+      "capacity": 4,
+      "avail": "4I",
+      "cost": 5000,
+      "note": "+ Cyberdeck-Kaufpreis"
+    },
+    "Datenbuchse": {
+      "essence": 0.1,
+      "capacity": 0,
+      "avail": "2",
+      "cost": 1000
+    },
+    "Riggerkontrolle 1": {
+      "essence": 1.0,
+      "capacity": 0,
+      "avail": "4L",
+      "cost": 30000
+    },
+    "Riggerkontrolle 2": {
+      "essence": 2.0,
+      "capacity": 0,
+      "avail": "4L",
+      "cost": 60000
+    },
+    "Riggerkontrolle 3": {
+      "essence": 3.0,
+      "capacity": 0,
+      "avail": "4L",
+      "cost": 90000
+    },
+    "Talentbuchse (Stufe 1-6)": {
+      "essence": 0.1,
+      "capacity": 0,
+      "avail": "4",
+      "cost_multiplier": 1000
+    },
+    "Geruchsbooster (Stufe 1-3)": {
+      "essence": 0.2,
+      "capacity": 0,
+      "avail": "3",
+      "cost_multiplier": 4000
+    },
+    "Geschmacksbooster (Stufe 1-3)": {
+      "essence": 0.2,
+      "capacity": 0,
+      "avail": "3",
+      "cost_multiplier": 3000
+    },
+    "Stimmenmodulator (Stufe 1-3)": {
+      "essence": 0.2,
+      "capacity": 0,
+      "avail": "4L",
+      "cost_multiplier": 5000
+    }
+  },
+  "Eyeware": {
+    "Cyberaugen 1": {
+      "essence": 0.1,
+      "capacity": 1,
+      "avail": "2",
+      "cost": 1000
+    },
+    "Cyberaugen 2": {
+      "essence": 0.2,
+      "capacity": 4,
+      "avail": "2",
+      "cost": 4000
+    },
+    "Cyberaugen 3": {
+      "essence": 0.3,
+      "capacity": 8,
+      "avail": "3",
+      "cost": 6000
+    },
+    "Cyberaugen 4": {
+      "essence": 0.4,
+      "capacity": 12,
+      "avail": "3",
+      "cost": 10000
+    },
+    "Cyberaugen 5": {
+      "essence": 0.5,
+      "capacity": 16,
+      "avail": "3",
+      "cost": 16000
+    },
+    "Smartlink": {
+      "essence": 0.2,
+      "capacity_in_eyes": 3,
+      "avail": "3L",
+      "cost": 4000
+    },
+    "Bildverbindung": {
+      "essence": 0.1,
+      "capacity_in_eyes": 0,
+      "avail": "2",
+      "cost": 800
+    },
+    "Blitzkompensation": {
+      "essence": 0.1,
+      "capacity_in_eyes": 1,
+      "avail": "2",
+      "cost": 1000
+    },
+    "Infrarotsicht": {
+      "essence": 0.1,
+      "capacity_in_eyes": 2,
+      "avail": "2",
+      "cost": 2000
+    },
+    "Restlichtverstärkung": {
+      "essence": 0.1,
+      "capacity_in_eyes": 2,
+      "avail": "2",
+      "cost": 1500
+    },
+    "Sichtverbesserung": {
+      "essence": 0.1,
+      "capacity_in_eyes": 2,
+      "avail": "3",
+      "cost": 4000
+    },
+    "Sichtvergrößerung": {
+      "essence": 0.1,
+      "capacity_in_eyes": 2,
+      "avail": "3",
+      "cost": 2000
+    }
+  },
+  "Earware": {
+    "Cyberohren 1": {
+      "essence": 0.1,
+      "capacity": 1,
+      "avail": "2",
+      "cost": 1000
+    },
+    "Cyberohren 2": {
+      "essence": 0.2,
+      "capacity": 4,
+      "avail": "2",
+      "cost": 3000
+    },
+    "Cyberohren 3": {
+      "essence": 0.3,
+      "capacity": 8,
+      "avail": "3",
+      "cost": 4500
+    },
+    "Audioverbesserung": {
+      "essence": 0.1,
+      "capacity_in_ears": 1,
+      "avail": "2",
+      "cost": 4000
+    },
+    "Dämpfer": {
+      "essence": 0.1,
+      "capacity_in_ears": 1,
+      "avail": "2",
+      "cost": 2250
+    },
+    "Balanceverstärker": {
+      "essence": 0.1,
+      "capacity_in_ears": 4,
+      "avail": "3",
+      "cost": 8000
+    }
+  },
+  "Bodyware": {
+    "Dermalpanzerung (Stufe 1-6)": {
+      "essence_per_rating": 0.5,
+      "avail": "3L",
+      "cost_per_rating": 3000,
+      "effect": "+1 Verteidigungswert je Stufe"
+    },
+    "Reflexbooster 1": {
+      "essence": 1.0,
+      "avail": "4L",
+      "cost": 40000,
+      "effect": "+1 Reaktion, +1W6 Initiative, +1 Nebenhandlung"
+    },
+    "Reflexbooster 2": {
+      "essence": 2.0,
+      "avail": "5L",
+      "cost": 90000,
+      "effect": "+2 Reaktion, +2W6 Initiative, +2 Nebenhandlungen"
+    },
+    "Reflexbooster 3": {
+      "essence": 3.0,
+      "avail": "6I",
+      "cost": 150000,
+      "effect": "+3 Reaktion, +3W6 Initiative, +3 Nebenhandlungen"
+    },
+    "Kompositknochen (Aluminium)": {
+      "essence": 0.5,
+      "avail": "3L",
+      "cost": 12000,
+      "effect": "+2 Verteidigungswert, Nahkampfschaden 3K"
+    },
+    "Interner Lufttank": {
+      "essence": 0.25,
+      "avail": "2",
+      "cost": 2000
+    }
+  },
+  "Bioware": {
+    "Schlafregulator": {
+      "essence": 0.1,
+      "avail": "2",
+      "cost": 12000,
+      "effect": "Nur 3 Stunden Schlaf nötig"
+    },
+    "Orthoskin (Stufe 1-4)": {
+      "essence_per_rating": 0.25,
+      "avail": "3L",
+      "cost_per_rating": 6000,
+      "effect": "+1 Verteidigungswert je Stufe"
+    },
+    "Muskelstraffung (Stufe 1-4)": {
+      "essence_per_rating": 0.2,
+      "avail": "4L",
+      "cost_per_rating": 15000,
+      "effect": "+1 Geschicklichkeit je Stufe"
+    },
+    "Muskelverstärkung (Stufe 1-4)": {
+      "essence_per_rating": 0.2,
+      "avail": "4L",
+      "cost_per_rating": 15000,
+      "effect": "+1 Stärke je Stufe"
+    },
+    "Synapsenbeschleuniger 1": {
+      "essence": 0.5,
+      "avail": "5L",
+      "cost": 95000,
+      "effect": "+1 Reaktion, +1W6 Initiative"
+    },
+    "Synapsenbeschleuniger 2": {
+      "essence": 1.0,
+      "avail": "6L",
+      "cost": 190000,
+      "effect": "+2 Reaktion, +2W6 Initiative"
+    },
+    "Thrombozytenfabrik": {
+      "essence": 0.2,
+      "avail": "3L",
+      "cost": 17000,
+      "effect": "Senkt erlittenen körperlichen Schaden um 1"
+    }
+  }
+}

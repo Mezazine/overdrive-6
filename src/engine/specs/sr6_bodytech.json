@@ -1,0 +1,43 @@
+{
+  "rigger_control": {
+    "rating_1": {
+      "essence": 1.0,
+      "availability": "4L",
+      "cost": 30000
+    },
+    "rating_2": {
+      "essence": 2.0,
+      "availability": "4L",
+      "cost": 60000
+    },
+    "rating_3": {
+      "essence": 3.0,
+      "availability": "4L",
+      "cost": 90000
+    },
+    "effects": {
+      "threshold_reduction": "rating",
+      "dice_pool_bonus": "rating",
+      "edge_bonus_per_test": 1,
+      "jumped_in_attribute_mapping": {
+        "body": "willpower",
+        "agility": "logic",
+        "reaction": "intuition",
+        "strength": "charisma"
+      }
+    },
+    "source": "SR6 Grundregelwerk S. 196, 286"
+  },
+  "smartlink": {
+    "essence": 0.2,
+    "capacity_cost_cyberoptics": 3,
+    "availability": "3L",
+    "cost": 4000,
+    "effects": {
+      "attack_rating_bonus": 2,
+      "dice_pool_bonus_wifi": 1,
+      "dice_pool_bonus_wifi_implanted": 2
+    },
+    "source": "SR6 Grundregelwerk S. 261, 287"
+  }
+}

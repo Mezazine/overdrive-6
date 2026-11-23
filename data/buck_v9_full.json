@@ -1,0 +1,805 @@
+{
+  "identity": {
+    "name": "Tim Struck",
+    "handle": "Buckshot",
+    "metatype": "Ork",
+    "archetype": "Rigger & Fahrzeug-/Schiffsmechaniker",
+    "cover_identity": "Tim's Rig Services (Kfz- & Bootswerft Hamburg-Skrapland)",
+    "appearance": "Imposante, muskulöse Ork-Statur mit markanten Hauern, Undercut mit geflochtenem Wikinger-Zopf und Runenperlen im dichten Bart. Biomechanik- und Rigger-Tattoos, Thorshammer (Mjölnir), ölverschmierte Mechaniker-Panzerjacke.",
+    "background": "Erfahrener Werftbetreiber und Drohnenrigger aus Hamburg-Skrapland mit erstklassigen Kontakten in Hafen, Schmuggel und Untergrund.",
+    "sins": [
+      {
+        "name": "Tim Struck",
+        "sin_id": "ADL-HH-8849-0291-TS4",
+        "rating": 4,
+        "licenses": [
+          {
+            "name": "Cyberware / Riggerkontrolle",
+            "rating": 4
+          },
+          {
+            "name": "Feuerwaffen",
+            "rating": 4
+          },
+          {
+            "name": "Riggerkonsole",
+            "rating": 4
+          },
+          {
+            "name": "Gewerbeschein Tim's Rig Services",
+            "rating": 4
+          },
+          {
+            "name": "DocWagon-Lizenz",
+            "rating": 4
+          }
+        ]
+      }
+    ],
+    "lifestyle": {
+      "tier": "Mittelschicht",
+      "months_prepaid": 1,
+      "cost_per_month": 5000,
+      "location": "Mechanik-Werkstatt (Bootswerft Skrapland/Hamburg)",
+      "qualities": [
+        "Werft-Stützpunkt",
+        "Sicherer Liegeplatz"
+      ]
+    }
+  },
+  "creation": {
+    "method": "sum_to_ten",
+    "priorities": {
+      "resources": "A",
+      "attributes": "A",
+      "metatype": "D",
+      "skills": "D",
+      "magic_resonance": "E"
+    },
+    "karma_budget": {
+      "starting": 50,
+      "gained_from_negative_qualities": 20,
+      "spent_on_positive_qualities": 20,
+      "spent_on_skills": 45,
+      "remaining": 5
+    },
+    "nuyen_budget": {
+      "starting": 450000,
+      "spent": 446175,
+      "remaining": 3825
+    }
+  },
+  "attributes": {
+    "body": 5,
+    "agility": 4,
+    "reaction": 5,
+    "strength": 4,
+    "willpower": 4,
+    "logic": 4,
+    "intuition": 4,
+    "charisma": 2,
+    "edge": 5,
+    "essence": 4.06,
+    "magic": 0,
+    "resonance": 0
+  },
+  "derived_stats": {
+    "physical_monitor": 12,
+    "stun_monitor": 10,
+    "overflow_boxes": 10,
+    "meat_initiative": "9 + 1W6",
+    "rigged_initiative_cold_sim": "10 + 2W6",
+    "rigged_initiative_hot_sim": "10 + 3W6",
+    "defense_rating": 9,
+    "defense_pool": 9
+  },
+  "skills": {
+    "active": [
+      {
+        "name": "Steuern",
+        "rating": 6,
+        "specialization": {
+          "name": "Bodenfahrzeuge",
+          "bonus": 2
+        }
+      },
+      {
+        "name": "Feuerwaffen",
+        "rating": 4,
+        "specialization": {
+          "name": "Schrotflinten",
+          "bonus": 2
+        }
+      },
+      {
+        "name": "Mechanik",
+        "rating": 4,
+        "specialization": {
+          "name": "Fahrzeugmechanik",
+          "bonus": 2
+        }
+      },
+      {
+        "name": "Biotech",
+        "rating": 2,
+        "specialization": {
+          "name": "Erste Hilfe",
+          "bonus": 2
+        }
+      },
+      {
+        "name": "Wahrnehmung",
+        "rating": 2
+      },
+      {
+        "name": "Heimlichkeit",
+        "rating": 1
+      },
+      {
+        "name": "Elektronik",
+        "rating": 1
+      }
+    ],
+    "knowledge": [
+      {
+        "name": "Hamburg Schatten & Hafen",
+        "rating": 2
+      },
+      {
+        "name": "Drohnendesign & Fahrzeug-Mods",
+        "rating": 2
+      }
+    ],
+    "languages": [
+      {
+        "name": "Deutsch",
+        "native": true
+      },
+      {
+        "name": "Englisch",
+        "rating": 2
+      }
+    ]
+  },
+  "qualities": [
+    {
+      "name": "Meistermechaniker",
+      "type": "positive",
+      "karma_cost": 10,
+      "effect": "Erhält 1 Edge bei allen Reparaturproben für Fahrzeuge, Boote & Drohnen."
+    },
+    {
+      "name": "Vertrautes Terrain: Hamburger Hafen/Skrapland",
+      "type": "positive",
+      "karma_cost": 10,
+      "effect": "Erhält 1 Edge bei Wahrnehmungs- und Orientierungsproben im Heimatrevier."
+    },
+    {
+      "name": "Restlichtverstärkung",
+      "type": "metatype",
+      "karma_cost": 0,
+      "effect": "Ork-Metatypvorteil: Bessere Sicht bei schlechten Lichtverhältnissen."
+    },
+    {
+      "name": "Robust Gebaut 1",
+      "type": "metatype",
+      "karma_cost": 0,
+      "effect": "Ork-Metatypvorteil: +1 zusätzliches Kästchen auf dem körperlichen Monitor."
+    },
+    {
+      "name": "Auffälliger Stil",
+      "type": "negative",
+      "karma_bonus": 6,
+      "effect": "Tattoos, Hauer, Wikingerzopf machen Buck unverwechselbar (+2 Würfel für Verfolger bei Beschattung)."
+    },
+    {
+      "name": "Ehrenkodex: Schutz der Werkstatt & Crew",
+      "type": "negative",
+      "karma_bonus": 10,
+      "effect": "Lässt niemanden im Stich, der unter seinem Schutz steht."
+    },
+    {
+      "name": "Allergie: Meeres-Schadstoffe/Chemieabfälle",
+      "type": "negative",
+      "karma_bonus": 6,
+      "effect": "Leichte / saisonale Unverträglichkeit gegen toxische Hafensubstanzen."
+    }
+  ],
+  "bodytech": [
+    {
+      "name": "Riggerkontrolle",
+      "type": "cyberware",
+      "grade": "Alphaware",
+      "rating": 2,
+      "base_essence": 2,
+      "essence_cost": 1.6,
+      "cost": 72000,
+      "notes": "Alphaware (0.8x Essenz). Senkt Schwellenwerte um 2, +2 Würfelpool, +1 Edge je Probe im hineingesprungenen Zustand."
+    },
+    {
+      "name": "Smartlink",
+      "type": "cyberware",
+      "grade": "Alphaware",
+      "rating": 1,
+      "base_essence": 0.2,
+      "essence_cost": 0.16,
+      "cost": 4800,
+      "notes": "Alphaware (0.8x Essenz). Direkt im Retinalnerv implantiert (+2 Angriffswert / +2 Würfelpool WiFi)."
+    },
+    {
+      "name": "Schlafregulator",
+      "type": "bioware",
+      "grade": "Alphaware",
+      "rating": 1,
+      "base_essence": 0.1,
+      "essence_cost": 0.08,
+      "cost": 14400,
+      "notes": "Alphaware (0.8x Essenz). Benötigt nur 3 Stunden Schlaf täglich."
+    },
+    {
+      "name": "Datenbuchse (Datajack)",
+      "type": "cyberware",
+      "grade": "Standard",
+      "rating": 1,
+      "base_essence": 0.1,
+      "essence_cost": 0.1,
+      "cost": 1000,
+      "notes": "Direktes Neuralinterface (DNI) & Speicherport."
+    }
+  ],
+  "weapons": [
+    {
+      "name": "Mossberg CMDT Sturmschrotflinte (Smart)",
+      "category": "Schrotflinte",
+      "damage": 4,
+      "damage_type": "K",
+      "firing_modes": [
+        "HM",
+        "SM"
+      ],
+      "attack_ratings": [
+        5,
+        12,
+        8,
+        null,
+        null
+      ],
+      "ammo_capacity": 24,
+      "ammo_loaded_type": "Standard",
+      "accessories": [
+        "Internes Smartgunsystem",
+        "Lasermarkierer",
+        "2x Ersatz-Trommelmagazine"
+      ]
+    },
+    {
+      "name": "Wikingeraxt (Kampfaxt)",
+      "category": "Nahkampfwaffe",
+      "damage": 3,
+      "damage_type": "K",
+      "firing_modes": [
+        "Einzelschlag"
+      ],
+      "attack_ratings": [
+        4,
+        null,
+        null,
+        null,
+        null
+      ],
+      "ammo_capacity": 0,
+      "accessories": [
+        "Ausbalancierter Griff"
+      ]
+    }
+  ],
+  "armor": [
+    {
+      "name": "Panzerjacke (Wikinger/Biker-Stil)",
+      "defense_bonus": 4,
+      "capacity": 4,
+      "upgrades": [
+        "Maßanfertigung"
+      ]
+    },
+    {
+      "name": "Panzerkleidung",
+      "defense_bonus": 2,
+      "capacity": 2,
+      "upgrades": []
+    }
+  ],
+  "gear_electronics": {
+    "commlink": {
+      "name": "Erika Elite",
+      "device_rating": 4,
+      "data_processing": 4,
+      "firewall": 2,
+      "programs": [
+        "AR-Handschuhe",
+        "Troden"
+      ]
+    },
+    "rcc": {
+      "name": "Vulcan Liegelord",
+      "device_rating": 5,
+      "data_processing": 6,
+      "firewall": 5,
+      "noise_reduction": 5,
+      "max_slaves": 15,
+      "max_shared_programs": 6,
+      "shared_autosofts": [
+        {
+          "name": "Clearsight",
+          "rating": 5,
+          "target": "universal"
+        },
+        {
+          "name": "Ausweichen",
+          "rating": 5,
+          "target": "universal"
+        },
+        {
+          "name": "Manövrieren",
+          "rating": 5,
+          "target": "drone_model"
+        },
+        {
+          "name": "Zielerfassung [AK-97]",
+          "rating": 5,
+          "target": "weapon_model"
+        },
+        {
+          "name": "Stealth",
+          "rating": 5,
+          "target": "drone_model"
+        },
+        {
+          "name": "Elektronische Kriegsführung",
+          "rating": 5,
+          "target": "universal"
+        }
+      ],
+      "shared_programs": []
+    },
+    "items": [
+      {
+        "name": "Ausrüstungsbrille (Kapazität 3: Blitzschutz, Infrarotsicht, Bildverbindung)",
+        "quantity": 1,
+        "cost": 1300
+      },
+      {
+        "name": "DocWagon-Vertrag (Standard, 1 Jahr Laufzeit)",
+        "quantity": 1,
+        "cost": 5000
+      },
+      {
+        "name": "Medkit Stufe 4 mit 4 Nachfüllpacks",
+        "quantity": 1,
+        "rating": 4,
+        "cost": 1400
+      },
+      {
+        "name": "Trauma-Patches (Sofort-Stabilisierung)",
+        "quantity": 2,
+        "cost": 1000
+      },
+      {
+        "name": "Stim-Patches Stufe 4",
+        "quantity": 5,
+        "rating": 4,
+        "cost": 500
+      },
+      {
+        "name": "Tragbare Mechanik-Werkzeugkiste",
+        "quantity": 1,
+        "cost": 500
+      },
+      {
+        "name": "Beglaubigte Credsticks",
+        "quantity": 3,
+        "cost": 600
+      }
+    ]
+  },
+  "vehicles": [
+    {
+      "name": "GMC Bulldog Step-Van",
+      "vehicle_type": "Gepanzerter Lieferwagen",
+      "handling": {
+        "road": 5,
+        "offroad": 7
+      },
+      "acceleration": 10,
+      "speed_interval": 10,
+      "top_speed": 140,
+      "body": 16,
+      "armor": 12,
+      "pilot": 2,
+      "sensor": 3,
+      "seats": 10,
+      "rigger_interface": true,
+      "condition_monitor": 16,
+      "installed_mods": [
+        "Riggerinterface",
+        "Drohnenauswurf-Heckklappe",
+        "Mobiles Werkzeug-Set"
+      ]
+    },
+    {
+      "name": "Suzuki Mirage",
+      "vehicle_type": "Sport-Motorrad",
+      "handling": {
+        "road": 2,
+        "offroad": 6
+      },
+      "acceleration": 29,
+      "speed_interval": 30,
+      "top_speed": 260,
+      "body": 4,
+      "armor": 2,
+      "pilot": 1,
+      "sensor": 1,
+      "seats": 1,
+      "rigger_interface": true,
+      "condition_monitor": 10,
+      "installed_mods": [
+        "Riggerinterface",
+        "Aerodynamische Sportverkleidung"
+      ]
+    },
+    {
+      "name": "Samuvani-Criscraft Otter",
+      "vehicle_type": "Motorboot / Kabinenkreuzer",
+      "handling": 4,
+      "acceleration": 15,
+      "speed_interval": 15,
+      "top_speed": 80,
+      "body": 8,
+      "armor": 6,
+      "pilot": 2,
+      "sensor": 2,
+      "seats": 4,
+      "rigger_interface": true,
+      "condition_monitor": 12,
+      "installed_mods": [
+        "Riggerinterface",
+        "Tarnplanen",
+        "Schmuggelfach"
+      ]
+    },
+    {
+      "name": "Proteus Lamprey",
+      "vehicle_type": "Mini-U-Boot / Tauchfahrzeug",
+      "handling": 3,
+      "acceleration": 10,
+      "speed_interval": 10,
+      "top_speed": 35,
+      "body": 6,
+      "armor": 8,
+      "pilot": 2,
+      "sensor": 2,
+      "seats": 4,
+      "rigger_interface": true,
+      "condition_monitor": 11,
+      "installed_mods": [
+        "Riggerinterface",
+        "Schallgedämpfter Elektroantrieb"
+      ]
+    }
+  ],
+  "drones": [
+    {
+      "id": "drone-roto-1",
+      "callsign": "Odin 1",
+      "name": "MCT-Nissan Roto-Drohne",
+      "model": "MCT-Nissan Roto-Drohne",
+      "category": "Mittlere Drohne (Rotordrohne)",
+      "handling": 3,
+      "acceleration": 20,
+      "speed_interval": 30,
+      "top_speed": 160,
+      "body": 5,
+      "armor": 6,
+      "pilot": 3,
+      "sensor": 2,
+      "quantity": 1,
+      "rigger_interface": true,
+      "condition_monitor": 11,
+      "damage_taken": 0,
+      "weapon_mount": {
+        "type": "Standard",
+        "weapon": "AK-97 Sturmgewehr (Smart)",
+        "ammo": "1000x Standard, 500x APDS"
+      },
+      "network_status": "rcc_slave_streaming"
+    },
+    {
+      "id": "drone-roto-2",
+      "callsign": "Odin 2",
+      "name": "MCT-Nissan Roto-Drohne",
+      "model": "MCT-Nissan Roto-Drohne",
+      "category": "Mittlere Drohne (Rotordrohne)",
+      "handling": 3,
+      "acceleration": 20,
+      "speed_interval": 30,
+      "top_speed": 160,
+      "body": 5,
+      "armor": 6,
+      "pilot": 3,
+      "sensor": 2,
+      "quantity": 1,
+      "rigger_interface": true,
+      "condition_monitor": 11,
+      "damage_taken": 0,
+      "weapon_mount": {
+        "type": "Standard",
+        "weapon": "AK-97 Sturmgewehr (Smart)",
+        "ammo": "1000x Standard, 500x APDS"
+      },
+      "network_status": "rcc_slave_streaming"
+    },
+    {
+      "id": "drone-dober-1",
+      "callsign": "Fenris 1",
+      "name": "GM-Nissan Dobermann",
+      "model": "GM-Nissan Dobermann",
+      "category": "Mittlere Drohne (Bodendrohne)",
+      "handling": {
+        "road": 3,
+        "offroad": 5
+      },
+      "acceleration": 10,
+      "speed_interval": 15,
+      "top_speed": 100,
+      "body": 4,
+      "armor": 6,
+      "pilot": 2,
+      "sensor": 3,
+      "quantity": 1,
+      "rigger_interface": true,
+      "condition_monitor": 10,
+      "damage_taken": 0,
+      "weapon_mount": {
+        "type": "Standard",
+        "weapon": "AK-97 Sturmgewehr (Smart)",
+        "ammo": "1000x Standard, 500x APDS"
+      },
+      "network_status": "rcc_slave_streaming"
+    },
+    {
+      "id": "drone-dober-2",
+      "callsign": "Fenris 2",
+      "name": "GM-Nissan Dobermann",
+      "model": "GM-Nissan Dobermann",
+      "category": "Mittlere Drohne (Bodendrohne)",
+      "handling": {
+        "road": 3,
+        "offroad": 5
+      },
+      "acceleration": 10,
+      "speed_interval": 15,
+      "top_speed": 100,
+      "body": 4,
+      "armor": 6,
+      "pilot": 2,
+      "sensor": 3,
+      "quantity": 1,
+      "rigger_interface": true,
+      "condition_monitor": 10,
+      "damage_taken": 0,
+      "weapon_mount": {
+        "type": "Standard",
+        "weapon": "AK-97 Sturmgewehr (Smart)",
+        "ammo": "1000x Standard, 500x APDS"
+      },
+      "network_status": "rcc_slave_streaming"
+    },
+    {
+      "id": "drone-hornet-1",
+      "callsign": "Wasp 1",
+      "name": "MCT Hornet",
+      "model": "MCT Hornet",
+      "category": "Flugzeug-/Minidrohne",
+      "handling": 3,
+      "acceleration": 20,
+      "speed_interval": 15,
+      "top_speed": 35,
+      "body": 1,
+      "armor": 0,
+      "pilot": 2,
+      "sensor": 2,
+      "quantity": 1,
+      "rigger_interface": true,
+      "condition_monitor": 9,
+      "damage_taken": 0,
+      "weapon_mount": {
+        "type": "Injektor",
+        "weapon": "Injektor-Stachel mit Narcoject",
+        "ammo": "10 Dosen Narcoject"
+      },
+      "network_status": "rcc_slave_streaming"
+    },
+    {
+      "id": "drone-hornet-2",
+      "callsign": "Wasp 2",
+      "name": "MCT Hornet",
+      "model": "MCT Hornet",
+      "category": "Flugzeug-/Minidrohne",
+      "handling": 3,
+      "acceleration": 20,
+      "speed_interval": 15,
+      "top_speed": 35,
+      "body": 1,
+      "armor": 0,
+      "pilot": 2,
+      "sensor": 2,
+      "quantity": 1,
+      "rigger_interface": true,
+      "condition_monitor": 9,
+      "damage_taken": 0,
+      "weapon_mount": {
+        "type": "Injektor",
+        "weapon": "Injektor-Stachel mit Narcoject",
+        "ammo": "10 Dosen Narcoject"
+      },
+      "network_status": "rcc_slave_streaming"
+    },
+    {
+      "id": "drone-eye-1",
+      "callsign": "Eye 1",
+      "name": "Horizon Flying Eye",
+      "model": "Horizon Flying Eye",
+      "category": "Mikrodrohne (Rotordrohne)",
+      "handling": 3,
+      "acceleration": 15,
+      "speed_interval": 15,
+      "top_speed": 40,
+      "body": 1,
+      "armor": 0,
+      "pilot": 2,
+      "sensor": 2,
+      "quantity": 1,
+      "rigger_interface": true,
+      "condition_monitor": 9,
+      "damage_taken": 0,
+      "weapon_mount": {
+        "type": "Keine"
+      },
+      "network_status": "rcc_slave_streaming"
+    },
+    {
+      "id": "drone-eye-2",
+      "callsign": "Eye 2",
+      "name": "Horizon Flying Eye",
+      "model": "Horizon Flying Eye",
+      "category": "Mikrodrohne (Rotordrohne)",
+      "handling": 3,
+      "acceleration": 15,
+      "speed_interval": 15,
+      "top_speed": 40,
+      "body": 1,
+      "armor": 0,
+      "pilot": 2,
+      "sensor": 2,
+      "quantity": 1,
+      "rigger_interface": true,
+      "condition_monitor": 9,
+      "damage_taken": 0,
+      "weapon_mount": {
+        "type": "Keine"
+      },
+      "network_status": "rcc_slave_streaming"
+    },
+    {
+      "id": "drone-kanmushi-1",
+      "callsign": "Crawler 1",
+      "name": "Shiawase Kanmushi",
+      "model": "Shiawase Kanmushi",
+      "category": "Mikrodrohne (Läuferdrohne)",
+      "handling": {
+        "road": 2,
+        "offroad": 3
+      },
+      "acceleration": 4,
+      "speed_interval": 5,
+      "top_speed": 15,
+      "body": 0,
+      "armor": 0,
+      "pilot": 3,
+      "sensor": 2,
+      "quantity": 1,
+      "rigger_interface": true,
+      "condition_monitor": 8,
+      "damage_taken": 0,
+      "weapon_mount": {
+        "type": "Keine"
+      },
+      "network_status": "rcc_slave_streaming"
+    },
+    {
+      "id": "drone-kanmushi-2",
+      "callsign": "Crawler 2",
+      "name": "Shiawase Kanmushi",
+      "model": "Shiawase Kanmushi",
+      "category": "Mikrodrohne (Läuferdrohne)",
+      "handling": {
+        "road": 2,
+        "offroad": 3
+      },
+      "acceleration": 4,
+      "speed_interval": 5,
+      "top_speed": 15,
+      "body": 0,
+      "armor": 0,
+      "pilot": 3,
+      "sensor": 2,
+      "quantity": 1,
+      "rigger_interface": true,
+      "condition_monitor": 8,
+      "damage_taken": 0,
+      "weapon_mount": {
+        "type": "Keine"
+      },
+      "network_status": "rcc_slave_streaming"
+    }
+  ],
+  "ammunition": [
+    {
+      "name": "Schrotflinten-Munition Standard",
+      "weapon_type": "Schrotflinte",
+      "quantity": 200
+    },
+    {
+      "name": "Schrotflinten-Munition Gel",
+      "weapon_type": "Schrotflinte",
+      "quantity": 100
+    },
+    {
+      "name": "Schrotflinten-Munition Explosiv",
+      "weapon_type": "Schrotflinte",
+      "quantity": 100
+    },
+    {
+      "name": "Sturmgewehrmunition Standard (AK-97)",
+      "weapon_type": "Sturmgewehr",
+      "quantity": 1000
+    },
+    {
+      "name": "Sturmgewehrmunition APDS (AK-97)",
+      "weapon_type": "Sturmgewehr",
+      "quantity": 500
+    },
+    {
+      "name": "Narcoject-Toxindosen",
+      "weapon_type": "Injektor",
+      "quantity": 10
+    }
+  ],
+  "contacts": [
+    {
+      "name": "Kutter-Jan",
+      "archetype": "Kiez-Schieber",
+      "location": "Hamburg-Altona / Hafen",
+      "influence": 2,
+      "loyalty": 2,
+      "notes": "Vermittelt Schattenaufträge, besorgt Schrotflinten-Munition, Werft-Ersatzteile und illegale Fahrzeug-Modifikationen."
+    },
+    {
+      "name": "Dr. Oker",
+      "archetype": "Straßendoc / Cyber-Doc",
+      "location": "Hamburg-Skrapland",
+      "influence": 2,
+      "loyalty": 2,
+      "notes": "Flickt Buck nach blutigen Runs ohne lästige Fragen wieder zusammen."
+    },
+    {
+      "name": "Kapt'n Hella",
+      "archetype": "Schiffs- & Motoren-Schmugglerin",
+      "location": "Elbe / Barrens",
+      "influence": 2,
+      "loyalty": 2,
+      "notes": "Beschafft heiße Bootsteile, kennt geheime Wasserwege in den Hamburger Fleeten."
+    }
+  ]
+}

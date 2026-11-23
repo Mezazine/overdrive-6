@@ -1,0 +1,56 @@
+{
+  "Actions": {
+    "Gerät steuern": {
+      "skill": "Elektronik + Logik",
+      "type": "Haupthandlung",
+      "description": "Führt Fernbefehl auf kompromittiertem Gerät aus"
+    },
+    "Brute Force": {
+      "skill": "Cracken + Logik",
+      "type": "Haupthandlung",
+      "description": "Gewaltsamer Zugang, generiert Matrix-Overwatch (OS)"
+    },
+    "Sondieren": {
+      "skill": "Cracken + Logik",
+      "type": "Ausgedehnte Probe",
+      "description": "Heimlicher Zugang ohne Overwatch-Generierung"
+    },
+    "Hintertür nutzen": {
+      "skill": "Cracken + Logik",
+      "type": "Haupthandlung",
+      "description": "Schneller Zugriff nach erfolgreichem Sondieren"
+    },
+    "Datenklau": {
+      "skill": "Elektronik + Logik",
+      "type": "Haupthandlung",
+      "description": "Herunterladen geschützter Paydata"
+    },
+    "Spurlos löschen": {
+      "skill": "Cracken + Logik",
+      "type": "Haupthandlung",
+      "description": "Löscht Spuren und Matrix-Logs"
+    },
+    "Verstecken": {
+      "skill": "Cracken + Intuition",
+      "type": "Haupthandlung",
+      "description": "Macht Persona in der Matrix unsichtbar"
+    }
+  },
+  "Technomancer_Echoes": {
+    "Maschinenbeherrschung": {
+      "effect": "Erhält die Effekte einer Riggerkontrolle Stufe 1"
+    },
+    "Lebendes Netzwerk": {
+      "effect": "Lebende Persona kann Slaves in ein eigenes PAN einbinden"
+    },
+    "Neurofilter": {
+      "effect": "+1 Würfel gegen Biofeedback-Schaden"
+    },
+    "Skinlink": {
+      "effect": "Direktverbindung (DNI) durch physische Hautberührung"
+    },
+    "Übertakten": {
+      "effect": "+1W6 Matrix-Initiative in heißer VR"
+    }
+  }
+}

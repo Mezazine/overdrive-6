@@ -1,0 +1,156 @@
+{
+  "Elfen": {
+    "Nächtliche": {
+      "attributes": {
+        "agility_max": 7,
+        "charisma_max": 8
+      },
+      "qualities": [
+        "Nachtaktiv",
+        "Infrarotsicht",
+        "Lichtempfindlichkeit"
+      ]
+    },
+    "Wakyambi": {
+      "attributes": {
+        "agility_max": 7,
+        "charisma_max": 8
+      },
+      "qualities": [
+        "Großwüchsig",
+        "Restlichtverstärkung"
+      ]
+    }
+  },
+  "Zwerge": {
+    "Gnome": {
+      "attributes": {
+        "strength_max": 6,
+        "willpower_max": 7
+      },
+      "qualities": [
+        "Neotenie",
+        "Arkaner Arretierer"
+      ]
+    },
+    "Menehune": {
+      "attributes": {
+        "body_max": 7,
+        "strength_max": 8
+      },
+      "qualities": [
+        "Schwimmer",
+        "Infrarotsicht"
+      ]
+    }
+  },
+  "Orks": {
+    "Hobgoblins": {
+      "attributes": {
+        "body_max": 8,
+        "strength_max": 8,
+        "charisma_max": 4
+      },
+      "qualities": [
+        "Reizbar",
+        "Restlichtverstärkung"
+      ]
+    },
+    "Oger": {
+      "attributes": {
+        "body_max": 9,
+        "strength_max": 8
+      },
+      "qualities": [
+        "Erhöhte Schmerztoleranz",
+        "Verdauungstrakt aus Stahl"
+      ]
+    },
+    "Oni": {
+      "attributes": {
+        "body_max": 8,
+        "strength_max": 8,
+        "charisma_max": 6
+      },
+      "qualities": [
+        "Auffällige Färbung",
+        "Hörner",
+        "Restlichtverstärkung"
+      ]
+    }
+  },
+  "Trolle": {
+    "Fomori": {
+      "attributes": {
+        "body_max": 9,
+        "strength_max": 9
+      },
+      "qualities": [
+        "Arkaner Schutz",
+        "Dermalablagerungen"
+      ]
+    },
+    "Minotauren": {
+      "attributes": {
+        "body_max": 10,
+        "strength_max": 9
+      },
+      "qualities": [
+        "Hörner",
+        "Breiter Körperbau"
+      ]
+    },
+    "Zyklopen": {
+      "attributes": {
+        "body_max": 10,
+        "strength_max": 10
+      },
+      "qualities": [
+        "Zyklopenauge",
+        "Schwere Hiebe"
+      ]
+    }
+  },
+  "Metasapiente": {
+    "Zentauren": {
+      "type": "Vierbeinig",
+      "body_max": 10,
+      "strength_max": 9,
+      "qualities": [
+        "Pferdekörper",
+        "Naturverbunden"
+      ]
+    },
+    "Naga": {
+      "type": "Schlangenleib",
+      "body_max": 8,
+      "strength_max": 8,
+      "qualities": [
+        "Dualwesen",
+        "Giftbiss",
+        "Magiebegabt"
+      ]
+    },
+    "Pixies": {
+      "type": "Feenwesen",
+      "body_max": 2,
+      "strength_max": 2,
+      "agility_max": 8,
+      "qualities": [
+        "Flügel",
+        "Astrale Projektion",
+        "Verschwinden"
+      ]
+    },
+    "Sasquatch": {
+      "type": "Primitiv-Metasapient",
+      "body_max": 10,
+      "strength_max": 10,
+      "qualities": [
+        "Fell",
+        "Schrei",
+        "Stumm"
+      ]
+    }
+  }
+}

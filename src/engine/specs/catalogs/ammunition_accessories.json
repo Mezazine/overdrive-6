@@ -1,0 +1,156 @@
+{
+  "_comment": "Offizieller Shadowrun 6 (SR6) Munitions- und Zubehörkatalog - Quelle: SR6 Grundregelwerk S. 259-263",
+  "ammunition_by_weapon_class": {
+    "Taser": {
+      "availability": "1",
+      "cost_per_10": 10,
+      "source": "GRW S. 262"
+    },
+    "Holdout / Leichte Pistole / Automatikpistole": {
+      "availability": "1",
+      "cost_per_10": 5,
+      "source": "GRW S. 262"
+    },
+    "Schwere Pistole / Maschinenpistole": {
+      "availability": "1",
+      "cost_per_10": 10,
+      "source": "GRW S. 262"
+    },
+    "Schrotflinte": {
+      "availability": "2L",
+      "cost_per_10": 15,
+      "source": "GRW S. 262"
+    },
+    "Gewehrmunition (Sturmgewehr / Jagdgewehr)": {
+      "availability": "2L",
+      "cost_per_10": 50,
+      "cost_per_10_alt_base": 20,
+      "description": "50 ¥ pro 10 Schuss (Projekt-Standard nach SR6 Errata / 20 ¥ GRW S. 262 Basis 'Sonstiges Gewehr')",
+      "source": "SR6 Projektstandard & GRW S. 262"
+    },
+    "Maschinengewehr": {
+      "availability": "2L",
+      "cost_per_10": 15,
+      "source": "GRW S. 262"
+    },
+    "Sturmkanone": {
+      "availability": "4I",
+      "cost_per_10": 50,
+      "source": "GRW S. 262"
+    },
+    "Injektionspfeil": {
+      "availability": "2",
+      "cost_per_shot": 5,
+      "description": "5 ¥ pro Pfeil + Toxin/Droge",
+      "source": "GRW S. 262"
+    }
+  },
+  "ammunition_types": {
+    "Standard": {
+      "price_multiplier": 1.0,
+      "ar_mod": 0,
+      "damage_mod": 0,
+      "availability": "1",
+      "description": "Klassische Vollmantelgeschosse.",
+      "source": "GRW S. 262"
+    },
+    "APDS (Panzerbrechend)": {
+      "price_multiplier": 3.0,
+      "ar_mod": 2,
+      "damage_mod": -1,
+      "availability": "4L",
+      "description": "+2 Angriffswert (AW), -1 Grundschaden. Erhöht die Chance auf Edge durch höheren AW massiv.",
+      "source": "GRW S. 262"
+    },
+    "Explosiv": {
+      "price_multiplier": 2.0,
+      "ar_mod": 0,
+      "damage_mod": 1,
+      "availability": "3L",
+      "description": "+1 Grundschaden. Fehlzündung bei Kritischem Patzer.",
+      "source": "GRW S. 262"
+    },
+    "Flechette": {
+      "price_multiplier": 1.5,
+      "ar_mod": 1,
+      "damage_mod": -1,
+      "availability": "2",
+      "description": "+1 Angriffswert, -1 Schaden.",
+      "source": "GRW S. 262"
+    },
+    "Gel": {
+      "price_multiplier": 1.5,
+      "ar_mod": 0,
+      "damage_mod": 0,
+      "damage_type": "Stun",
+      "availability": "1",
+      "description": "Verursacht Betäubungsschaden (B). Ziel muss GS (2) oder KO (4) bestehen oder gerät in Status Liegend.",
+      "source": "GRW S. 262"
+    },
+    "Schocker": {
+      "price_multiplier": 2.0,
+      "ar_mod": 1,
+      "damage_mod": -1,
+      "damage_type": "Stun",
+      "availability": "2",
+      "description": "+1 AW, -1 Schaden. Betäubungsschaden; Ziel erleidet für 2 KR Status Gebrutzelt.",
+      "source": "GRW S. 262"
+    }
+  },
+  "weapon_accessories_sr6": {
+    "Smartgunsystem (intern)": {
+      "cost": 500,
+      "availability": "3L",
+      "effects": "+2 Angriffswert auf alle Distanzen; +2 Würfel WiFi-Bonus bei implantiertem Smartlink.",
+      "source": "GRW S. 260"
+    },
+    "Smartgunsystem (extern)": {
+      "cost": 200,
+      "availability": "2",
+      "effects": "+2 Angriffswert auf alle Distanzen; +1 Würfel WiFi-Bonus bei implantiertem Smartlink.",
+      "source": "GRW S. 260"
+    },
+    "Schalldämpfer": {
+      "cost": 150,
+      "availability": "2L",
+      "mount": "Lauf",
+      "effects": "Schwellenwert zum Wahrnehmen des Schusses wird um +2 erhöht.",
+      "source": "GRW S. 260"
+    },
+    "Lasermarkierer": {
+      "cost": 100,
+      "availability": "2",
+      "mount": "Lauf oder Auf",
+      "effects": "+1 Angriffswert auf Nahbereich.",
+      "source": "GRW S. 260"
+    },
+    "Zielfernrohr": {
+      "cost": 150,
+      "availability": "2",
+      "mount": "Auf",
+      "effects": "Verringert Distanzmodifikatoren auf Weite/Extreme Distanz.",
+      "source": "GRW S. 260"
+    },
+    "Zweibein (ausklappbar)": {
+      "cost": 100,
+      "availability": "2",
+      "mount": "Unterlauf",
+      "effects": "Erhöht den Angriffswert um +2 beim Schießen aus liegender oder aufgestützter Position.",
+      "source": "GRW S. 260"
+    },
+    "Feste Schulterstütze mit Schockpolster": {
+      "cost": 150,
+      "availability": "2",
+      "mount": "Hinterschaft",
+      "effects": "Stabilisiert die Waffe im Mehrfachfeuer.",
+      "source": "GRW S. 260"
+    },
+    "Airburst-Verbindung": {
+      "cost": 250,
+      "availability": "3L",
+      "mount": "Intern",
+      "effects": "Ermöglicht programmierbare Zündung von Minigranaten direkt über dem Ziel.",
+      "source": "GRW S. 259"
+    }
+  }
+}

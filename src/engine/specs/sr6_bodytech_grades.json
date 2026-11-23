@@ -1,0 +1,27 @@
+{
+  "Gebraucht": {
+    "essence_multiplier": 1.1,
+    "cost_multiplier": 0.5,
+    "avail_mod": -1
+  },
+  "Standard": {
+    "essence_multiplier": 1.0,
+    "cost_multiplier": 1.0,
+    "avail_mod": 0
+  },
+  "Alphaware": {
+    "essence_multiplier": 0.8,
+    "cost_multiplier": 1.2,
+    "avail_mod": 1
+  },
+  "Betaware": {
+    "essence_multiplier": 0.7,
+    "cost_multiplier": 1.5,
+    "avail_mod": 2
+  },
+  "Deltaware": {
+    "essence_multiplier": 0.5,
+    "cost_multiplier": 2.5,
+    "avail_mod": 3
+  }
+}

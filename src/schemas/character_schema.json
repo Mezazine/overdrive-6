@@ -1,0 +1,492 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SR6UniversalCharacterSchema",
+  "description": "Allumfassendes Shadowrun 6 Charakterschema für OVERDRIVE-6 (unterstützt Mundane, Cyber-Samurais, Rigger, Decker, Magier, Adepten, Technomancer)",
+  "type": "object",
+  "required": ["identity", "creation", "attributes", "skills"],
+  "properties": {
+    "identity": {
+      "type": "object",
+      "required": ["name", "handle", "metatype"],
+      "properties": {
+        "name": { "type": "string" },
+        "handle": { "type": "string" },
+        "metatype": {
+          "type": "string",
+          "enum": ["Mensch", "Human", "Elf", "Ork", "Troll", "Zwerg", "Dwarf"]
+        },
+        "metavariant": { "type": "string" },
+        "archetype": { "type": "string" },
+        "cover_identity": { "type": "string" },
+        "appearance": { "type": "string" },
+        "background": { "type": "string" },
+        "sins": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "rating"],
+            "properties": {
+              "name": { "type": "string" },
+              "sin_id": { "type": "string" },
+              "rating": { "type": "integer", "minimum": 1, "maximum": 6 },
+              "licenses": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": { "type": "string" },
+                    "rating": { "type": "integer", "minimum": 1, "maximum": 6 }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "lifestyle": {
+          "type": "object",
+          "properties": {
+            "tier": {
+              "type": "string",
+              "enum": ["Straße", "Squatter", "Unterschicht", "Mittelschicht", "Oberschicht", "Luxus"]
+            },
+            "months_prepaid": { "type": "integer", "minimum": 0 },
+            "cost_per_month": { "type": "number" },
+            "location": { "type": "string" },
+            "qualities": { "type": "array", "items": { "type": "string" } }
+          }
+        }
+      }
+    },
+    "creation": {
+      "type": "object",
+      "required": ["method"],
+      "properties": {
+        "method": {
+          "type": "string",
+          "enum": ["priority", "sum_to_ten", "point_buy", "lifepath"]
+        },
+        "priorities": {
+          "type": "object",
+          "properties": {
+            "metatype": { "type": "string", "enum": ["A", "B", "C", "D", "E"] },
+            "attributes": { "type": "string", "enum": ["A", "B", "C", "D", "E"] },
+            "skills": { "type": "string", "enum": ["A", "B", "C", "D", "E"] },
+            "magic_resonance": { "type": "string", "enum": ["A", "B", "C", "D", "E"] },
+            "resources": { "type": "string", "enum": ["A", "B", "C", "D", "E"] }
+          }
+        },
+        "karma_budget": {
+          "type": "object",
+          "properties": {
+            "starting": { "type": "integer", "default": 50 },
+            "gained_from_negative_qualities": { "type": "integer", "maximum": 20 },
+            "spent": { "type": "integer" },
+            "remaining": { "type": "integer" }
+          }
+        },
+        "nuyen_budget": {
+          "type": "object",
+          "properties": {
+            "starting": { "type": "number" },
+            "spent": { "type": "number" },
+            "remaining": { "type": "number" }
+          }
+        }
+      }
+    },
+    "attributes": {
+      "type": "object",
+      "required": [
+        "body",
+        "agility",
+        "reaction",
+        "strength",
+        "willpower",
+        "logic",
+        "intuition",
+        "charisma",
+        "edge"
+      ],
+      "properties": {
+        "body": { "type": "integer", "minimum": 1 },
+        "agility": { "type": "integer", "minimum": 1 },
+        "reaction": { "type": "integer", "minimum": 1 },
+        "strength": { "type": "integer", "minimum": 1 },
+        "willpower": { "type": "integer", "minimum": 1 },
+        "logic": { "type": "integer", "minimum": 1 },
+        "intuition": { "type": "integer", "minimum": 1 },
+        "charisma": { "type": "integer", "minimum": 1 },
+        "edge": { "type": "integer", "minimum": 1 },
+        "essence": { "type": "number", "minimum": 0.0, "maximum": 6.0, "default": 6.0 },
+        "magic": { "type": "integer", "minimum": 0, "default": 0 },
+        "resonance": { "type": "integer", "minimum": 0, "default": 0 }
+      }
+    },
+    "derived_stats": {
+      "type": "object",
+      "properties": {
+        "physical_monitor": { "type": "integer" },
+        "stun_monitor": { "type": "integer" },
+        "overflow_boxes": { "type": "integer" },
+        "meat_initiative": { "type": "string" },
+        "astral_initiative": { "type": "string" },
+        "matrix_initiative_ar": { "type": "string" },
+        "matrix_initiative_cold_sim": { "type": "string" },
+        "matrix_initiative_hot_sim": { "type": "string" },
+        "rigged_initiative_cold_sim": { "type": "string" },
+        "rigged_initiative_hot_sim": { "type": "string" },
+        "defense_rating": { "type": "integer" },
+        "defense_pool": { "type": "integer" }
+      }
+    },
+    "skills": {
+      "type": "object",
+      "properties": {
+        "active": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "rating"],
+            "properties": {
+              "name": { "type": "string" },
+              "rating": { "type": "integer", "minimum": 0, "maximum": 10 },
+              "specialization": {
+                "type": "object",
+                "properties": {
+                  "name": { "type": "string" },
+                  "bonus": { "type": "integer", "default": 2 }
+                }
+              },
+              "expertise": {
+                "type": "object",
+                "properties": {
+                  "name": { "type": "string" },
+                  "bonus": { "type": "integer", "default": 3 }
+                }
+              }
+            }
+          }
+        },
+        "knowledge": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "rating"],
+            "properties": {
+              "name": { "type": "string" },
+              "rating": { "type": "integer", "minimum": 1 }
+            }
+          }
+        },
+        "languages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name"],
+            "properties": {
+              "name": { "type": "string" },
+              "native": { "type": "boolean", "default": false },
+              "rating": { "type": "integer" }
+            }
+          }
+        }
+      }
+    },
+    "qualities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "type"],
+        "properties": {
+          "name": { "type": "string" },
+          "type": { "type": "string", "enum": ["positive", "negative", "metatype"] },
+          "karma_cost": { "type": "integer" },
+          "karma_bonus": { "type": "integer" },
+          "effect": { "type": "string" }
+        }
+      }
+    },
+    "magic_resonance": {
+      "type": "object",
+      "properties": {
+        "tradition": { "type": "string" },
+        "drain_attribute": { "type": "string" },
+        "initiation_grade": { "type": "integer", "default": 0 },
+        "submersion_grade": { "type": "integer", "default": 0 },
+        "adept_powers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "power_points": { "type": "number" },
+              "rating": { "type": "integer" }
+            }
+          }
+        },
+        "spells": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "type": { "type": "string", "enum": ["Physisch", "Mana"] },
+              "range": { "type": "string" },
+              "duration": { "type": "string" },
+              "drain": { "type": "integer" }
+            }
+          }
+        },
+        "complex_forms": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "target": { "type": "string" },
+              "duration": { "type": "string" },
+              "fade": { "type": "integer" }
+            }
+          }
+        }
+      }
+    },
+    "bodytech": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "type", "grade", "essence_cost"],
+        "properties": {
+          "name": { "type": "string" },
+          "type": { "type": "string", "enum": ["cyberware", "bioware"] },
+          "grade": {
+            "type": "string",
+            "enum": ["Standard", "Gebraucht", "Alphaware", "Betaware", "Deltaware"]
+          },
+          "rating": { "type": "integer" },
+          "essence_cost": { "type": "number" },
+          "cost": { "type": "number" },
+          "enhancements": { "type": "array", "items": { "type": "string" } },
+          "notes": { "type": "string" }
+        }
+      }
+    },
+    "weapons": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "category", "damage", "damage_type"],
+        "properties": {
+          "name": { "type": "string" },
+          "category": { "type": "string" },
+          "damage": { "type": "integer" },
+          "damage_type": { "type": "string", "enum": ["K", "B"] },
+          "firing_modes": { "type": "array", "items": { "type": "string" } },
+          "attack_ratings": {
+            "type": "array",
+            "description": "5 Reichweitenkategorien: Nah, Sehr Nah, Mittel, Weit, Extrem",
+            "items": { "type": ["integer", "null"] }
+          },
+          "ammo_capacity": { "type": "integer" },
+          "ammo_loaded_type": { "type": "string" },
+          "accessories": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "armor": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "defense_bonus"],
+        "properties": {
+          "name": { "type": "string" },
+          "defense_bonus": { "type": "integer" },
+          "capacity": { "type": "integer" },
+          "upgrades": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "gear_electronics": {
+      "type": "object",
+      "properties": {
+        "commlink": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "device_rating": { "type": "integer" },
+            "data_processing": { "type": "integer" },
+            "firewall": { "type": "integer" },
+            "programs": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "rcc": {
+          "type": "object",
+          "description": "Rigger Command Console (Riggerkonsole)",
+          "properties": {
+            "name": { "type": "string" },
+            "device_rating": { "type": "integer" },
+            "data_processing": { "type": "integer" },
+            "firewall": { "type": "integer" },
+            "noise_reduction": { "type": "integer" },
+            "max_slaves": { "type": "integer" },
+            "max_shared_programs": { "type": "integer" },
+            "shared_autosofts": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["name", "rating"],
+                "properties": {
+                  "name": { "type": "string" },
+                  "rating": { "type": "integer" },
+                  "target": { "type": "string" }
+                }
+              }
+            },
+            "shared_programs": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "quantity"],
+            "properties": {
+              "name": { "type": "string" },
+              "quantity": { "type": "integer" },
+              "rating": { "type": "integer" },
+              "cost": { "type": "number" },
+              "notes": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "vehicles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "handling", "acceleration", "speed_interval", "top_speed", "body", "armor"],
+        "properties": {
+          "name": { "type": "string" },
+          "vehicle_type": { "type": "string" },
+          "handling": { "type": ["integer", "object"] },
+          "acceleration": { "type": "integer" },
+          "speed_interval": { "type": "integer" },
+          "top_speed": { "type": "integer" },
+          "body": { "type": "integer" },
+          "armor": { "type": "integer" },
+          "pilot": { "type": "integer" },
+          "sensor": { "type": "integer" },
+          "seats": { "type": "integer" },
+          "rigger_interface": { "type": "boolean", "default": false },
+          "condition_monitor": { "type": "integer" },
+          "installed_mods": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "drones": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "body", "armor", "sensor", "pilot"],
+        "properties": {
+          "id": { "type": "string" },
+          "callsign": { "type": "string" },
+          "name": { "type": "string" },
+          "model": { "type": "string" },
+          "category": { "type": "string" },
+          "handling": { "type": ["integer", "object"] },
+          "acceleration": { "type": "integer" },
+          "speed_interval": { "type": "integer" },
+          "top_speed": { "type": "integer" },
+          "body": { "type": "integer" },
+          "armor": { "type": "integer" },
+          "sensor": { "type": "integer" },
+          "pilot": { "type": "integer" },
+          "quantity": { "type": "integer", "default": 1 },
+          "rigger_interface": { "type": "boolean", "default": true },
+          "condition_monitor": { "type": "integer" },
+          "damage_taken": { "type": "integer", "default": 0 },
+          "weapon_mount": {
+            "type": "object",
+            "description": "Waffenhalterung und verknüpfte Waffe der Drohne",
+            "properties": {
+              "type": { "type": "string" },
+              "weapon": { "type": "string" },
+              "weapon_category": { "type": "string" },
+              "damage": { "type": ["string", "integer"] },
+              "attack_ratings": { "type": "array" },
+              "firing_modes": { "type": "array", "items": { "type": "string" } },
+              "ammo": { "type": "string" },
+              "ammo_capacity": { "type": "integer" },
+              "ammo_loaded_type": { "type": "string" },
+              "accessories": { "type": "array", "items": { "type": "string" } }
+            }
+          },
+          "weapon_mounts": {
+            "type": "array",
+            "description": "Liste montierter Waffenhalterungen",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": { "type": "string" },
+                "weapon": { "type": "string" },
+                "weapon_category": { "type": "string" },
+                "damage": { "type": ["string", "integer"] },
+                "attack_ratings": { "type": "array" },
+                "firing_modes": { "type": "array", "items": { "type": "string" } },
+                "ammo": { "type": "string" },
+                "ammo_capacity": { "type": "integer" },
+                "ammo_loaded_type": { "type": "string" },
+                "accessories": { "type": "array", "items": { "type": "string" } }
+              }
+            }
+          },
+          "local_autosofts": {
+            "type": "array",
+            "description": "Lokal im Drohnenspeicher ausgeführte Autosofts (max. Pilot / 2 aufgerundet)",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": { "type": "string" },
+                "rating": { "type": "integer" }
+              }
+            }
+          },
+          "network_status": {
+            "type": "string",
+            "enum": ["autonomous_local", "rcc_slave_streaming", "jumped_in_rigger"],
+            "default": "rcc_slave_streaming"
+          }
+        }
+      }
+    },
+    "ammunition": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "quantity"],
+        "properties": {
+          "name": { "type": "string" },
+          "weapon_type": { "type": "string" },
+          "quantity": { "type": "integer" }
+        }
+      }
+    },
+    "contacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "influence", "loyalty"],
+        "properties": {
+          "name": { "type": "string" },
+          "archetype": { "type": "string" },
+          "location": { "type": "string" },
+          "influence": { "type": "integer", "minimum": 1, "maximum": 6 },
+          "loyalty": { "type": "integer", "minimum": 1, "maximum": 6 },
+          "notes": { "type": "string" }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "MCT-Nissan Roto-Drohne": {
+    "category": "Medium Drone (Rotordrohne)",
+    "handling": 3,
+    "acceleration": 20,
+    "speed_interval": 30,
+    "top_speed": 160,
+    "body": 5,
+    "armor": 6,
+    "pilot": 3,
+    "sensor": 2,
+    "seats": 0,
+    "availability": "2",
+    "cost": 5000,
+    "condition_monitor": 11,
+    "source": "SR6 Grundregelwerk S. 305"
+  },
+  "GM-Nissan Dobermann": {
+    "category": "Medium Drone (Bodendrohne)",
+    "handling": {
+      "road": 3,
+      "offroad": 5
+    },
+    "acceleration": 10,
+    "speed_interval": 15,
+    "top_speed": 100,
+    "body": 4,
+    "armor": 6,
+    "pilot": 2,
+    "sensor": 3,
+    "seats": 0,
+    "availability": "2",
+    "cost": 6500,
+    "condition_monitor": 10,
+    "source": "SR6 Grundregelwerk S. 305"
+  }
+}

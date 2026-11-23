@@ -1,0 +1,980 @@
+{
+  "Kampfaxt": {
+    "category": "Nahkampf (Klingen)",
+    "damage": "5K",
+    "attack_ratings": [
+      9,
+      null,
+      null,
+      null,
+      null
+    ],
+    "availability": "4",
+    "cost": 500,
+    "source": "GRW S. 250"
+  },
+  "Kampfmesser": {
+    "category": "Nahkampf (Klingen)",
+    "damage": "3K",
+    "attack_ratings": [
+      8,
+      2,
+      null,
+      null,
+      null
+    ],
+    "availability": "2",
+    "cost": 220,
+    "source": "GRW S. 250"
+  },
+  "Katana": {
+    "category": "Nahkampf (Klingen)",
+    "damage": "4K",
+    "attack_ratings": [
+      10,
+      null,
+      null,
+      null,
+      null
+    ],
+    "availability": "3",
+    "cost": 350,
+    "source": "GRW S. 250"
+  },
+  "Messer": {
+    "category": "Nahkampf (Klingen)",
+    "damage": "2K",
+    "attack_ratings": [
+      6,
+      1,
+      null,
+      null,
+      null
+    ],
+    "availability": "1",
+    "cost": 20,
+    "source": "GRW S. 250"
+  },
+  "Schwert": {
+    "category": "Nahkampf (Klingen)",
+    "damage": "3K",
+    "attack_ratings": [
+      9,
+      null,
+      null,
+      null,
+      null
+    ],
+    "availability": "3",
+    "cost": 320,
+    "source": "GRW S. 250"
+  },
+  "Stangenwaffe": {
+    "category": "Nahkampf (Klingen)",
+    "damage": "4K",
+    "attack_ratings": [
+      8,
+      null,
+      null,
+      null,
+      null
+    ],
+    "availability": "2",
+    "cost": 210,
+    "source": "GRW S. 250"
+  },
+  "Überlebensmesser": {
+    "category": "Nahkampf (Klingen)",
+    "damage": "3K",
+    "attack_ratings": [
+      8,
+      2,
+      null,
+      null,
+      null
+    ],
+    "availability": "2",
+    "cost": 220,
+    "source": "GRW S. 250"
+  },
+  "Unterarmschnappklingen": {
+    "category": "Nahkampf (Klingen)",
+    "damage": "3K",
+    "attack_ratings": [
+      6,
+      null,
+      null,
+      null,
+      null
+    ],
+    "availability": "3",
+    "cost": 185,
+    "source": "GRW S. 250"
+  },
+  "Betäubungsschlagstock": {
+    "category": "Nahkampf (Knüppel)",
+    "damage": "5B(e)",
+    "attack_ratings": [
+      6,
+      null,
+      null,
+      null,
+      null
+    ],
+    "availability": "2",
+    "cost": 600,
+    "source": "GRW S. 250"
+  },
+  "Knüppel": {
+    "category": "Nahkampf (Knüppel)",
+    "damage": "3B",
+    "attack_ratings": [
+      6,
+      null,
+      null,
+      null,
+      null
+    ],
+    "availability": "1",
+    "cost": 65,
+    "source": "GRW S. 250"
+  },
+  "Schlagstock": {
+    "category": "Nahkampf (Knüppel)",
+    "damage": "3B",
+    "attack_ratings": [
+      8,
+      null,
+      null,
+      null,
+      null
+    ],
+    "availability": "1",
+    "cost": 150,
+    "source": "GRW S. 250"
+  },
+  "Totschläger": {
+    "category": "Nahkampf (Knüppel)",
+    "damage": "2B",
+    "attack_ratings": [
+      5,
+      null,
+      null,
+      null,
+      null
+    ],
+    "availability": "1",
+    "cost": 50,
+    "source": "GRW S. 250"
+  },
+  "Vorschlaghammer": {
+    "category": "Nahkampf (Knüppel)",
+    "damage": "4B",
+    "attack_ratings": [
+      8,
+      null,
+      null,
+      null,
+      null
+    ],
+    "availability": "1",
+    "cost": 250,
+    "source": "GRW S. 250"
+  },
+  "W Teleskopschlagstock": {
+    "category": "Nahkampf (Knüppel)",
+    "damage": "2B",
+    "attack_ratings": [
+      6,
+      null,
+      null,
+      null,
+      null
+    ],
+    "availability": "1",
+    "cost": 75,
+    "source": "GRW S. 250"
+  },
+  "Monofilamentpeitsche": {
+    "category": "Exotische Waffen",
+    "damage": "4K",
+    "attack_ratings": [
+      14,
+      null,
+      null,
+      null,
+      null
+    ],
+    "availability": "6I",
+    "cost": 1300,
+    "source": "GRW S. 251"
+  },
+  "Bogen": {
+    "category": "Projektilwaffen",
+    "damage": "Stufe/2 K",
+    "attack_ratings": [
+      "varies",
+      "varies",
+      "varies",
+      null,
+      null
+    ],
+    "availability": "2",
+    "cost": "Stufe * 100",
+    "source": "GRW S. 251"
+  },
+  "Armbrust": {
+    "category": "Projektilwaffen",
+    "damage": "3K",
+    "attack_ratings": [
+      2,
+      10,
+      4,
+      2,
+      null
+    ],
+    "availability": "2",
+    "cost": 290,
+    "source": "GRW S. 251"
+  },
+  "Schwere Armbrust": {
+    "category": "Projektilwaffen",
+    "damage": "4K",
+    "attack_ratings": [
+      2,
+      8,
+      6,
+      4,
+      null
+    ],
+    "availability": "3",
+    "cost": 425,
+    "source": "GRW S. 251"
+  },
+  "Wurfmesser": {
+    "category": "Wurfwaffen",
+    "damage": "1K",
+    "attack_ratings": [
+      9,
+      11,
+      5,
+      null,
+      null
+    ],
+    "availability": "1",
+    "cost": 25,
+    "source": "GRW S. 251"
+  },
+  "Shuriken": {
+    "category": "Wurfwaffen",
+    "damage": "1K",
+    "attack_ratings": [
+      10,
+      9,
+      3,
+      null,
+      null
+    ],
+    "availability": "1",
+    "cost": 25,
+    "source": "GRW S. 251"
+  },
+  "Streetline Special": {
+    "category": "Taschenpistolen",
+    "damage": "2K",
+    "modes": [
+      "HM"
+    ],
+    "attack_ratings": [
+      10,
+      7,
+      6,
+      null,
+      null
+    ],
+    "ammo_capacity": 6,
+    "ammo_feed": "s",
+    "availability": "1",
+    "cost": 260,
+    "source": "GRW S. 253"
+  },
+  "Walther Palm Pistol": {
+    "category": "Taschenpistolen",
+    "damage": "2K",
+    "modes": [
+      "EM",
+      "HM"
+    ],
+    "attack_ratings": [
+      10,
+      9,
+      6,
+      null,
+      null
+    ],
+    "ammo_capacity": 2,
+    "ammo_feed": "k",
+    "availability": "2",
+    "cost": 230,
+    "source": "GRW S. 253"
+  },
+  "Beretta 2010": {
+    "category": "Leichte Pistolen",
+    "damage": "2K",
+    "modes": [
+      "HM",
+      "SM"
+    ],
+    "attack_ratings": [
+      7,
+      10,
+      7,
+      null,
+      null
+    ],
+    "ammo_capacity": 17,
+    "ammo_feed": "s",
+    "availability": "2",
+    "cost": 250,
+    "source": "GRW S. 253"
+  },
+  "Colt America L36": {
+    "category": "Leichte Pistolen",
+    "damage": "2K",
+    "modes": [
+      "HM"
+    ],
+    "attack_ratings": [
+      10,
+      7,
+      6,
+      null,
+      null
+    ],
+    "ammo_capacity": 11,
+    "ammo_feed": "s",
+    "availability": "1",
+    "cost": 350,
+    "source": "GRW S. 253"
+  },
+  "Fichetti Security 600": {
+    "category": "Leichte Pistolen",
+    "damage": "2K",
+    "modes": [
+      "HM",
+      "SM"
+    ],
+    "attack_ratings": [
+      10,
+      7,
+      6,
+      null,
+      null
+    ],
+    "ammo_capacity": 30,
+    "ammo_feed": "s",
+    "availability": "2",
+    "cost": 400,
+    "source": "GRW S. 253"
+  },
+  "Ares Predator VI": {
+    "category": "Schwere Pistolen",
+    "damage": "3K",
+    "modes": [
+      "HM",
+      "SM"
+    ],
+    "attack_ratings": [
+      10,
+      10,
+      8,
+      null,
+      null
+    ],
+    "ammo_capacity": 15,
+    "ammo_feed": "s",
+    "availability": "2L",
+    "cost": 750,
+    "accessories": [
+      "Smartgunsystem (intern)"
+    ],
+    "source": "GRW S. 255"
+  },
+  "Ares Viper Slivergun": {
+    "category": "Schwere Pistolen",
+    "damage": "3K",
+    "modes": [
+      "HM",
+      "SM"
+    ],
+    "attack_ratings": [
+      12,
+      8,
+      6,
+      null,
+      null
+    ],
+    "ammo_capacity": 30,
+    "ammo_feed": "s",
+    "availability": "4L",
+    "cost": 610,
+    "source": "GRW S. 255"
+  },
+  "Browning Ultra Power": {
+    "category": "Schwere Pistolen",
+    "damage": "3K",
+    "modes": [
+      "HM"
+    ],
+    "attack_ratings": [
+      10,
+      9,
+      6,
+      null,
+      null
+    ],
+    "ammo_capacity": 10,
+    "ammo_feed": "s",
+    "availability": "2L",
+    "cost": 315,
+    "source": "GRW S. 255"
+  },
+  "Colt Government 2076": {
+    "category": "Schwere Pistolen",
+    "damage": "3K",
+    "modes": [
+      "HM"
+    ],
+    "attack_ratings": [
+      10,
+      8,
+      6,
+      null,
+      null
+    ],
+    "ammo_capacity": 14,
+    "ammo_feed": "s",
+    "availability": "3L",
+    "cost": 275,
+    "source": "GRW S. 255"
+  },
+  "Colt Manhunter": {
+    "category": "Schwere Pistolen",
+    "damage": "3K",
+    "modes": [
+      "HM"
+    ],
+    "attack_ratings": [
+      11,
+      9,
+      7,
+      null,
+      null
+    ],
+    "ammo_capacity": 14,
+    "ammo_feed": "s",
+    "availability": "3L",
+    "cost": 500,
+    "source": "GRW S. 255"
+  },
+  "Ruger Super Warhawk": {
+    "category": "Schwere Pistolen",
+    "damage": "4K",
+    "modes": [
+      "HM"
+    ],
+    "attack_ratings": [
+      8,
+      11,
+      8,
+      null,
+      null
+    ],
+    "ammo_capacity": 6,
+    "ammo_feed": "tr",
+    "availability": "3L",
+    "cost": 400,
+    "source": "GRW S. 255"
+  },
+  "Ceska Black Scorpion": {
+    "category": "Maschinenpistolen",
+    "damage": "3K",
+    "modes": [
+      "HM",
+      "SM"
+    ],
+    "attack_ratings": [
+      10,
+      9,
+      6,
+      null,
+      null
+    ],
+    "ammo_capacity": 35,
+    "ammo_feed": "s",
+    "availability": "3L",
+    "cost": 325,
+    "source": "GRW S. 256"
+  },
+  "Colt Cobra TZ-120": {
+    "category": "Maschinenpistolen",
+    "damage": "3K",
+    "modes": [
+      "HM",
+      "SM"
+    ],
+    "attack_ratings": [
+      9,
+      9,
+      6,
+      null,
+      null
+    ],
+    "ammo_capacity": 30,
+    "ammo_feed": "s",
+    "availability": "3L",
+    "cost": 730,
+    "source": "GRW S. 256"
+  },
+  "FN P93 Praetor": {
+    "category": "Maschinenpistolen",
+    "damage": "3K",
+    "modes": [
+      "HM",
+      "SM"
+    ],
+    "attack_ratings": [
+      10,
+      10,
+      7,
+      null,
+      null
+    ],
+    "ammo_capacity": 50,
+    "ammo_feed": "s",
+    "availability": "4L",
+    "cost": 785,
+    "source": "GRW S. 256"
+  },
+  "HK-227": {
+    "category": "Maschinenpistolen",
+    "damage": "3K",
+    "modes": [
+      "HM",
+      "SM"
+    ],
+    "attack_ratings": [
+      10,
+      10,
+      7,
+      null,
+      null
+    ],
+    "ammo_capacity": 28,
+    "ammo_feed": "s",
+    "availability": "3L",
+    "cost": 840,
+    "source": "GRW S. 256"
+  },
+  "SCK Modell 100": {
+    "category": "Maschinenpistolen",
+    "damage": "3K",
+    "modes": [
+      "HM",
+      "SM"
+    ],
+    "attack_ratings": [
+      10,
+      11,
+      8,
+      null,
+      null
+    ],
+    "ammo_capacity": 30,
+    "ammo_feed": "s",
+    "availability": "3L",
+    "cost": 825,
+    "source": "GRW S. 256"
+  },
+  "Uzi IV": {
+    "category": "Maschinenpistolen",
+    "damage": "3K",
+    "modes": [
+      "HM",
+      "SM"
+    ],
+    "attack_ratings": [
+      11,
+      9,
+      6,
+      null,
+      null
+    ],
+    "ammo_capacity": 24,
+    "ammo_feed": "s",
+    "availability": "3L",
+    "cost": 750,
+    "source": "GRW S. 256"
+  },
+  "Defiance T-250": {
+    "category": "Schrotflinten",
+    "damage": "4K",
+    "modes": [
+      "EM",
+      "HM"
+    ],
+    "attack_ratings": [
+      7,
+      10,
+      6,
+      null,
+      null
+    ],
+    "ammo_capacity": 5,
+    "ammo_feed": "m",
+    "availability": "2L",
+    "cost": 330,
+    "source": "GRW S. 256"
+  },
+  "Enfield AS-7": {
+    "category": "Schrotflinten",
+    "damage": "4K",
+    "modes": [
+      "HM",
+      "SM"
+    ],
+    "attack_ratings": [
+      4,
+      11,
+      7,
+      null,
+      null
+    ],
+    "ammo_capacity": 10,
+    "ammo_feed": "s",
+    "availability": "4L",
+    "cost": 700,
+    "source": "GRW S. 256"
+  },
+  "Mossberg CMDT": {
+    "category": "Schrotflinten",
+    "damage": "4K",
+    "modes": [
+      "HM",
+      "SM"
+    ],
+    "attack_ratings": [
+      5,
+      12,
+      8,
+      null,
+      null
+    ],
+    "ammo_capacity": 24,
+    "ammo_feed": "tr",
+    "availability": "4L",
+    "cost": 825,
+    "source": "GRW S. 256"
+  },
+  "AK-97": {
+    "category": "Sturmgewehre",
+    "damage": "5K",
+    "modes": [
+      "HM",
+      "SM",
+      "AM"
+    ],
+    "attack_ratings": [
+      4,
+      11,
+      9,
+      7,
+      1
+    ],
+    "ammo_capacity": 38,
+    "ammo_feed": "s",
+    "availability": "2L",
+    "cost": 1000,
+    "cost_alt_de": 2100,
+    "source": "SR6 GRW S. 256/258"
+  },
+  "Ares Alpha": {
+    "category": "Sturmgewehre",
+    "damage": "5K",
+    "modes": [
+      "HM",
+      "SM",
+      "AM"
+    ],
+    "attack_ratings": [
+      1,
+      10,
+      12,
+      8,
+      7
+    ],
+    "ammo_capacity": 42,
+    "ammo_feed": "s",
+    "availability": "5L",
+    "cost": 4175,
+    "accessories": [
+      "Smartgunsystem (intern)",
+      "Unterlauf-Granatwerfer"
+    ],
+    "source": "GRW S. 258"
+  },
+  "Colt M23": {
+    "category": "Sturmgewehre",
+    "damage": "5K",
+    "modes": [
+      "HM",
+      "SM",
+      "AM"
+    ],
+    "attack_ratings": [
+      1,
+      10,
+      11,
+      7,
+      6
+    ],
+    "ammo_capacity": 40,
+    "ammo_feed": "s",
+    "availability": "3L",
+    "cost": 1400,
+    "source": "GRW S. 258"
+  },
+  "FN HAR": {
+    "category": "Sturmgewehre",
+    "damage": "5K",
+    "modes": [
+      "HM",
+      "SM",
+      "AM"
+    ],
+    "attack_ratings": [
+      1,
+      9,
+      12,
+      8,
+      6
+    ],
+    "ammo_capacity": 35,
+    "ammo_feed": "s",
+    "availability": "4L",
+    "cost": 1600,
+    "source": "GRW S. 258"
+  },
+  "Ares Desert Strike": {
+    "category": "Scharfschützengewehre",
+    "damage": "5K",
+    "modes": [
+      "HM"
+    ],
+    "attack_ratings": [
+      3,
+      10,
+      10,
+      10,
+      10
+    ],
+    "ammo_capacity": 14,
+    "ammo_feed": "s",
+    "availability": "5L",
+    "cost": 11000,
+    "source": "GRW S. 258"
+  },
+  "Barret Modell 122": {
+    "category": "Scharfschützengewehre",
+    "damage": "6K",
+    "modes": [
+      "HM"
+    ],
+    "attack_ratings": [
+      1,
+      8,
+      11,
+      16,
+      14
+    ],
+    "ammo_capacity": 14,
+    "ammo_feed": "s",
+    "availability": "6I",
+    "cost": 15200,
+    "source": "GRW S. 258"
+  },
+  "Cavalier Arms Crockett EBR": {
+    "category": "Scharfschützengewehre",
+    "damage": "5K",
+    "modes": [
+      "HM",
+      "SM"
+    ],
+    "attack_ratings": [
+      3,
+      8,
+      11,
+      8,
+      8
+    ],
+    "ammo_capacity": 20,
+    "ammo_feed": "s",
+    "availability": "4L",
+    "cost": 9050,
+    "source": "GRW S. 258"
+  },
+  "Ruger 101": {
+    "category": "Scharfschützengewehre",
+    "damage": "5K",
+    "modes": [
+      "HM"
+    ],
+    "attack_ratings": [
+      3,
+      6,
+      9,
+      11,
+      12
+    ],
+    "ammo_capacity": 8,
+    "ammo_feed": "s",
+    "availability": "3L",
+    "cost": 13200,
+    "source": "GRW S. 258"
+  },
+  "Ingram Valiant (LMG)": {
+    "category": "Leichtes Maschinengewehr",
+    "damage": "5K",
+    "modes": [
+      "SM",
+      "AM"
+    ],
+    "attack_ratings": [
+      1,
+      9,
+      12,
+      8,
+      6
+    ],
+    "ammo_capacity": 50,
+    "ammo_feed": "g",
+    "availability": "5L",
+    "cost": 4175,
+    "source": "GRW S. 259"
+  },
+  "Ares HVAR": {
+    "category": "Sturmgewehr / Schnellfeuer",
+    "damage": "4K",
+    "modes": [
+      "SM",
+      "AM"
+    ],
+    "attack_ratings": [
+      1,
+      10,
+      12,
+      7,
+      3
+    ],
+    "ammo_capacity": 50,
+    "ammo_feed": "s",
+    "availability": "4L",
+    "cost": 3200,
+    "source": "GRW S. 259"
+  },
+  "Panther XXL": {
+    "category": "Sturmkanone",
+    "damage": "7K",
+    "modes": [
+      "HM"
+    ],
+    "attack_ratings": [
+      null,
+      6,
+      8,
+      6,
+      5
+    ],
+    "ammo_capacity": 15,
+    "ammo_feed": "s",
+    "availability": "6I",
+    "cost": 5900,
+    "source": "GRW S. 260"
+  },
+  "ArmTech MGL-6": {
+    "category": "Granatwerfer",
+    "damage": "wie Granate",
+    "modes": [
+      "HM"
+    ],
+    "attack_ratings": [
+      null,
+      8,
+      8,
+      3,
+      null
+    ],
+    "ammo_capacity": 6,
+    "ammo_feed": "tr",
+    "availability": "5L",
+    "cost": 1800,
+    "source": "GRW S. 260"
+  },
+  "ArmTech MGL-12": {
+    "category": "Granatwerfer",
+    "damage": "wie Granate",
+    "modes": [
+      "HM"
+    ],
+    "attack_ratings": [
+      null,
+      8,
+      9,
+      6,
+      2
+    ],
+    "ammo_capacity": 12,
+    "ammo_feed": "tr",
+    "availability": "6L",
+    "cost": 5000,
+    "source": "GRW S. 260"
+  },
+  "Ares Antioch-2": {
+    "category": "Granatwerfer",
+    "damage": "wie Granate",
+    "modes": [
+      "HM"
+    ],
+    "attack_ratings": [
+      null,
+      4,
+      10,
+      9,
+      6
+    ],
+    "ammo_capacity": 8,
+    "ammo_feed": "tr",
+    "availability": "5L",
+    "cost": 7000,
+    "source": "GRW S. 260"
+  },
+  "Aztechnology Striker": {
+    "category": "Raketenwerfer (Einweg)",
+    "damage": "wie Rakete",
+    "modes": [
+      "EM"
+    ],
+    "attack_ratings": [
+      null,
+      5,
+      9,
+      10,
+      8
+    ],
+    "ammo_capacity": 1,
+    "ammo_feed": "k",
+    "availability": "6I",
+    "cost": 9000,
+    "source": "GRW S. 260"
+  }
+}

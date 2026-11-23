@@ -1,0 +1,249 @@
+{
+  "Spells": {
+    "Kampfzauber": {
+      "Blitzstrahl": {
+        "type": "Physisch",
+        "range": "Blickfeld",
+        "duration": "Augenblicklich",
+        "drain": 4,
+        "damage": "K",
+        "effect": "Elektrischer Schaden, Status Verwirrt"
+      },
+      "Kugelblitz": {
+        "type": "Physisch",
+        "range": "Blickfeld (Fläche)",
+        "duration": "Augenblicklich",
+        "drain": 5,
+        "damage": "K",
+        "effect": "Flächenschaden Elektrizität"
+      },
+      "Feuerstrahl": {
+        "type": "Physisch",
+        "range": "Blickfeld",
+        "duration": "Augenblicklich",
+        "drain": 4,
+        "damage": "K",
+        "effect": "Feuerschaden, Status Brennend"
+      },
+      "Feuerball": {
+        "type": "Physisch",
+        "range": "Blickfeld (Fläche)",
+        "duration": "Augenblicklich",
+        "drain": 5,
+        "damage": "K",
+        "effect": "Flächenschaden Feuer"
+      },
+      "Manablitz": {
+        "type": "Mana",
+        "range": "Blickfeld",
+        "duration": "Augenblicklich",
+        "drain": 4,
+        "damage": "K",
+        "effect": "Direkter Manaschaden (ignoriert Panzerung)"
+      },
+      "Manaball": {
+        "type": "Mana",
+        "range": "Blickfeld (Fläche)",
+        "duration": "Augenblicklich",
+        "drain": 6,
+        "damage": "K",
+        "effect": "Direkter Flächen-Manaschaden"
+      },
+      "Betäubungsblitz": {
+        "type": "Mana",
+        "range": "Blickfeld",
+        "duration": "Augenblicklich",
+        "drain": 3,
+        "damage": "B",
+        "effect": "Direkter Betäubungsschaden"
+      },
+      "Betäubungsball": {
+        "type": "Mana",
+        "range": "Blickfeld (Fläche)",
+        "duration": "Augenblicklich",
+        "drain": 4,
+        "damage": "B",
+        "effect": "Direkter Flächen-Betäubungsschaden"
+      }
+    },
+    "Entdeckungszauber": {
+      "Feinde Entdecken": {
+        "type": "Mana",
+        "range": "Blickfeld (Fläche)",
+        "duration": "Aufrechterhalten",
+        "drain": 3,
+        "effect": "Spürt feindselige Absichten auf"
+      },
+      "Leben Entdecken": {
+        "type": "Mana",
+        "range": "Blickfeld (Fläche)",
+        "duration": "Aufrechterhalten",
+        "drain": 2,
+        "effect": "Findet lebende Wesen im Radius"
+      },
+      "Magie Entdecken": {
+        "type": "Mana",
+        "range": "Blickfeld (Fläche)",
+        "duration": "Aufrechterhalten",
+        "drain": 3,
+        "effect": "Findet astrale & magische Quellen"
+      },
+      "Hellsicht": {
+        "type": "Mana",
+        "range": "Berührung",
+        "duration": "Aufrechterhalten",
+        "drain": 4,
+        "effect": "Verstärkt Wahrnehmung über Distanz"
+      }
+    },
+    "Heilzauber": {
+      "Heilung": {
+        "type": "Physisch",
+        "range": "Berührung",
+        "duration": "Permanent",
+        "drain": 3,
+        "effect": "Heilt 1 Kästchen körperlichen Schaden je Nettoerfolg"
+      },
+      "Betäubung Heilen": {
+        "type": "Mana",
+        "range": "Berührung",
+        "duration": "Permanent",
+        "drain": 2,
+        "effect": "Heilt Betäubungsschaden"
+      },
+      "Reflexe Steigern": {
+        "type": "Physisch",
+        "range": "Berührung",
+        "duration": "Aufrechterhalten",
+        "drain": 5,
+        "effect": "+1 Reaktion, +1W6 Initiative pro Nettoerfolg (max 4)"
+      },
+      "Entgiften": {
+        "type": "Physisch",
+        "range": "Berührung",
+        "duration": "Permanent",
+        "drain": 2,
+        "effect": "Neutralisiert Toxine und Gifte"
+      }
+    },
+    "Illusionszauber": {
+      "Unsichtbarkeit": {
+        "type": "Mana",
+        "range": "Berührung",
+        "duration": "Aufrechterhalten",
+        "drain": 3,
+        "effect": "Verleiht Status Unsichtbar gegenüber Lebewesen"
+      },
+      "Verbesserte Unsichtbarkeit": {
+        "type": "Physisch",
+        "range": "Berührung",
+        "duration": "Aufrechterhalten",
+        "drain": 4,
+        "effect": "Unsichtbar auch gegenüber Kameras/Sensoren"
+      },
+      "Maske": {
+        "type": "Mana",
+        "range": "Berührung",
+        "duration": "Aufrechterhalten",
+        "drain": 3,
+        "effect": "Verändert das visuelle Aussehen"
+      },
+      "Stille": {
+        "type": "Physisch",
+        "range": "Blickfeld (Fläche)",
+        "duration": "Aufrechterhalten",
+        "drain": 4,
+        "effect": "Erzeugt vollkommene akustische Stille"
+      }
+    },
+    "Manipulationszauber": {
+      "Panzer": {
+        "type": "Physisch",
+        "range": "Berührung",
+        "duration": "Aufrechterhalten",
+        "drain": 4,
+        "effect": "+1 Verteidigungswert pro Nettoerfolg"
+      },
+      "Physische Barriere": {
+        "type": "Physisch",
+        "range": "Blickfeld",
+        "duration": "Aufrechterhalten",
+        "drain": 5,
+        "effect": "Erzeugt feste Barriere gegen physische Angriffe"
+      },
+      "Manabarriere": {
+        "type": "Mana",
+        "range": "Blickfeld",
+        "duration": "Aufrechterhalten",
+        "drain": 4,
+        "effect": "Blockiert astrale Gestalten und Zauber"
+      },
+      "Gedanken Beherrschen": {
+        "type": "Mana",
+        "range": "Blickfeld",
+        "duration": "Aufrechterhalten",
+        "drain": 5,
+        "effect": "Zwingt Zielperson Handlungen auf"
+      },
+      "Levitation": {
+        "type": "Physisch",
+        "range": "Blickfeld",
+        "duration": "Aufrechterhalten",
+        "drain": 4,
+        "effect": "Hebt und bewegt Gegenstände und Personen per Telekinese"
+      }
+    }
+  },
+  "AdeptPowers": {
+    "Geschärfter Sinn": {
+      "cost": 0.25,
+      "levels": true,
+      "effect": "+1 Würfel auf Wahrnehmung für einen gewählten Sinn"
+    },
+    "Gesteigerte Reflexe 1": {
+      "cost": 1.5,
+      "levels": false,
+      "effect": "+1 Reaktion, +1W6 Initiative, +1 Nebenhandlung"
+    },
+    "Gesteigerte Reflexe 2": {
+      "cost": 2.5,
+      "levels": false,
+      "effect": "+2 Reaktion, +2W6 Initiative, +2 Nebenhandlungen"
+    },
+    "Gesteigerte Reflexe 3": {
+      "cost": 3.5,
+      "levels": false,
+      "effect": "+3 Reaktion, +3W6 Initiative, +3 Nebenhandlungen"
+    },
+    "Astrale Wahrnehmung": {
+      "cost": 1.0,
+      "levels": false,
+      "effect": "Erlaubt Blicken in den Astralraum"
+    },
+    "Kritischer Schlag": {
+      "cost": 0.5,
+      "levels": true,
+      "effect": "+1 Nahkampfschadenswert"
+    },
+    "Todeskralle": {
+      "cost": 0.5,
+      "levels": false,
+      "effect": "Waffenlose Angriffe verursachen körperlichen Schaden (K)"
+    },
+    "Mystischer Panzer": {
+      "cost": 0.5,
+      "levels": true,
+      "effect": "+1 Verteidigungswert je Stufe"
+    },
+    "Geschoss-Parieren": {
+      "cost": 0.5,
+      "levels": false,
+      "effect": "Erlaubt das Parieren von Wurfwaffen/Pfeilen im Flug"
+    },
+    "Körpersinn": {
+      "cost": 0.5,
+      "levels": true,
+      "effect": "+1 auf Balance, Akrobatik und Klettern"
+    }
+  }
+}

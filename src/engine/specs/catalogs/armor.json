@@ -1,0 +1,73 @@
+{
+  "Kleidung": {
+    "defense_rating": 0,
+    "capacity": 0,
+    "avail": "1",
+    "cost": 50,
+    "source": "GRW S. 265"
+  },
+  "Kunstlederjacke": {
+    "defense_rating": 1,
+    "capacity": 3,
+    "avail": "1",
+    "cost": 300,
+    "source": "GRW S. 267"
+  },
+  "Panzerkleidung": {
+    "defense_rating": 2,
+    "capacity": 4,
+    "avail": "2",
+    "cost": 500,
+    "source": "GRW S. 267"
+  },
+  "Actioneer Geschäftsanzug": {
+    "defense_rating": 2,
+    "capacity": 6,
+    "avail": "2",
+    "cost": 1500,
+    "source": "GRW S. 267"
+  },
+  "Chamäleonanzug": {
+    "defense_rating": 2,
+    "capacity": 4,
+    "avail": "4I",
+    "cost": 2000,
+    "source": "GRW S. 267"
+  },
+  "Panzerweste": {
+    "defense_rating": 3,
+    "capacity": 6,
+    "avail": "2",
+    "cost": 750,
+    "source": "GRW S. 267"
+  },
+  "Gefütterter Mantel": {
+    "defense_rating": 3,
+    "capacity": 7,
+    "avail": "2",
+    "cost": 900,
+    "source": "GRW S. 267"
+  },
+  "Panzerjacke": {
+    "defense_rating": 4,
+    "capacity": 8,
+    "avail": "2",
+    "cost": 1000,
+    "source": "GRW S. 267"
+  },
+  "Ganzkörperpanzerung": {
+    "defense_rating": 5,
+    "capacity": 10,
+    "avail": "4L",
+    "cost": 2000,
+    "source": "GRW S. 267"
+  },
+  "Helm (Ganzkörperpanzerung)": {
+    "defense_rating": 2,
+    "capacity": 6,
+    "avail": "2",
+    "cost": 500,
+    "notes": "Zählt zusätzlich zur Ganzkörperpanzerung",
+    "source": "GRW S. 267"
+  }
+}
