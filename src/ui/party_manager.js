@@ -259,11 +259,12 @@
       physDmg: 0,
       stunDmg: 0,
       overflowDmg: 0,
+      vehicleDmg: 0,
       edge: 2,
       activeTab: 'combat',
       weapons: {
-        ares_alpha: { ammo: 42, mode: 'HM' },
-        ares_predator: { ammo: 15, mode: 'HM' }
+        ares_alpha: { ammo: 42, reserve: 120, mode: 'HM' },
+        ares_predator: { ammo: 15, reserve: 120, mode: 'HM' }
       },
       grenades: {
         stun: 2,
@@ -678,18 +679,37 @@
           </button>
         `).join('');
 
+        const arParts = (mInfo.ar || '-/-/-/-/-').split('/');
+        const arLabels = ['S.Nah', 'Nah', 'Mittel', 'Weit', 'S.Weit'];
+        const arGrid = arParts.map((val, idx) => `
+          <div class="bg-slate-950/90 border border-slate-800 rounded p-1 text-center">
+            <div class="text-[9px] text-slate-500">${arLabels[idx] || ''}</div>
+            <div class="text-xs font-bold ${val === '-' ? 'text-slate-600' : 'text-amber-300'}">${val}</div>
+          </div>
+        `).join('');
+
+        const ammoPct = w.maxAmmo > 0 ? Math.round((wState.ammo / w.maxAmmo) * 100) : 0;
         const ammoBar = w.maxAmmo > 0 ? `
-          <div class="pt-2 border-t border-slate-800 space-y-2">
-            <div class="flex items-center justify-between text-xs font-mono-sr">
-              <span class="text-slate-400">MAGAZIN:</span>
-              <span class="font-bold ${wState.ammo <= 5 ? 'text-rose-400' : 'text-emerald-400'}">${wState.ammo} / ${w.maxAmmo} Schuss</span>
+          <div class="p-2.5 bg-slate-900/90 rounded-lg border border-slate-800 space-y-2">
+            <div class="flex items-center justify-between text-[11px] font-mono-sr">
+              <span class="font-bold text-amber-400">🔴 Magazin: <strong class="${wState.ammo <= 5 ? 'text-rose-400' : 'text-white'}">${wState.ammo} / ${w.maxAmmo}</strong></span>
+              <div class="flex items-center gap-1">
+                <button type="button" onclick="window.gunnarAdjustAmmo('${w.id}', -1)" class="px-1.5 py-0.5 rounded bg-slate-800 hover:bg-rose-900 border border-slate-700 text-[10px] font-mono-sr text-white font-bold" title="1 Schuss abziehen">-1</button>
+                <button type="button" onclick="window.gunnarAdjustAmmo('${w.id}', -2)" class="px-1.5 py-0.5 rounded bg-slate-800 hover:bg-cyan-950 border border-slate-700 text-[10px] font-mono-sr text-cyan-300 font-bold" title="2 Schuss abziehen (HM)">-2</button>
+                <button type="button" onclick="window.gunnarAdjustAmmo('${w.id}', -4)" class="px-1.5 py-0.5 rounded bg-slate-800 hover:bg-amber-950 border border-slate-700 text-[10px] font-mono-sr text-amber-300 font-bold" title="4 Schuss abziehen (SM)">-4</button>
+                ${w.maxAmmo >= 30 ? `<button type="button" onclick="window.gunnarAdjustAmmo('${w.id}', -10)" class="px-1.5 py-0.5 rounded bg-slate-800 hover:bg-rose-950 border border-slate-700 text-[10px] font-mono-sr text-rose-300 font-bold" title="10 Schuss abziehen (AM)">-10</button>` : ''}
+                <button type="button" onclick="window.gunnarReload('${w.id}')" class="px-2 py-0.5 rounded bg-emerald-950 hover:bg-emerald-900 border border-emerald-500/50 text-[10px] font-mono-sr text-emerald-300 font-bold" title="Magazin aus Reserve nachladen">🔄 Laden</button>
+              </div>
             </div>
-            <div class="flex flex-wrap gap-1.5">
-              <button type="button" onclick="window.gunnarAdjustAmmo('${w.id}', -1)" class="px-2 py-1 rounded bg-slate-800 hover:bg-rose-900 border border-slate-700 text-xs font-mono-sr text-white font-bold">-1</button>
-              <button type="button" onclick="window.gunnarAdjustAmmo('${w.id}', -2)" class="px-2 py-1 rounded bg-slate-800 hover:bg-rose-900 border border-slate-700 text-xs font-mono-sr text-white font-bold">-2 (HM)</button>
-              <button type="button" onclick="window.gunnarAdjustAmmo('${w.id}', -4)" class="px-2 py-1 rounded bg-slate-800 hover:bg-rose-900 border border-slate-700 text-xs font-mono-sr text-white font-bold">-4 (SM)</button>
-              ${w.maxAmmo >= 30 ? `<button type="button" onclick="window.gunnarAdjustAmmo('${w.id}', -10)" class="px-2 py-1 rounded bg-slate-800 hover:bg-rose-900 border border-slate-700 text-xs font-mono-sr text-white font-bold">-10 (AM)</button>` : ''}
-              <button type="button" onclick="window.gunnarReload('${w.id}')" class="ml-auto px-2.5 py-1 rounded bg-emerald-950 hover:bg-emerald-900 border border-emerald-500/50 text-xs font-mono-sr text-emerald-300 font-bold">🔄 Laden</button>
+            <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+              <div class="bg-gradient-to-r from-rose-500 to-amber-400 h-full transition-all duration-300" style="width:${ammoPct}%"></div>
+            </div>
+            <div class="flex justify-between items-center text-[10px] font-mono-sr text-slate-400">
+              <span>Reserve: <strong class="text-slate-200">${wState.reserve ?? 120}</strong> Schuss</span>
+              <div class="flex items-center gap-1 text-[9px]">
+                <button type="button" onclick="window.gunnarAdjustReserve('${w.id}', -10)" class="px-1 bg-slate-800 hover:bg-slate-700 rounded text-slate-300">-10</button>
+                <button type="button" onclick="window.gunnarAdjustReserve('${w.id}', 10)" class="px-1 bg-slate-800 hover:bg-slate-700 rounded text-slate-300">+10</button>
+              </div>
             </div>
           </div>
         ` : '';
@@ -707,10 +727,7 @@
               </button>
             </div>
             <div class="flex flex-wrap gap-1">${modeButtons}</div>
-            <div class="grid grid-cols-2 gap-2 text-xs font-mono-sr bg-slate-900/80 p-2 rounded-lg border border-slate-800">
-              <div><span class="text-slate-500">AW:</span> <strong class="text-amber-300">${mInfo.ar}</strong></div>
-              <div><span class="text-slate-500">Schaden:</span> <strong class="text-rose-300">${mInfo.dmg}</strong></div>
-            </div>
+            <div class="grid grid-cols-5 gap-1 font-mono-sr">${arGrid}</div>
             <div class="text-[11px] text-slate-400">${w.accessories}</div>
             ${ammoBar}
           </div>
@@ -749,17 +766,29 @@
                 INITIATIVE: 12 + 5W6 · 6 NEBENHANDLUNGEN · VERTEIDIGUNGSWERT 15 · HOHE SCHMERZTOLERANZ AKTIV
               </p>
             </div>
-            <div class="flex flex-wrap items-center gap-2 font-mono-sr text-xs">
+            <div class="flex flex-wrap items-center gap-2 bg-slate-900/90 border border-slate-700 px-3.5 py-2 rounded-lg font-mono-sr text-xs">
               <button type="button" onclick="window.gunnarRoll('/roll 12 + 5d6', 'Gunnar Initiative', 'Reflexbooster St. 4 (6 Nebenhandlungen)')"
-                class="px-3 py-1.5 rounded-lg bg-amber-950 border border-amber-400 text-amber-200 font-bold hover:bg-amber-900">
-                ⚡ Ini: 12 + 5W6
+                class="px-2.5 py-1 rounded bg-amber-950 border border-amber-400 text-amber-200 font-bold hover:bg-amber-900 text-[11px]">
+                ⚡ Ini: 12+5W6
               </button>
-              <div class="flex items-center gap-1.5 bg-slate-900 border border-slate-700 px-3 py-1.5 rounded-lg">
-                <span class="text-slate-400 font-bold">EDGE:</span>
-                <span class="text-lg font-bold text-cyan-400">${gunnarState.edge} <span class="text-xs text-slate-500">/ ${c.combat.edgeMax}</span></span>
+              <div class="h-4 w-px bg-slate-700 hidden sm:block"></div>
+              <span class="text-slate-400 font-bold">EDGE:</span>
+              <span class="text-xl font-bold text-cyan-400">${gunnarState.edge} <span class="text-xs text-slate-500 font-normal">/ ${c.combat.edgeMax}</span></span>
+              <div class="flex items-center gap-1">
                 <button type="button" onclick="window.gunnarAdjustEdge(-1)" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 font-bold">-1</button>
                 <button type="button" onclick="window.gunnarAdjustEdge(1)" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 font-bold">+1</button>
+                <button type="button" onclick="window.gunnarResetEdge()" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-cyan-400 border border-slate-700 text-[10px]">Max</button>
               </div>
+              <div class="h-4 w-px bg-slate-700 hidden sm:block"></div>
+              <button type="button" onclick="window.gunnarRoll('/roll ${c.combat.edgeMax}d6>5', 'Gunnar Edge-Test', 'Edge-Attribut ${c.combat.edgeMax}W')" class="px-2.5 py-1 rounded bg-cyan-950 border border-cyan-400 text-cyan-300 font-bold hover:bg-cyan-900 text-[11px]">
+                🎲 Edge-Test (${c.combat.edgeMax}W)
+              </button>
+              <button type="button" onclick="if(typeof openExtendedTestModal==='function') openExtendedTestModal()" class="px-2.5 py-1 rounded bg-purple-950 border border-purple-400 text-purple-300 font-bold hover:bg-purple-900 text-[11px]">
+                🛠️ Ausgedehnte Probe
+              </button>
+              <button type="button" onclick="window.gunnarRoll('/roll 1d6>5', '1 Edge: Reroll', '1 Würfel neu würfeln')" class="px-2 py-0.5 rounded bg-cyan-950/80 border border-cyan-500/40 text-cyan-300 hover:border-cyan-400 text-[11px]">1E: Reroll</button>
+              <button type="button" onclick="window.gunnarRoll('+1 auf einen Würfelwurf (2 Edge)', '2 Edge: +1 Wurf', '4 → 5 aufwerten')" class="px-2 py-0.5 rounded bg-cyan-950/80 border border-cyan-500/40 text-cyan-300 hover:border-cyan-400 text-[11px]">2E: +1 Wurf</button>
+              <button type="button" onclick="window.gunnarRoll('/roll 14d6!>5', '4 Edge: Push the Limit', '+${c.combat.edgeMax}W & 6er explodieren')" class="px-2 py-0.5 rounded bg-amber-950 border border-amber-500/50 text-amber-300 hover:border-amber-400 text-[11px]">4E: Push Limit</button>
             </div>
           </div>
 
@@ -1152,13 +1181,18 @@
               <div class="bg-slate-950 p-3 rounded-lg border border-slate-800"><span class="text-slate-500 block">Bewegung (Boden/Wasser)</span><strong class="text-white">${c.combat.movementGround} · ${c.combat.movementWater}</strong></div>
             </div>
             <div class="space-y-2 pt-2">
-              <div class="text-xs font-mono-sr text-emerald-400 font-bold uppercase">✓ VORTEILE</div>
-              <div class="flex flex-wrap gap-1.5">
-                ${c.qualitiesPos.map(q => `<span class="px-2.5 py-1 rounded bg-emerald-950/70 border border-emerald-500/40 text-emerald-300 text-xs font-mono-sr">${q}</span>`).join('')}
+              <div class="text-xs font-mono-sr text-emerald-400 font-bold uppercase">✓ VORTEILE &amp; REGEL-EFFEKTE</div>
+              <div class="space-y-1.5 text-xs font-mono-sr">
+                <div class="p-2 rounded bg-emerald-950/40 border border-emerald-500/30"><strong class="text-emerald-300">Schnellheilung:</strong> <span class="text-slate-300">+2 Würfel auf natürliche Heilungsproben.</span></div>
+                <div class="p-2 rounded bg-emerald-950/40 border border-emerald-500/30"><strong class="text-emerald-300">Hohe Schmerztoleranz:</strong> <span class="text-slate-300">Ignoriert 1 Kästchen Verletzungsabzug (erster -1 erst ab 4. Kästchen).</span></div>
+                <div class="p-2 rounded bg-emerald-950/40 border border-emerald-500/30"><strong class="text-emerald-300">Dermalablagerungen &amp; Robust gebaut 1:</strong> <span class="text-slate-300">+1 Kästchen Körperlicher Monitor (13) &amp; natürliche Widerstandskraft.</span></div>
+                <div class="p-2 rounded bg-emerald-950/40 border border-emerald-500/30"><strong class="text-emerald-300">Restlichtverstärkung (Ork):</strong> <span class="text-slate-300">Sichtvorteil bei schlechten Lichtverhältnissen.</span></div>
               </div>
-              <div class="text-xs font-mono-sr text-rose-400 font-bold uppercase pt-2">⚠ NACHTEILE</div>
-              <div class="flex flex-wrap gap-1.5">
-                ${c.qualitiesNeg.map(q => `<span class="px-2.5 py-1 rounded bg-rose-950/70 border border-rose-500/40 text-rose-300 text-xs font-mono-sr">${q}</span>`).join('')}
+              <div class="text-xs font-mono-sr text-rose-400 font-bold uppercase pt-2">⚠ NACHTEILE &amp; GM-HOOKS</div>
+              <div class="space-y-1.5 text-xs font-mono-sr">
+                <div class="p-2 rounded bg-rose-950/40 border border-rose-500/30"><strong class="text-rose-300">Verschuldet (Viktor · -42.460 ¥):</strong> <span class="text-slate-300">Massive Schulden beim Kredithai Viktor.</span></div>
+                <div class="p-2 rounded bg-rose-950/40 border border-rose-500/30"><strong class="text-rose-300">Verpflichtungen 1 (Maya):</strong> <span class="text-slate-300">Fürsorge- &amp; Schutzpflicht gegenüber Maya.</span></div>
+                <div class="p-2 rounded bg-rose-950/40 border border-rose-500/30"><strong class="text-rose-300">Ehrenkodex (Kriegerkodex):</strong> <span class="text-slate-300">Folgt striktem Kriegerkodex im Kampf &amp; Umgang mit Gegnern.</span></div>
               </div>
             </div>
           </div>
@@ -1188,20 +1222,27 @@
         </div>
       `;
     } else if (activeTab === 'attributes') {
-      const attrCards = Object.entries(c.attributes).map(([k, v]) => `
-        <div class="bg-slate-950 border border-slate-800 rounded-xl p-3 text-center font-mono-sr">
-          <div class="text-xs text-slate-400 font-bold">${k}</div>
-          <div class="text-2xl font-bold text-white mt-1">${v}</div>
-        </div>
-      `).join('');
+      const attrDiceMap = { KON: 7, GES: 6, REA: 8, STÄ: 4, WIL: 3, LOG: 2, INT: 4, CHA: 2, EDG: 2 };
+      const attrCards = Object.entries(c.attributes).map(([k, v]) => {
+        const dice = attrDiceMap[k] || 2;
+        return `
+          <button type="button" onclick="window.gunnarRoll('/roll ${dice}d6>5', 'Gunnar Attribut: ${k}', '${k} (${v}) = ${dice}W')"
+            class="bg-slate-950 border border-slate-800 hover:border-rose-400 rounded-xl p-3 text-center font-mono-sr transition cursor-pointer">
+            <div class="text-xs text-slate-400 font-bold">${k}</div>
+            <div class="text-2xl font-bold text-white mt-1">${v}</div>
+            <div class="text-[10px] text-rose-400 mt-0.5">🎲 ${dice}W</div>
+          </button>
+        `;
+      }).join('');
 
       const skillRows = c.skills.map(sk => {
         const eff = Math.max(1, sk.pool - live.penalty);
         return `
           <tr class="border-b border-slate-800/70 hover:bg-slate-800/40">
-            <td class="p-2.5 font-bold ${sk.untrained ? 'text-slate-400' : 'text-white'}">${sk.name} ${sk.untrained ? '<span class="text-[10px] text-slate-500">(ung.)</span>' : ''}</td>
+            <td class="p-2.5 font-bold ${sk.untrained ? 'text-slate-400' : 'text-white'}">${sk.name} ${sk.untrained ? '<span class="text-[10px] text-slate-500">(ungeübt)</span>' : ''}</td>
             <td class="p-2.5 text-center text-slate-400">${sk.attr}</td>
             <td class="p-2.5 text-center text-slate-300">${sk.rating}</td>
+            <td class="p-2.5 text-center text-slate-500">—</td>
             <td class="p-2.5 text-right">
               <button type="button" onclick="window.gunnarRoll('/roll ${eff}d6>5', 'Gunnar: ${sk.name}', '${sk.attr} + Stufe ${sk.rating} (Malus -${live.penalty})')"
                 class="px-3 py-1 rounded bg-rose-950/80 hover:bg-rose-900 border border-rose-500/50 text-rose-200 font-bold">
@@ -1214,28 +1255,33 @@
 
       bodyHtml = `
         <div class="bg-[#111726]/95 border border-slate-800 rounded-xl p-5 space-y-4">
-          <h3 class="text-sm font-bold font-mono-sr text-rose-300 uppercase">📊 ATTRIBUTE (INKL. REFLEXBOOSTER 4 & CYBERARM)</h3>
+          <h3 class="text-sm font-bold font-mono-sr text-rose-300 uppercase">📊 ATTRIBUTE (KLICK = ROLL20-PROBE · INKL. REFLEXBOOSTER 4 &amp; CYBERARM)</h3>
           <div class="grid grid-cols-3 sm:grid-cols-9 gap-2.5">${attrCards}</div>
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-2 font-mono-sr text-xs">
-            <div class="bg-slate-900 p-2.5 rounded-lg border border-slate-800">Selbstbeherrschung: <strong class="text-white">5W</strong></div>
-            <div class="bg-slate-900 p-2.5 rounded-lg border border-slate-800">Menschenkenntnis: <strong class="text-white">7W</strong></div>
-            <div class="bg-slate-900 p-2.5 rounded-lg border border-slate-800">Heben / Tragen: <strong class="text-white">10W</strong></div>
-            <div class="bg-slate-900 p-2.5 rounded-lg border border-slate-800">Erinnerungsvermögen: <strong class="text-white">6W</strong></div>
+            <button type="button" onclick="window.gunnarRoll('/roll 5d6>5', 'Gunnar: Selbstbeherrschung', 'WIL 3 + CHA 2 = 5W')" class="bg-slate-900 hover:border-cyan-400 p-2.5 rounded-lg border border-slate-800 text-left">Selbstbeherrschung: <strong class="text-cyan-300">🎲 5W</strong></button>
+            <button type="button" onclick="window.gunnarRoll('/roll 7d6>5', 'Gunnar: Menschenkenntnis', 'WIL 3 + INT 4 = 7W')" class="bg-slate-900 hover:border-cyan-400 p-2.5 rounded-lg border border-slate-800 text-left">Menschenkenntnis: <strong class="text-cyan-300">🎲 7W</strong></button>
+            <button type="button" onclick="window.gunnarRoll('/roll 10d6>5', 'Gunnar: Heben / Tragen', 'KON 7 + WIL 3 = 10W')" class="bg-slate-900 hover:border-cyan-400 p-2.5 rounded-lg border border-slate-800 text-left">Heben / Tragen: <strong class="text-cyan-300">🎲 10W</strong></button>
+            <button type="button" onclick="window.gunnarRoll('/roll 6d6>5', 'Gunnar: Erinnerungsvermögen', 'LOG 2 + INT 4 = 6W')" class="bg-slate-900 hover:border-cyan-400 p-2.5 rounded-lg border border-slate-800 text-left">Erinnerungsvermögen: <strong class="text-cyan-300">🎲 6W</strong></button>
           </div>
         </div>
-        <div class="bg-[#111726]/95 border border-slate-800 rounded-xl p-5">
-          <h3 class="text-sm font-bold font-mono-sr text-cyan-300 uppercase mb-3">🎯 FERTIGKEITEN (KLICK = ROLL20-PROBE)</h3>
+        <div class="bg-[#111726]/95 border border-slate-800 rounded-xl p-5 space-y-4">
+          <h3 class="text-sm font-bold font-mono-sr text-cyan-300 uppercase">🎯 AKTIVE FERTIGKEITEN (KLICK = ROLL20-PROBE)</h3>
           <table class="w-full text-xs font-mono-sr">
             <thead>
               <tr class="border-b border-slate-700 text-slate-400 uppercase text-[10px]">
                 <th class="p-2.5 text-left">Fertigkeit</th>
                 <th class="p-2.5 text-center">Attr.</th>
                 <th class="p-2.5 text-center">Stufe</th>
+                <th class="p-2.5 text-center">Spezialisierung</th>
                 <th class="p-2.5 text-right">Würfelpool</th>
               </tr>
             </thead>
             <tbody>${skillRows}</tbody>
           </table>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 border-t border-slate-800 font-mono-sr text-xs">
+            <div class="bg-slate-950 p-3 rounded-lg border border-slate-800"><span class="text-amber-300 font-bold uppercase block mb-1">📚 Wissensfertigkeiten</span>Kredithaie · Straßenmedizin</div>
+            <div class="bg-slate-950 p-3 rounded-lg border border-slate-800"><span class="text-cyan-300 font-bold uppercase block mb-1">🗣️ Sprachen</span>Deutsch (Muttersprache)</div>
+          </div>
         </div>
       `;
     } else if (activeTab === 'gear') {
@@ -1270,19 +1316,42 @@
             </div>
 
             <div class="bg-[#111726]/95 border border-slate-800 rounded-xl p-5 space-y-3">
-              <h3 class="text-sm font-bold font-mono-sr text-amber-300 uppercase">🚗 FAHRZEUG</h3>
+              <h3 class="text-sm font-bold font-mono-sr text-amber-300 uppercase">🚗 FAHRZEUG &amp; ZUSTANDSMONITOR</h3>
               ${c.vehicles.map(v => `
-                <div class="bg-slate-950 border border-slate-800 rounded-lg p-3 font-mono-sr text-xs space-y-1.5">
-                  <div class="flex justify-between"><strong class="text-white">${v.name}</strong><span class="text-slate-400">${v.type}</span></div>
-                  <div class="grid grid-cols-4 gap-2 text-[11px] text-slate-300 pt-1">
+                <div class="bg-slate-950 border border-slate-800 rounded-lg p-3.5 font-mono-sr text-xs space-y-3">
+                  <div class="flex items-center justify-between">
+                    <div><strong class="text-white text-sm">${v.name}</strong> <span class="text-slate-400 text-[11px]">(${v.type})</span></div>
+                    <button type="button" onclick="window.gunnarSetDamage('vehicle', 0)" class="text-[10px] text-slate-400 hover:text-amber-300 border border-slate-700 px-2 py-0.5 rounded">Leeren</button>
+                  </div>
+                  <div class="grid grid-cols-4 gap-2 text-[11px] text-slate-300">
                     <div>Handl: <strong>${v.handl}</strong></div>
                     <div>Geschw: <strong>${v.speed}</strong></div>
                     <div>Rumpf: <strong>${v.body}</strong></div>
                     <div>Panz: <strong>${v.armor}</strong></div>
                   </div>
-                  <div class="text-[11px] text-slate-400">Sitze: ${v.seats} · Rammen: ${v.ram}</div>
+                  <div class="space-y-1">
+                    <div class="text-[10px] text-slate-400">Fahrzeug-Zustandsmonitor (${gunnarState.vehicleDmg || 0} / 10):</div>
+                    <div class="flex flex-wrap gap-1.5">${renderMonitorBoxes('vehicle', 10, gunnarState.vehicleDmg || 0, 'bg-amber-600 border-amber-400')}</div>
+                  </div>
+                  <div class="flex flex-wrap gap-2 pt-1">
+                    <button type="button" onclick="window.gunnarRoll('/roll 7d6>5', 'Bessere Dreckskarre: Steuern', 'REA 8 - 1 (ung.) = 7W')" class="px-2.5 py-1 rounded bg-cyan-950 border border-cyan-500/50 text-cyan-300 text-[11px] font-bold">🎲 Steuern (7W)</button>
+                    <button type="button" onclick="window.gunnarRoll('/roll 7d6>5', 'Bessere Dreckskarre: Rammen', 'Schaden 5K · Pool 7W')" class="px-2.5 py-1 rounded bg-rose-950 border border-rose-500/50 text-rose-300 text-[11px] font-bold">💥 Rammen (5K)</button>
+                    <button type="button" onclick="window.gunnarRoll('/roll 10d6>5', 'Bessere Dreckskarre: Soak', 'Rumpf 10')" class="px-2.5 py-1 rounded bg-slate-800 border border-slate-700 text-slate-200 text-[11px] font-bold">🛡️ Soak (10W)</button>
+                  </div>
                 </div>
               `).join('')}
+            </div>
+
+            <div class="bg-[#111726]/95 border border-slate-800 rounded-xl p-5 space-y-2.5 font-mono-sr text-xs">
+              <h3 class="text-sm font-bold text-cyan-300 uppercase">📦 MUNITIONS- &amp; GRANATENVORRAT (GRW S. 262–263)</h3>
+              <div class="grid grid-cols-2 gap-2 text-[11px]">
+                <div class="bg-slate-950 p-2 rounded border border-slate-800">Gewehr-Munition: <strong class="text-white">120 Schuss</strong></div>
+                <div class="bg-slate-950 p-2 rounded border border-slate-800">Schwere Pistole: <strong class="text-white">120 Schuss</strong></div>
+                <div class="bg-slate-950 p-2 rounded border border-slate-800">Betäubungsgranate (Mini): <strong class="text-amber-300">2×</strong></div>
+                <div class="bg-slate-950 p-2 rounded border border-slate-800">Splittergranate (Mini): <strong class="text-amber-300">2×</strong></div>
+                <div class="bg-slate-950 p-2 rounded border border-slate-800">Sprenggranate (Mini): <strong class="text-amber-300">2×</strong></div>
+                <div class="bg-slate-950 p-2 rounded border border-slate-800">Rauch / IR-Rauch (Mini): <strong class="text-amber-300">2× / 2×</strong></div>
+              </div>
             </div>
           </div>
         </div>
@@ -1416,11 +1485,24 @@
     if (type === 'phys') gunnarState.physDmg = clamped;
     else if (type === 'stun') gunnarState.stunDmg = clamped;
     else if (type === 'overflow') gunnarState.overflowDmg = clamped;
+    else if (type === 'vehicle') gunnarState.vehicleDmg = clamped;
     saveGunnarState();
     renderGunnarSheet();
   };
   window.gunnarAdjustEdge = function (delta) {
     gunnarState.edge = Math.max(0, Math.min(7, gunnarState.edge + delta));
+    saveGunnarState();
+    renderGunnarSheet();
+  };
+  window.gunnarResetEdge = function () {
+    gunnarState.edge = getGunnarChar().combat.edgeMax;
+    saveGunnarState();
+    renderGunnarSheet();
+  };
+  window.gunnarAdjustReserve = function (weaponId, delta) {
+    if (!gunnarState.weapons[weaponId]) return;
+    const cur = gunnarState.weapons[weaponId].reserve ?? 120;
+    gunnarState.weapons[weaponId].reserve = Math.max(0, cur + delta);
     saveGunnarState();
     renderGunnarSheet();
   };
@@ -1439,8 +1521,17 @@
   };
   window.gunnarReload = function (weaponId) {
     const w = getGunnarChar().weapons.find(x => x.id === weaponId);
-    if (!w || !gunnarState.weapons[weaponId]) return;
-    gunnarState.weapons[weaponId].ammo = w.maxAmmo;
+    const st = gunnarState.weapons[weaponId];
+    if (!w || !st) return;
+    const needed = Math.max(0, w.maxAmmo - st.ammo);
+    const res = st.reserve ?? 120;
+    const load = Math.min(needed, res);
+    if (load > 0) {
+      st.ammo += load;
+      st.reserve = res - load;
+    } else if (needed > 0 && res === 0) {
+      st.ammo = w.maxAmmo;
+    }
     saveGunnarState();
     renderGunnarSheet();
   };
