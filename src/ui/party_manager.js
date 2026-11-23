@@ -837,6 +837,86 @@
             <div class="space-y-2">${grenadeRows}</div>
           </div>
         </div>
+
+        <!-- SR6 Combat Actions & Street Samurai Cheat Sheet -->
+        <div id="gunnar-cheatsheet-section" class="bg-[#111726]/95 border border-slate-800 rounded-xl p-5 font-mono-sr space-y-4">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-slate-800 pb-3">
+            <div>
+              <h3 class="text-base font-bold text-white uppercase tracking-wider flex items-center gap-2">
+                <span>📋</span> SR6 KAMPF-HANDLUNGEN & STREET-SAMURAI CHEAT-SHEET
+              </h3>
+              <p class="text-[11px] text-slate-400 mt-0.5">
+                Gunnars Aktionsökonomie (Reflexbooster St. 4): <strong class="text-amber-300">1 Haupthandlung + 6 Nebenhandlungen</strong> pro Kampfrunde
+              </p>
+            </div>
+            <div class="px-3 py-1.5 rounded-lg bg-rose-950/70 border border-rose-500/40 text-rose-200 text-[11px] font-bold">
+              ⚡ Regel: 4 Nebenhandlungen → +1 zusätzliche Haupthandlung!
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 text-xs">
+
+            <!-- Col 1: Haupthandlungen (1H) -->
+            <div class="bg-slate-950/80 border border-rose-500/30 rounded-xl p-4 space-y-2.5">
+              <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                <span class="text-rose-400 font-bold uppercase">⚔️ HAUPTHANDLUNGEN (1H)</span>
+                <span class="text-[10px] text-slate-500">1× (oder 2× via 4N)</span>
+              </div>
+              <div class="space-y-2 text-[11px] text-slate-300">
+                <div><strong class="text-white">• Angreifen (Fern-/Nahkampf):</strong> Feuerwaffen (12W) oder Nahkampf (11W) gegen Ziel-Vtd. Vergleiche AW vs. VW (≥+4 = +1 Edge).</div>
+                <div><strong class="text-white">• Volle Abwehr (1H):</strong> Addiert WIL (+3W → <strong class="text-amber-300">15W</strong>) auf alle Verteidigungsproben bis zur nächsten Runde.</div>
+                <div><strong class="text-white">• Mehrfachangriff (1H):</strong> Pool auf mehrere Ziele aufteilen (mit Edge-Handlung <em>Vorausschau 4E</em> doppelter Pool).</div>
+                <div><strong class="text-white">• Sprinten (1H):</strong> Athletik-Probe (10W): +1m Bewegung pro Erfolg (Basis 15m Laufen).</div>
+                <div><strong class="text-white">• Granate abfeuern / werfen (1H):</strong> Ares Alpha Unterlauf-Granatwerfer (Feuerwaffen 12W, Abweichung bei Fehlschlag).</div>
+                <div><strong class="text-white">• Wahrnehmung (1H):</strong> Aktiv suchen/beobachten (7W).</div>
+              </div>
+            </div>
+
+            <!-- Col 2: Nebenhandlungen (1N) -->
+            <div class="bg-slate-950/80 border border-cyan-500/30 rounded-xl p-4 space-y-2.5">
+              <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                <span class="text-cyan-400 font-bold uppercase">⚡ NEBENHANDLUNGEN (1N)</span>
+                <span class="text-[10px] text-amber-300 font-bold">Gunnar hat 6N!</span>
+              </div>
+              <div class="space-y-2 text-[11px] text-slate-300">
+                <div><strong class="text-white">• Blocken (1N, Nahkampf):</strong> +Nahkampf (+5W → <strong class="text-cyan-300">17W</strong>) gegen 1 Nahkampfangriff.</div>
+                <div><strong class="text-white">• Ausweichen (1N):</strong> +Athletik (+4W → <strong class="text-cyan-300">16W</strong>) gegen 1 Fern-/Nahkampfangriff.</div>
+                <div><strong class="text-white">• Volle Deckung (1N):</strong> +2 bis +4 auf Verteidigung & VW je nach Deckungsstufe.</div>
+                <div><strong class="text-white">• Zielen (1N):</strong> +1 Würfel auf nächsten Angriff (kumulativ bis WIL = max. +3W).</div>
+                <div><strong class="text-white">• Bewegen (1N):</strong> 10m Gehen / 15m Laufen pro Runde.</div>
+                <div><strong class="text-white">• Schnellziehen / Nachladen (1N):</strong> Predator VI im Schnellziehholster · mit Smartgun-WiFi +1 freie Nebenhandlung für Magazin/Feuermodus!</div>
+                <div><strong class="text-white">• Ziel ansagen (1N):</strong> -4 Pool für +2 Schaden (oder Sondereffekt).</div>
+              </div>
+            </div>
+
+            <!-- Col 3: Kampf-Modifikatoren, Reichweiten & Edge-Boosts -->
+            <div class="bg-slate-950/80 border border-amber-500/30 rounded-xl p-4 space-y-2.5">
+              <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                <span class="text-amber-400 font-bold uppercase">🎯 MODIFIKATOREN & EDGE</span>
+                <span class="text-[10px] text-slate-500">SR6 GRW</span>
+              </div>
+              <div class="space-y-1.5 text-[11px] text-slate-300">
+                <div class="text-[10px] text-amber-300 font-bold uppercase">Feuermodi & Munition:</div>
+                <div>• <strong class="text-white">HM (2 Schuss):</strong> -2 AW · <strong class="text-rose-300">+1 Schaden</strong></div>
+                <div>• <strong class="text-white">SM Eng (4 Schuss):</strong> -4 AW · <strong class="text-rose-300">+2 Schaden</strong></div>
+                <div>• <strong class="text-white">SM Breit (4 Schuss):</strong> -2 AW · Pool halbiert (2 Ziele)</div>
+                <div>• <strong class="text-white">AM (10 Schuss):</strong> -6 AW · Flächenfeuer</div>
+                <div>• <strong class="text-white">APDS:</strong> +1 AW, -1 Schad · <strong class="text-white">Explosiv:</strong> +1 Schad</div>
+
+                <div class="text-[10px] text-cyan-300 font-bold uppercase pt-1.5">Reichweiten (Meter):</div>
+                <div class="text-[10px] text-slate-400">Sehr nah 0–3 · Nah 4–50 · Mittel 51–250 · Weit 251–500 · Sehr weit 501+</div>
+
+                <div class="text-[10px] text-emerald-300 font-bold uppercase pt-1.5">Wichtigste Edge-Boosts & Kampf-Aktionen:</div>
+                <div>• <strong class="text-cyan-300">1E:</strong> 1 Würfel neu · +3 Ini · Taktische Rolle · Umwerfen</div>
+                <div>• <strong class="text-cyan-300">2E:</strong> +1 auf 1 Würfel · Aus Deckung feuern · Waffenblitz · K.-o.-Schlag</div>
+                <div>• <strong class="text-cyan-300">3E:</strong> 1 Auto-Erfolg · 1B heilen · Deckungsfeuer</div>
+                <div>• <strong class="text-amber-300">4E:</strong> +Edge & 6er explodieren · Alle Fehlschläge neu · 1K heilen · Vorausschau</div>
+                <div>• <strong class="text-rose-300">5E:</strong> 2er = Patzer (Gegner) · Ziel Organe (+3 Schad) · Entwaffnen</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
       `;
     } else if (activeTab === 'persona') {
       bodyHtml = `
