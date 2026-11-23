@@ -303,7 +303,7 @@
     if (charId === 'buck') {
       let phys = 0, stun = 0, edge = 5;
       if (typeof charDamage !== 'undefined') {
-        phys = charDamage.phys || 0;
+        phys = charDamage.physical || 0;
         stun = charDamage.stun || 0;
       }
       if (typeof timEdge !== 'undefined') {
@@ -613,20 +613,18 @@
     return PARTY_ROSTER.find(c => c.id === 'gunnar');
   }
 
-  function renderMonitorBoxes(type, max, current, colorClass) {
+  function renderMonitorBoxes(type, max, current) {
     let html = '';
+    const extraCls = (type === 'stun') ? 'stun' : '';
     for (let i = 1; i <= max; i++) {
       const checked = i <= current;
-      const mod = (type !== 'overflow' && i > 1 && (i - 1) % 3 === 0) ? `-${Math.floor((i - 1) / 3)}` : '';
+      const nextVal = (i === current) ? 0 : i;
       html += `
-        <button type="button" onclick="window.gunnarSetDamage('${type}', ${i === current ? i - 1 : i})"
-          class="w-7 h-7 rounded border font-mono-sr text-[10px] font-bold transition ${
-            checked
-              ? `${colorClass} text-white shadow`
-              : 'bg-slate-900 border-slate-700 text-slate-500 hover:border-rose-400'
-          }" title="${type} Kästchen ${i}">
-          ${checked ? '✕' : (mod || i)}
-        </button>
+        <div role="button" tabindex="0" onclick="window.gunnarSetDamage('${type}', ${nextVal})"
+          class="damage-box ${extraCls} rounded flex items-center justify-center font-mono-sr text-[10px] ${checked ? 'checked text-white font-bold' : 'text-slate-400'} select-none"
+          title="Klick: Bis Kästchen ${i} füllen (erneuter Klick: komplett leeren)">
+          ${i}
+        </div>
       `;
     }
     return html;
@@ -1153,17 +1151,17 @@
           <div class="bg-[#111726]/95 border border-slate-800 rounded-xl p-5 space-y-4">
             <div class="flex items-center justify-between border-b border-slate-800 pb-3">
               <h2 class="text-base font-bold text-white uppercase flex items-center gap-2 font-mono-sr">
-                <span class="w-3 h-3 bg-amber-400 rounded-sm inline-block shadow-sm shadow-amber-400"></span>
+                <span class="w-3 h-3 bg-cyan-400 rounded-sm inline-block shadow-sm shadow-cyan-400"></span>
                 Geistiger Monitor (${c.combat.stunMax} Kästchen)
               </h2>
               <div class="flex items-center gap-2">
                 <span class="font-mono-sr text-[11px] text-slate-400">8 + ⌈3/2⌉</span>
-                <button type="button" onclick="window.gunnarSetDamage('stun', 0)" class="text-xs font-mono-sr text-slate-400 hover:text-amber-400 border border-slate-700/80 hover:border-amber-500/50 px-2 py-0.5 rounded transition">Leeren</button>
+                <button type="button" onclick="window.gunnarSetDamage('stun', 0)" class="text-xs font-mono-sr text-slate-400 hover:text-cyan-400 border border-slate-700/80 hover:border-cyan-500/50 px-2 py-0.5 rounded transition">Leeren</button>
               </div>
             </div>
-            <div class="flex flex-wrap gap-2">${renderMonitorBoxes('stun', c.combat.stunMax, gunnarState.stunDmg, 'bg-amber-600 border-amber-400')}</div>
+            <div class="flex flex-wrap gap-2.5 pt-1">${renderMonitorBoxes('stun', c.combat.stunMax, gunnarState.stunDmg)}</div>
             <div class="flex justify-between text-xs font-mono-sr text-slate-400 pt-2 border-t border-slate-800/60">
-              <span>Wundabzug (Hohe Schmerztol.): <strong class="${stunPen > 0 ? 'text-amber-400' : 'text-emerald-400'}">-${stunPen}W</strong></span>
+              <span>Wundabzug (Hohe Schmerztol.): <strong class="${stunPen > 0 ? 'text-cyan-400' : 'text-emerald-400'}">-${stunPen}W</strong></span>
               <span>Heilen: <strong class="text-white">KON + WIL = 10W</strong></span>
             </div>
           </div>
