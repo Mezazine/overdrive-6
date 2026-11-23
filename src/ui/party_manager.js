@@ -178,11 +178,11 @@
           pool: 12,
           maxAmmo: 42,
           modes: {
-            EM:  { label: 'EM',       ar: '4/10/9/7/2', dmg: '4K', pool: 12, shots: 1 },
-            HM:  { label: 'HM',       ar: '2/8/7/5/-',  dmg: '5K', pool: 12, shots: 2 },
-            SMW: { label: 'SM Breit', ar: '2/8/7/5/-',  dmg: '5K', pool: 6,  shots: 4 },
-            SME: { label: 'SM Eng',   ar: '-/6/5/3/-',  dmg: '6K', pool: 12, shots: 4 },
-            AM:  { label: 'AM',       ar: '-/4/3/1/-',  dmg: '4K', pool: 12, shots: 10 }
+            EM:  { label: 'EM',       ar: '4/10/9/7/2', dmg: '4K', pool: 12, shots: 1,  reason: 'Einzelschuss: Basis-AW, Grundschaden 4K' },
+            HM:  { label: 'HM',       ar: '2/8/7/5/-',  dmg: '5K', pool: 12, shots: 2,  reason: 'HM (2 Schuss): AW -2, Schaden +1K (4K → 5K)' },
+            SMW: { label: 'SM Breit', ar: '2/8/7/5/-',  dmg: '5K', pool: 6,  shots: 4,  reason: 'SM Breit (4 Schuss): AW -2, +1K, Pool halbiert (12W → 6W für 2 Ziele)' },
+            SME: { label: 'SM Eng',   ar: '-/6/5/3/-',  dmg: '6K', pool: 12, shots: 4,  reason: 'SM Eng (4 Schuss): AW -4, Schaden +2K (4K → 6K)' },
+            AM:  { label: 'AM',       ar: '-/4/3/1/-',  dmg: '4K', pool: 12, shots: 10, reason: 'AM (10 Schuss): AW -6, Flächen-/Unterdrückungsfeuer' }
           },
           accessories: 'Lasermarkierer, Gasventilsystem, 2× Ersatzmag., Smartgun, Unterlauf-Granatwerfer'
         },
@@ -195,10 +195,10 @@
           pool: 12,
           maxAmmo: 15,
           modes: {
-            EM:  { label: 'EM',       ar: '10/10/8/-/-', dmg: '3K', pool: 12, shots: 1 },
-            HM:  { label: 'HM',       ar: '8/8/6/-/-',   dmg: '4K', pool: 12, shots: 2 },
-            SMW: { label: 'SM Breit', ar: '8/8/6/-/-',   dmg: '4K', pool: 6,  shots: 4 },
-            SME: { label: 'SM Eng',   ar: '6/6/4/-/-',   dmg: '5K', pool: 12, shots: 4 }
+            EM:  { label: 'EM',       ar: '10/10/8/-/-', dmg: '3K', pool: 12, shots: 1, reason: 'Einzelschuss: Basis-AW, Grundschaden 3K' },
+            HM:  { label: 'HM',       ar: '8/8/6/-/-',   dmg: '4K', pool: 12, shots: 2, reason: 'HM (2 Schuss): AW -2, Schaden +1K (3K → 4K)' },
+            SMW: { label: 'SM Breit', ar: '8/8/6/-/-',   dmg: '4K', pool: 6,  shots: 4, reason: 'SM Breit (4 Schuss): AW -2, +1K, Pool halbiert (12W → 6W für 2 Ziele)' },
+            SME: { label: 'SM Eng',   ar: '6/6/4/-/-',   dmg: '5K', pool: 12, shots: 4, reason: 'SM Eng (4 Schuss): AW -4, Schaden +2K (3K → 5K)' }
           },
           accessories: 'Schnellziehholster, Variables Munitionssystem + Ersatzmag., Smartgun'
         },
@@ -211,7 +211,7 @@
           pool: 11,
           maxAmmo: 0,
           modes: {
-            MELEE: { label: 'Schlag', ar: '12/-/-/-/-', dmg: '2B', pool: 11, shots: 0 }
+            MELEE: { label: 'Schlag', ar: '12/-/-/-/-', dmg: '2B', pool: 11, shots: 0, reason: 'Nahkampf: GES 6 + Nahkampf 5 = 11W · AW = REA 8 + STÄ 4 = 12' }
           },
           accessories: 'AW = REA (8) + STÄ (4) = 12'
         }
@@ -717,6 +717,10 @@
           </div>
         ` : '';
 
+        const penBadge = live.penalty > 0
+          ? `<span class="text-[10px] font-mono-sr text-rose-400 font-bold">(-${live.penalty}W Verletz. · Basis ${mInfo.pool}W)</span>`
+          : '';
+
         return `
           <div class="bg-slate-950/90 border border-slate-800 hover:border-rose-500/50 rounded-xl p-4 space-y-3 transition">
             <div class="flex items-start justify-between gap-2">
@@ -724,12 +728,18 @@
                 <h4 class="text-base font-bold text-white">${w.name}</h4>
                 <div class="text-[11px] font-mono-sr text-slate-400">${w.category}</div>
               </div>
-              <button type="button" onclick="window.gunnarRoll('/roll ${effPool}d6>5', '${w.name} (${mInfo.label})', 'AW ${mInfo.ar} · Schaden ${mInfo.dmg} · Pool ${effPool}W')"
-                class="px-3 py-1.5 rounded-lg bg-rose-950 hover:bg-rose-900 border border-rose-400 text-rose-200 font-mono-sr text-xs font-bold transition">
-                🎲 ${effPool}W · ${mInfo.dmg}
-              </button>
+              <div class="text-right space-y-0.5">
+                <button type="button" onclick="window.gunnarRoll('/roll ${effPool}d6>5', '${w.name} (${mInfo.label})', 'AW ${mInfo.ar} · Schaden ${mInfo.dmg} · Pool ${effPool}W (Basis ${mInfo.pool}W, Verletzung -${live.penalty}W)')"
+                  class="px-3 py-1.5 rounded-lg bg-rose-950 hover:bg-rose-900 border border-rose-400 text-rose-200 font-mono-sr text-xs font-bold transition">
+                  🎲 ${effPool}W · ${mInfo.dmg}
+                </button>
+                ${penBadge ? `<div>${penBadge}</div>` : ''}
+              </div>
             </div>
             <div class="flex flex-wrap gap-1">${modeButtons}</div>
+            <div class="text-[10px] font-mono-sr text-amber-300/90 bg-amber-950/30 border border-amber-500/30 rounded px-2 py-1">
+              ℹ️ ${mInfo.reason || ''}
+            </div>
             <div class="grid grid-cols-5 gap-1 font-mono-sr">${arGrid}</div>
             <div class="text-[11px] text-slate-400">${w.accessories}</div>
             ${ammoBar}
@@ -796,36 +806,48 @@
           </div>
 
           <!-- Quick Defense & Resistance Rolls -->
+          ${live.penalty > 0 ? `
+            <div class="px-3 py-2 rounded-lg bg-rose-950/70 border border-rose-500/60 text-rose-200 font-mono-sr text-xs flex flex-wrap items-center justify-between gap-2">
+              <span>⚠️ <strong>VERLETZUNGSABZUG AKTIV: -${live.penalty}W</strong> auf alle Proben (außer Schadens-/Toxinwiderstand)</span>
+              <span class="text-[11px] text-rose-300">Körperlich ${gunnarState.physDmg}/13 · Geistig ${gunnarState.stunDmg}/10 · Hohe Schmerztoleranz ignoriert 1. Kästchen</span>
+            </div>
+          ` : ''}
           <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 font-mono-sr">
-            <button type="button" onclick="window.gunnarRoll('/roll ${Math.max(1, 12 - live.penalty)}d6>5', 'Verteidigung (Physisch)', 'REA 8 + INT 4 = 12W (VW 15)')"
-              class="p-2.5 rounded-lg bg-slate-900 border border-emerald-500/40 hover:border-emerald-400 text-left">
+            <button type="button" onclick="window.gunnarRoll('/roll ${Math.max(1, 12 - live.penalty)}d6>5', 'Verteidigung (Physisch)', 'REA 8 + INT 4 = 12W, Verletz. -${live.penalty}W (VW 15)')"
+              class="p-2.5 rounded-lg bg-slate-900 border border-emerald-500/40 hover:border-emerald-400 text-left" title="REA 8 (Basis 4 + Reflexbooster 4) + INT 4 = 12W · VW 15 = KON 7 + Panzerjacke 4 + Helm 1 + Dermalp. 3">
               <div class="text-[10px] text-emerald-400">VERTEIDIGUNG</div>
               <div class="text-base font-bold text-white">${Math.max(1, 12 - live.penalty)}W <span class="text-xs text-slate-400">VW 15</span></div>
+              <div class="text-[9px] text-slate-400">REA 8 + INT 4${live.penalty > 0 ? ` <span class="text-rose-400 font-bold">(-${live.penalty}W)</span>` : ''}</div>
             </button>
-            <button type="button" onclick="window.gunnarRoll('/roll 7d6>5', 'Schadenswiderstand', 'KON 7 (Soak)')"
-              class="p-2.5 rounded-lg bg-slate-900 border border-rose-500/40 hover:border-rose-400 text-left">
+            <button type="button" onclick="window.gunnarRoll('/roll 7d6>5', 'Schadenswiderstand', 'KON 7 (Soak · kein Verletzungsabzug)')"
+              class="p-2.5 rounded-lg bg-slate-900 border border-rose-500/40 hover:border-rose-400 text-left" title="KON 7 · Schadenswiderstand erhält keinen Verletzungsabzug">
               <div class="text-[10px] text-rose-400">SOAK (SCHADEN)</div>
               <div class="text-base font-bold text-white">7W <span class="text-xs text-slate-400">KON 7</span></div>
+              <div class="text-[9px] text-slate-400">Kein Wundabzug</div>
             </button>
-            <button type="button" onclick="window.gunnarRoll('/roll 10d6>5', 'Toxinwiderstand', 'KON 7 + WIL 3 = 10W')"
-              class="p-2.5 rounded-lg bg-slate-900 border border-purple-500/40 hover:border-purple-400 text-left">
+            <button type="button" onclick="window.gunnarRoll('/roll 10d6>5', 'Toxinwiderstand', 'KON 7 + WIL 3 = 10W (kein Verletzungsabzug)')"
+              class="p-2.5 rounded-lg bg-slate-900 border border-purple-500/40 hover:border-purple-400 text-left" title="KON 7 + WIL 3 = 10W">
               <div class="text-[10px] text-purple-300">TOXIN-WIDERST.</div>
               <div class="text-base font-bold text-white">10W</div>
+              <div class="text-[9px] text-slate-400">KON 7 + WIL 3</div>
             </button>
-            <button type="button" onclick="window.gunnarRoll('/roll ${Math.max(1, 17 - live.penalty)}d6>5', 'Blocken (Nebenhandlung)', 'Vtd 12 + Nahkampf 5 = 17W')"
-              class="p-2.5 rounded-lg bg-slate-900 border border-cyan-500/40 hover:border-cyan-400 text-left">
+            <button type="button" onclick="window.gunnarRoll('/roll ${Math.max(1, 17 - live.penalty)}d6>5', 'Blocken (Nebenhandlung)', 'Vtd 12 + Nahkampf 5 = 17W, Verletz. -${live.penalty}W')"
+              class="p-2.5 rounded-lg bg-slate-900 border border-cyan-500/40 hover:border-cyan-400 text-left" title="Verteidigung 12 + Nahkampf 5 = 17W (1 Nebenhandlung)">
               <div class="text-[10px] text-cyan-400">BLOCKEN (+5)</div>
               <div class="text-base font-bold text-white">${Math.max(1, 17 - live.penalty)}W</div>
+              <div class="text-[9px] text-slate-400">12 + Nahk. 5${live.penalty > 0 ? ` <span class="text-rose-400 font-bold">(-${live.penalty}W)</span>` : ''}</div>
             </button>
-            <button type="button" onclick="window.gunnarRoll('/roll ${Math.max(1, 16 - live.penalty)}d6>5', 'Ausweichen (Nebenhandlung)', 'Vtd 12 + Athletik 4 = 16W')"
-              class="p-2.5 rounded-lg bg-slate-900 border border-cyan-500/40 hover:border-cyan-400 text-left">
+            <button type="button" onclick="window.gunnarRoll('/roll ${Math.max(1, 16 - live.penalty)}d6>5', 'Ausweichen (Nebenhandlung)', 'Vtd 12 + Athletik 4 = 16W, Verletz. -${live.penalty}W')"
+              class="p-2.5 rounded-lg bg-slate-900 border border-cyan-500/40 hover:border-cyan-400 text-left" title="Verteidigung 12 + Athletik 4 = 16W (1 Nebenhandlung)">
               <div class="text-[10px] text-cyan-400">AUSWEICHEN (+4)</div>
               <div class="text-base font-bold text-white">${Math.max(1, 16 - live.penalty)}W</div>
+              <div class="text-[9px] text-slate-400">12 + Athl. 4${live.penalty > 0 ? ` <span class="text-rose-400 font-bold">(-${live.penalty}W)</span>` : ''}</div>
             </button>
-            <button type="button" onclick="window.gunnarRoll('/roll ${Math.max(1, 15 - live.penalty)}d6>5', 'Volle Abwehr (Haupthandlung)', 'Vtd 12 + WIL 3 = 15W')"
-              class="p-2.5 rounded-lg bg-slate-900 border border-amber-500/40 hover:border-amber-400 text-left">
+            <button type="button" onclick="window.gunnarRoll('/roll ${Math.max(1, 15 - live.penalty)}d6>5', 'Volle Abwehr (Haupthandlung)', 'Vtd 12 + WIL 3 = 15W, Verletz. -${live.penalty}W')"
+              class="p-2.5 rounded-lg bg-slate-900 border border-amber-500/40 hover:border-amber-400 text-left" title="Verteidigung 12 + WIL 3 = 15W (1 Haupthandlung, ganze Runde)">
               <div class="text-[10px] text-amber-400">VOLLE ABWEHR (+3)</div>
               <div class="text-base font-bold text-white">${Math.max(1, 15 - live.penalty)}W</div>
+              <div class="text-[9px] text-slate-400">12 + WIL 3${live.penalty > 0 ? ` <span class="text-rose-400 font-bold">(-${live.penalty}W)</span>` : ''}</div>
             </button>
           </div>
         </div>
@@ -1226,28 +1248,46 @@
       `;
     } else if (activeTab === 'attributes') {
       const attrDiceMap = { KON: 7, GES: 6, REA: 8, STÄ: 4, WIL: 3, LOG: 2, INT: 4, CHA: 2, EDG: 2 };
+      const attrNotes = {
+        KON: 'Basis 7 (Ork)',
+        GES: 'Fleisch 6 · Cyberarm 2',
+        REA: 'Basis 4 + Reflexb. +4',
+        STÄ: 'Fleisch 4 · Cyberarm 2',
+        WIL: 'Basis 3',
+        LOG: 'Basis 2',
+        INT: 'Basis 4',
+        CHA: 'Basis 2',
+        EDG: 'Max 2'
+      };
       const attrCards = Object.entries(c.attributes).map(([k, v]) => {
         const dice = attrDiceMap[k] || 2;
+        const note = attrNotes[k] || '';
         return `
-          <button type="button" onclick="window.gunnarRoll('/roll ${dice}d6>5', 'Gunnar Attribut: ${k}', '${k} (${v}) = ${dice}W')"
-            class="bg-slate-950 border border-slate-800 hover:border-rose-400 rounded-xl p-3 text-center font-mono-sr transition cursor-pointer">
+          <button type="button" onclick="window.gunnarRoll('/roll ${dice}d6>5', 'Gunnar Attribut: ${k}', '${k} (${v}) = ${dice}W · ${note}')"
+            class="bg-slate-950 border border-slate-800 hover:border-rose-400 rounded-xl p-3 text-center font-mono-sr transition cursor-pointer" title="${note}">
             <div class="text-xs text-slate-400 font-bold">${k}</div>
             <div class="text-2xl font-bold text-white mt-1">${v}</div>
-            <div class="text-[10px] text-rose-400 mt-0.5">🎲 ${dice}W</div>
+            <div class="text-[9px] text-slate-400 mt-0.5 leading-tight">${note}</div>
+            <div class="text-[10px] text-rose-400 mt-0.5 font-bold">🎲 ${dice}W</div>
           </button>
         `;
       }).join('');
 
       const skillRows = c.skills.map(sk => {
         const eff = Math.max(1, sk.pool - live.penalty);
+        const attrBase = attrDiceMap[sk.attr] || 0;
+        const calcParts = sk.untrained
+          ? `${sk.attr} ${attrBase} <span class="text-amber-400">- 1 (ungeübt)</span>`
+          : `${sk.attr} ${attrBase} + St. ${sk.rating}`;
+        const penPart = live.penalty > 0 ? ` <span class="text-rose-400 font-bold">- ${live.penalty}W (Verletz.)</span>` : '';
         return `
           <tr class="border-b border-slate-800/70 hover:bg-slate-800/40">
-            <td class="p-2.5 font-bold ${sk.untrained ? 'text-slate-400' : 'text-white'}">${sk.name} ${sk.untrained ? '<span class="text-[10px] text-slate-500">(ungeübt)</span>' : ''}</td>
+            <td class="p-2.5 font-bold ${sk.untrained ? 'text-slate-400' : 'text-white'}">${sk.name} ${sk.untrained ? '<span class="text-[10px] text-amber-400/80">(ungeübt -1)</span>' : ''}</td>
             <td class="p-2.5 text-center text-slate-400">${sk.attr}</td>
             <td class="p-2.5 text-center text-slate-300">${sk.rating}</td>
-            <td class="p-2.5 text-center text-slate-500">—</td>
+            <td class="p-2.5 text-left text-[11px] text-slate-400">${calcParts}${penPart}</td>
             <td class="p-2.5 text-right">
-              <button type="button" onclick="window.gunnarRoll('/roll ${eff}d6>5', 'Gunnar: ${sk.name}', '${sk.attr} + Stufe ${sk.rating} (Malus -${live.penalty})')"
+              <button type="button" onclick="window.gunnarRoll('/roll ${eff}d6>5', 'Gunnar: ${sk.name}', '${sk.attr} ${attrBase} ${sk.untrained ? '- 1 (ungeübt)' : '+ St. ' + sk.rating} (Verletz. -${live.penalty}W)')"
                 class="px-3 py-1 rounded bg-rose-950/80 hover:bg-rose-900 border border-rose-500/50 text-rose-200 font-bold">
                 🎲 ${eff}W
               </button>
@@ -1275,7 +1315,7 @@
                 <th class="p-2.5 text-left">Fertigkeit</th>
                 <th class="p-2.5 text-center">Attr.</th>
                 <th class="p-2.5 text-center">Stufe</th>
-                <th class="p-2.5 text-center">Spezialisierung</th>
+                <th class="p-2.5 text-left">Herleitung / Modifikatoren</th>
                 <th class="p-2.5 text-right">Würfelpool</th>
               </tr>
             </thead>
@@ -1444,23 +1484,23 @@
           </div>
 
           <div class="grid grid-cols-2 sm:grid-cols-5 gap-3 font-mono-sr text-center">
-            <div class="bg-slate-900/80 border border-rose-500/40 p-2.5 rounded-lg">
+            <div class="bg-slate-900/80 border border-rose-500/40 p-2.5 rounded-lg cursor-help" title="Essenz 0,72 / 6,0 // Verlust durch Reflexbooster 4 (-4,0), Cyberarm Alpha (-0,8), Dermalpanzerung 3 Alpha (-0,72), Cyberaugen 3 Alpha (-0,24)">
               <div class="text-[11px] text-slate-400 uppercase">Essenz</div>
-              <div class="text-xl font-bold text-rose-400">${c.identity.essence.toFixed(2)}</div>
+              <div class="text-xl font-bold text-rose-400">${c.identity.essence.toFixed(2)} <span class="text-xs text-slate-500 font-normal">/ 6.0</span></div>
             </div>
-            <div class="bg-slate-900/80 border border-slate-700/60 p-2.5 rounded-lg">
+            <div class="bg-slate-900/80 border border-slate-700/60 p-2.5 rounded-lg cursor-help" title="Edge-Attribut 2 // Für Rerolls (1E), +1 Wurf (2E), Auto-Erfolg (3E), Push Limit (4E)">
               <div class="text-[11px] text-slate-400 uppercase">Edge</div>
               <div class="text-xl font-bold text-cyan-400">${gunnarState.edge} <span class="text-xs text-slate-500">/ ${c.combat.edgeMax}</span></div>
             </div>
-            <div class="bg-slate-900/80 border border-amber-500/40 p-2.5 rounded-lg">
+            <div class="bg-slate-900/80 border border-amber-500/40 p-2.5 rounded-lg cursor-help" title="REA 8 (Basis 4 + Reflexbooster +4) + INT 4 = 12 + 5W6 (1 Haupthandlung, 6 Nebenhandlungen!)">
               <div class="text-[11px] text-slate-400 uppercase">Initiative</div>
               <div class="text-xl font-bold text-amber-400">${c.combat.initiative}</div>
             </div>
-            <div class="bg-slate-900/80 border border-rose-500/50 p-2.5 rounded-lg">
+            <div class="bg-slate-900/80 border border-rose-500/50 p-2.5 rounded-lg cursor-help" title="Nachteil Verschuldet (Viktor): -42.460 ¥ offene Schulden beim Kredithai">
               <div class="text-[11px] text-rose-400 uppercase font-bold">Schulden</div>
               <div class="text-lg font-bold text-rose-300">-42.460 ¥</div>
             </div>
-            <div class="bg-slate-900/80 border border-amber-500/50 p-2.5 rounded-lg col-span-2 sm:col-span-1">
+            <div class="bg-slate-900/80 border border-amber-500/50 p-2.5 rounded-lg col-span-2 sm:col-span-1 cursor-help" title="Verfügbares Karma: 5 (14 aus Nachteilen, 6 in Nuyen konvertiert)">
               <div class="text-[11px] text-amber-400 uppercase font-bold">Karma</div>
               <div class="text-xl font-bold text-amber-300">${c.identity.karma}</div>
             </div>
