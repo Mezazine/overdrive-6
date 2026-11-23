@@ -1094,7 +1094,52 @@
         </div>
       `;
     } else if (activeTab === 'persona') {
+      const physPen = Math.max(0, Math.floor((gunnarState.physDmg - 1) / 3));
+      const stunPen = Math.max(0, Math.floor((gunnarState.stunDmg - 1) / 3));
       bodyHtml = `
+        <!-- Live Condition Monitors (1:1 synced with Combat HUD & GM Overview) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-[#111726]/95 border border-slate-800 rounded-xl p-5 space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+              <h2 class="text-base font-bold text-white uppercase flex items-center gap-2 font-mono-sr">
+                <span class="w-3 h-3 bg-rose-500 rounded-sm inline-block shadow-sm shadow-rose-500"></span>
+                Körperlicher Monitor (${c.combat.physMax} Kästchen)
+              </h2>
+              <div class="flex items-center gap-2">
+                <span class="font-mono-sr text-[11px] text-slate-400">8 + ⌈7/2⌉ + Robust (1)</span>
+                <button type="button" onclick="window.gunnarSetDamage('phys', 0); window.gunnarSetDamage('overflow', 0);" class="text-xs font-mono-sr text-slate-400 hover:text-rose-400 border border-slate-700/80 hover:border-rose-500/50 px-2 py-0.5 rounded transition">Leeren</button>
+              </div>
+            </div>
+            <div class="flex flex-wrap gap-2">${renderMonitorBoxes('phys', c.combat.physMax, gunnarState.physDmg, 'bg-rose-600 border-rose-400')}</div>
+            <div class="space-y-1.5 pt-2 border-t border-slate-800/60">
+              <div class="text-[11px] font-mono-sr text-slate-400">Überzähliger Schaden bis zum Tod (${gunnarState.overflowDmg} / ${c.combat.overflowMax} · KON × 2):</div>
+              <div class="flex flex-wrap gap-1.5">${renderMonitorBoxes('overflow', c.combat.overflowMax, gunnarState.overflowDmg, 'bg-purple-700 border-purple-400')}</div>
+            </div>
+            <div class="flex justify-between text-xs font-mono-sr text-slate-400 pt-2 border-t border-slate-800/60">
+              <span>Wundabzug (Hohe Schmerztol.): <strong class="${physPen > 0 ? 'text-rose-400' : 'text-emerald-400'}">-${physPen}W</strong></span>
+              <span>Heilen: <strong class="text-white">KON + KON = 14W</strong></span>
+            </div>
+          </div>
+
+          <div class="bg-[#111726]/95 border border-slate-800 rounded-xl p-5 space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+              <h2 class="text-base font-bold text-white uppercase flex items-center gap-2 font-mono-sr">
+                <span class="w-3 h-3 bg-amber-400 rounded-sm inline-block shadow-sm shadow-amber-400"></span>
+                Geistiger Monitor (${c.combat.stunMax} Kästchen)
+              </h2>
+              <div class="flex items-center gap-2">
+                <span class="font-mono-sr text-[11px] text-slate-400">8 + ⌈3/2⌉</span>
+                <button type="button" onclick="window.gunnarSetDamage('stun', 0)" class="text-xs font-mono-sr text-slate-400 hover:text-amber-400 border border-slate-700/80 hover:border-amber-500/50 px-2 py-0.5 rounded transition">Leeren</button>
+              </div>
+            </div>
+            <div class="flex flex-wrap gap-2">${renderMonitorBoxes('stun', c.combat.stunMax, gunnarState.stunDmg, 'bg-amber-600 border-amber-400')}</div>
+            <div class="flex justify-between text-xs font-mono-sr text-slate-400 pt-2 border-t border-slate-800/60">
+              <span>Wundabzug (Hohe Schmerztol.): <strong class="${stunPen > 0 ? 'text-amber-400' : 'text-emerald-400'}">-${stunPen}W</strong></span>
+              <span>Heilen: <strong class="text-white">KON + WIL = 10W</strong></span>
+            </div>
+          </div>
+        </div>
+
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
           <div class="bg-[#111726]/95 border border-slate-800 rounded-xl p-5 space-y-4">
             <h3 class="text-sm font-bold font-mono-sr text-rose-300 uppercase border-b border-slate-800 pb-2">👤 IDENTITÄT & PERSÖNLICHE DATEN</h3>
