@@ -84,8 +84,8 @@
         bg: 'bg-rose-950/60'
       },
       identity: {
-        name: 'Gunnar',
-        shortName: 'Gunnar',
+        name: 'Gunnar "Grip"',
+        shortName: 'Grip',
         portrait: './assets/portraits/gunnar.jpg',
         portraitStyle: 'object-position: 44% 16%; transform: scale(1.35); transform-origin: 44% 16%;',
         metatype: 'Ork',
@@ -1655,7 +1655,9 @@
     loadGunnarState();
     const hash = (window.location.hash || '').replace('#', '').toLowerCase();
     let savedView = 'buck';
-    if (hash === 'gm' || hash === 'buck' || hash === 'gunnar' || hash === 'log') {
+    if (hash === 'grip') {
+      savedView = 'gunnar';
+    } else if (hash === 'gm' || hash === 'buck' || hash === 'gunnar' || hash === 'log') {
       savedView = hash;
     } else {
       try {

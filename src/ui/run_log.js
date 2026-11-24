@@ -34,9 +34,9 @@
         date: '2082-11-20',
         status: 'Feindlich / Gläubiger',
         pinned: true,
-        tags: ['gunnar', 'schulden', 'plot-hook'],
+        tags: ['grip', 'gunnar', 'schulden', 'plot-hook'],
         reward: '',
-        body: 'Kredithai mit erheblichem Druckmittel gegenüber Gunnar.\n- Offene Schulden: 42.460 ¥\n- Erwartet pünktliche Rückzahlung oder "Gefallen"'
+        body: 'Kredithai mit erheblichem Druckmittel gegenüber Gunnar "Grip".\n- Offene Schulden: 42.460 ¥\n- Erwartet pünktliche Rückzahlung oder "Gefallen"'
       },
       {
         id: 'seed_npc_maya',
@@ -45,9 +45,9 @@
         date: '2082-11-20',
         status: 'Verpflichtung',
         pinned: false,
-        tags: ['gunnar', 'plot-hook'],
+        tags: ['grip', 'gunnar', 'plot-hook'],
         reward: '',
-        body: 'Gunnars persönliche Verpflichtung (Stufe 1).\n- Steht unter seinem direkten Schutz.'
+        body: 'Persönliche Verpflichtung (Stufe 1) von Gunnar "Grip".\n- Steht unter seinem direkten Schutz.'
       },
       {
         id: 'seed_npc_snow',
